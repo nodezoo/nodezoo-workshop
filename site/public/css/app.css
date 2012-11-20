@@ -1,0 +1,78 @@
+
+div.result {
+  width: 600px;
+  margin: auto 20px;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+}
+div.rank {
+  padding: 10px;
+  width: 30px;
+  height: 100%;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+  xbackground-color:red;
+  font:bold 16pt arial;
+}
+div.details {
+  width: 529px;
+  xbackground-color:red;
+  font: 12pt arial;
+  padding: 10px;
+  float: right;
+  border-left: 1px solid #cccccc;
+}
+
+
+div.topline a {
+  text-decoration: none;
+}
+
+div.topline a.topline {
+  margin: 0px;
+  font: 12pt arial;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+}
+div.topline a.site {
+  margin: 0px;
+  font: 16pt arial;
+  xbackground-color:#ccffcc;
+  float: left;
+}
+div.topline a.npm {
+  text-align: right;
+  margin-left:10px;
+  float: right;
+  xbackground-color:#cff;
+}
+div.topline a.git {
+  text-align: right;
+  margin-left:10px;
+  float: right;
+}
+
+
+div.maints {
+  float:left;
+  width: 529px;
+  padding: 0px 0px;
+  background-color:#cff;
+}
+
+div.maints a {
+  text-decoration: none;
+}
+
+
+p.desc {
+  float:left;
+  width: 529px;
+  padding: 5px 0px;
+  margin: 0px;
+  font: 10pt arial;
+  background-color:#faa;
+}
+

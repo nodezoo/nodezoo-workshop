@@ -12,3 +12,7 @@ logs
 results
 
 npm-debug.log
+
+config.mine.js
+
+node_modules

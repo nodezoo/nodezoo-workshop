@@ -1,0 +1,29 @@
+{
+  "name": "nodezoo",
+  "version": "0.0.0",
+  "description": "nodezoo",
+  "main": "lib/nodezoo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rjrodger/nodezoo.git"
+  },
+  "keywords": [
+    "nodezoo"
+  ],
+  "author": "Richard Rodger",
+  "license": "BSD",
+
+  "dependencies": {
+    "express":    "3.x",
+    "underscore": "*",
+    "dispatch":   "0.2.x",
+    "ejs":        "*"
+  },
+
+  "devDependencies": {
+    "eyes": "*"
+  }
+}
