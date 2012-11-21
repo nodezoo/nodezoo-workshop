@@ -38,7 +38,7 @@ app.display_results = function(body) {
 
     result.find('p.desc').text(item.desc)
 
-    var maintsdiv = result.find('div.maints')
+    var maintsdiv = result.find('div.maints').empty()
     for(var mI = 0; mI < item.maints.length; mI++) {
       //console.log(item.maints[mI])
       maintsdiv.append( $('<a>').attr('href','?q='+item.maints[mI]).text(item.maints[mI]) )
@@ -53,6 +53,7 @@ app.display_results = function(body) {
 
 
 app.query = function(q) {
+  app.em.welcome.hide()
   app.state.lastkeytime = Number.MAX_VALUE
   var eq = encodeURIComponent(q)
   var href = document.location.href
@@ -98,6 +99,8 @@ app.route = function() {
 app.init = function() {
   app.em.results = $('#results')
   app.em.term    = $('#term')
+  app.em.welcome = $('#welcome')
+  app.em.about   = $('a.about')
 
   app.tm.result = $('#result').clone().removeClass('tm')
   
@@ -112,6 +115,11 @@ app.init = function() {
     if( 13 != ev.keyCode ) {
       app.state.lastkeytime = $.now()
     }
+  })
+
+  app.em.about.click(function(){
+    app.em.results.empty()
+    app.em.welcome.show()
   })
 
   setInterval(function(){

@@ -1,7 +1,55 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.svg#icomoon') format('svg'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-github:before {
+	content: "\e000";
+}
+.icon-twitter:before {
+	content: "\e001";
+}
+
+
+html, body {
+  background: url(../img/bg.png);
+  padding: 0px;
+  margin: 0px;
+  height:100%;
+}
+
 body {
   overflow-y:scroll;
-  background: url(../img/bg.png);
 }
+
+div.body {
+  position:relative;
+  min-height:100%;
+}
+
 
 h1.logo {
     font-size: 64pt;
@@ -16,6 +64,8 @@ div.main {
   width: 600px;
   padding: 20px;
   xbackground-color:red;
+  padding-bottom: 60px;
+
 }
 
 #query_bar {
@@ -151,4 +201,52 @@ p.meta a.similar {
 
 div.tm {
     display: none;
+}
+
+
+#footer {
+    margin: 0px;
+    margin-top: 60px;
+    padding: 0px;
+    xborder-top: 1px solid #7cb4c1;
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    height:30px;
+    text-align: right;
+    line-height: 24px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #7cb4c1;
+  margin: 0px;
+  padding: 0px;
+  font:10pt arial;
+}
+
+#footer a div {
+  display: inline-block;
+}
+
+#footer a.about:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+
+#welcome {
+  margin: 0px auto;
+  width: 560px;
+  height: 520px;
+  xbackground-color: red;
+  border: 1px solid #2290c6;
+  color: #690;
+  font:16pt arial;
+  padding: 20px;
+}
+
+#welcome a {
+  color: #690;
 }

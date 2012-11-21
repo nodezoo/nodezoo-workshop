@@ -7,7 +7,7 @@
 <script src="js/app.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body><div class="body">
 
 
 <div class="main">
@@ -22,6 +22,71 @@
 
 
 <div id="results">
+</div>
+
+
+<div id="welcome">
+
+<p>This is a search engine for <a href="http://nodejs.org">Node.js</a> modules.</p>
+
+<p>
+  The results are listed in order of reliability and community support. 
+  Each module has a <i>NodeRank</i>: 
+</p>
+
+<p>
+  <img src="img/hex1.png">
+  <img src="img/hex2.png">
+  <img src="img/hex3.png">
+  <img src="img/hex4.png">
+  <img src="img/hex5.png">
+  <img src="img/hex6.png">
+</p>
+
+<p>
+  The more wedges, the better!
+</p>
+
+<p>
+  Search results give you a summary of the module:
+</p>
+
+
+<div class="result" style="width:560px">
+
+<div class="rank" style="background-image: url(http://localhost:8101/img/hex6.png);"></div>
+
+<div class="details"  style="width:480px">
+
+<div class="topline">
+<a class="topline site" target="_blank" >module_name 1.2.3</a>
+<a class="topline npm" target="_blank" ><img src="img/npm-small.png"></a>
+<a class="topline git" target="_blank"></a>
+</div>
+
+<div class="maints">
+<a>maintainer</a>
+</div>
+
+<p class="desc">Short description of the module.</p>
+
+<p class="meta">
+<a class="similar" href="?s=request">similar</a>
+</p>
+
+</div>
+</div>
+
+
+<p>
+  The code for this engine, including the ranking algorithm, is all on the 
+  <a href="https://github.com/rjrodger/nodezoo">nodezoo github repository</a>.
+</p>
+
+<p>
+  Questions? Tweet me <a href="https://twitter.com/rjrodger">@rjrodger</a>.
+</p>
+
 </div>
 
 
@@ -54,5 +119,13 @@ JavaScript's functional programming helper library.
 
 </div>
 
-</body>
+<div id="footer">
+<a class="about">about</a>
+<a href="https://twitter.com/rjrodger"><div aria-hidden="true" class="icon-twitter"></div></a>
+<a href="https://github.com/rjrodger/nodezoo"><div aria-hidden="true" class="icon-github"></div></a>
+<a href="http://nearform.com"><img style="position:relative;top:4px;" src="img/nearform-logo.png"></a>
+</div>
+
+
+</div></body>
 </html>
