@@ -3,31 +3,55 @@
 <head>
 <link rel="stylesheet" type="text/css" href="css/app.css" >
 <script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/util.js"></script>
 <script src="js/app.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<div class="result">
 
-<div class="rank">6</div>
+<div class="main">
+
+<h1 class="logo">NODEZOO</h1>
+<div id="query_bar">
+<form id="query_form">
+<input id="term">
+<input id="query_submit" type="submit" value="find Node.js modules">
+</form>
+</div>
+
+
+<div id="results">
+</div>
+
+
+
+<div id="result" class="tm result">
+
+<div class="rank"></div>
 
 <div class="details">
 
 <div class="topline">
-<a class="topline site" href="http://documentcloud.github.com/underscore">underscore 1.2.4</a>
-<a class="topline git" href="https://github.com/documentcloud/underscore"><img src="img/github-small.png"></a>
-<a class="topline npm" href="http://documentcloud.github.com/underscore"><img src="img/npm-small.png"></a>
+<a class="topline site" target="_blank"></a>
+<a class="topline npm" target="_blank"><img src="img/npm-small.png"></a>
+<a class="topline git" target="_blank"><img src="img/github-small.png"></a>
 </div>
 
 <div class="maints">
-<a href="http://nodezoo.com?q=jaskenas">jashkenas</a>
 </div>
 
 <p class="desc">
 JavaScript's functional programming helper library.
 </p>
 
+<p class="meta">
+<a class="similar">similar</a>
+</p>
+
 </div>
+</div>
+
 </div>
 
 </body>

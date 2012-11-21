@@ -17,6 +17,7 @@ app.use(express.query())
 app.use(express.bodyParser())
 app.use(express.methodOverride())
 app.use(express.json())
+app.use(express.static(__dirname+'/site/public'))
 //app.use(express.session({ secret: 'waterford' }))
 
 
