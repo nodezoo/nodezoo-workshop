@@ -18,7 +18,7 @@ nodezoo foo
 And also:
 
 ```javascript
-var nodezoo = require('..')()
+var nodezoo = require('nodezoo')()
 
 nodezoo.query({q:'foo'},function(err, results ){
   console.dir(results)
