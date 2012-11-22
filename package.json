@@ -14,7 +14,7 @@
     "nodezoo"
   ],
   "author": "Richard Rodger",
-  "license": "BSD",
+  "license": "MIT",
 
   "dependencies": {
     "express":            "3.x",
@@ -22,8 +22,12 @@
     "dispatch":           "0.2.x",
     "ejs":                "*",
     "request":            ">=2.12.0",
-    "node-logentries":    ">=0.0.2"
+    "node-logentries":    ">=0.0.2",
+    "seneca":             "0.4.2"
   },
+
+  "files": ["README.md","LICENSE.txt","lib","bin/nodezoo.js"],
+  "bin" : { "npm" : "./bin/nodezoo.js" },
 
   "devDependencies": {
     "eyes": "*"

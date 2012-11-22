@@ -1,9 +1,22 @@
 
-var nodezoo = require('..')({url:{
-  prefix:'http://nodezoo.com/api/query?q=',
-  suffix:''
-}})
+var nodezoo = require('..')()
 
-nodezoo.query({q:'test'},function(err, res ){
-  console.dir(res)
+nodezoo.query({q:process.argv[2]},function(err, res ){
+  if( err ) {
+    console.err(err)
+  }
+  else {
+    var items = res.items
+    for(var i = 0; i < items.length; i++ ) {
+      var item = items[i]
+      var line = [
+        item.name,
+        item.latest,
+        item.maints.join(','),
+        'NR='+item.rank,
+        item.desc
+      ]
+      console.log(line.join('\t'))
+    }
+  }
 })
