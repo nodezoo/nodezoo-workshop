@@ -1,6 +1,6 @@
 {
   "name": "nodezoo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "nodezoo",
   "main": "lib/nodezoo.js",
   "scripts": {

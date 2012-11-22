@@ -50,6 +50,9 @@ div.body {
   min-height:100%;
 }
 
+a.logo {
+  text-decoration: none;
+}
 
 h1.logo {
     font-size: 64pt;
@@ -239,7 +242,7 @@ div.tm {
 #welcome {
   margin: 0px auto;
   width: 560px;
-  height: 520px;
+  height: 600px;
   xbackground-color: red;
   border: 1px solid #2290c6;
   color: #690;
