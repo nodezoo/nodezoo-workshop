@@ -1,6 +1,6 @@
 {
   "name": "nodezoo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "nodezoo",
   "main": "lib/nodezoo.js",
   "scripts": {
@@ -26,8 +26,8 @@
     "seneca":             "0.4.2"
   },
 
-  "files": ["README.md","LICENSE.txt","lib","bin/nodezoo.js"],
-  "bin" : { "npm" : "./bin/nodezoo.js" },
+  "files": ["README.md","LICENSE.txt","lib","bin/nodezoo"],
+  "bin" : { "nodezoo" : "./bin/nodezoo" },
 
   "devDependencies": {
     "eyes": "*"

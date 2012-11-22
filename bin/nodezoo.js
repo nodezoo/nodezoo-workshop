@@ -1,5 +1,5 @@
 
-var nodezoo = require('..')()
+var nodezoo = require('nodezoo')()
 
 nodezoo.query({q:process.argv[2]},function(err, res ){
   if( err ) {

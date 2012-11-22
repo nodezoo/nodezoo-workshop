@@ -7,8 +7,10 @@ This is a web app, command line utility, and module.
 
 
 ```sh
-npm install nodezoo
+npm install -g nodezoo
 ```
+(sorry, dependencies still need to be pruned)
+
 
 And then:
 
