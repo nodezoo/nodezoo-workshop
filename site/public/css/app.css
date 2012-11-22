@@ -151,6 +151,7 @@ div.topline a.site {
   margin: 0px;
   font: 16pt arial;
   float: left;
+  cursor: pointer;
 }
 div.topline a.npm {
   text-align: right;
