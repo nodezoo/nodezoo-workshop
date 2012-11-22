@@ -17,11 +17,12 @@
   "license": "BSD",
 
   "dependencies": {
-    "express":    "3.x",
-    "underscore": "*",
-    "dispatch":   "0.2.x",
-    "ejs":        "*",
-    "request":    ">=2.12.0"
+    "express":            "3.x",
+    "underscore":         "*",
+    "dispatch":           "0.2.x",
+    "ejs":                "*",
+    "request":            ">=2.12.0",
+    "node-logentries":    ">=0.0.2"
   },
 
   "devDependencies": {

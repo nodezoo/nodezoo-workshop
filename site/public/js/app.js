@@ -74,7 +74,7 @@ app.query = function(q) {
 app.record_search = function(term) {
   clearTimeout(app.record_search_interval)
   app.record_search_interval = setTimeout(function(){
-    console.log(term)
+    //console.log(term)
     _gaq.push(['_trackEvent', 'act', 'search', term]);
   },2222)
 }

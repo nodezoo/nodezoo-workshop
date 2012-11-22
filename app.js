@@ -3,10 +3,15 @@
 var express = require('express')
 var seneca  = require('seneca')
 
-var si = seneca({log:'print'})
+var logentries = require('node-logentries');
+var log = logentries.logger({
+  token:'c2a6f715-2b08-4d73-9916-683cb112d030'
+});
+
+var si = seneca({})
 
 si.use( 'config', {object:require('./config.mine.js')} )
-si.use( require('./lib/nodezoo') )
+si.use( require('./lib/nodezoo'), {log:log} )
 
 si.act({role:'config',cmd:'get',base:'nodezoo'}, function(err,config){
   if( err ) throw err;
@@ -28,6 +33,7 @@ function start_express(config) {
 
   app.use( si.service() )
 
+  log.info('start '+config.instance)
   app.listen( config.web.port )
 }
 
