@@ -11,6 +11,7 @@ npm install nodezoo
 ```
 
 And then:
+
 ```sh
 nodezoo foo
 ```
