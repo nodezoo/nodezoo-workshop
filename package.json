@@ -20,7 +20,8 @@
     "express":    "3.x",
     "underscore": "*",
     "dispatch":   "0.2.x",
-    "ejs":        "*"
+    "ejs":        "*",
+    "request":    ">=2.12.0"
   },
 
   "devDependencies": {
