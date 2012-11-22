@@ -1,7 +1,7 @@
 nodezoo
 =======
 
-A search engine for Node.js modules - visit: (nodezoo.com)[http://nodezoo.com]
+A search engine for Node.js modules - visit: http://nodezoo.com
 
 This is a web app, command line utility, and module. 
 
