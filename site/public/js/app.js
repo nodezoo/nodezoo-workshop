@@ -62,10 +62,21 @@ app.query = function(q) {
     document.location.href = href+ '#q='+eq 
   }
 
+  app.record_search(q)
+
   $.ajax({
     url: "/api/query?q="+eq,
     success: app.display_results
   })
+}
+
+
+app.record_search = function(term) {
+  clearTimeout(app.record_search_interval)
+  app.record_search_interval = setTimeout(function(){
+    console.log(term)
+    _gaq.push(['_trackEvent', 'act', 'search', term]);
+  },2222)
 }
 
 
