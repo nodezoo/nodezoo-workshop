@@ -3,10 +3,6 @@ var fs = require('fs')
 var js = require('JSONStream')
 var _ = require('underscore')
 
-//var numeric = require('./numeric')
-
-
-
 
 var numpy = exports.numpy = {
   sum: function(arr) {
@@ -38,15 +34,6 @@ function repeats(x) {
 numpy.zeros = repeats(0)
 numpy.ones  = repeats(1)
 
-/*
-function sumarr(arr) {
-  var out = 0
-  for( var i = 0; i < arr.length; i++ ) {
-    out += arr[i][0]
-  }
-  return out
-}
-*/
 
 function step(g,p,s) {
   s = s || 0.85
@@ -96,8 +83,6 @@ function step(g,p,s) {
   //console.log(sumv)
 
   v = _.map(v,function(a){
-    //a[0] = a[0] / sumv
-    //a[0] = a[0] * 1.1
     return a / sumv
   })
   return v

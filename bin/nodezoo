@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+var nodezoo = require('nodezoo')()
+
+nodezoo.query({q:process.argv[2]},function(err, res ){
+  if( err ) {
+    console.err(err)
+  }
+  else {
+    var items = res.items
+    for(var i = 0; i < items.length; i++ ) {
+      var item = items[i]
+      var line = [
+        item.name,
+        item.latest,
+        item.maints.join(','),
+        'NR='+item.rank,
+        item.desc
+      ]
+      console.log(line.join('\t'))
+    }
+  }
+})

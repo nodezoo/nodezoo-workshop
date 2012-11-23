@@ -109,7 +109,7 @@ app.route = function() {
 
 app.init = function() {
   app.em.results = $('#results')
-  app.em.term    = $('#term')
+  app.em.term    = $('#term').focus()
   app.em.welcome = $('#welcome')
   app.em.about   = $('a.about')
 
