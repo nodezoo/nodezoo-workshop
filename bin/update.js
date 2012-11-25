@@ -1,3 +1,11 @@
+/*
+node update.js -d ids 
+node update.js -d all -f ../data/npm.json
+node update.js -p -f ../data/npm.json
+node update.js -p -l -f ../data/npm.json
+node update.js -l -f ../data/deps.json
+*/
+
 
 var fs       = require('fs')
 var path     = require('path')
@@ -11,11 +19,6 @@ var _        = require('underscore')
 var nodezoo  = require('../lib/nodezoo.js')
 
 
-/*
-node update.js -d ids 
-node update.js -d all -f ../data/npm.json
-node update.js -p -f ../data/npm.json
-*/
 
 
 function die(err) {
@@ -67,7 +70,8 @@ function makels(filepath,online,onend) {
 function deps(filepath) {
   console.log('Dependencies...')
 
-  var fw = fs.WriteStream( path.dirname(filepath) +'/deps.json' )
+  var depsfile = path.dirname(filepath) +'/deps.json'
+  var fw = fs.WriteStream( depsfile )
   var jsw = js.stringify()
   jsw.pipe(fw)
 
@@ -95,9 +99,75 @@ function deps(filepath) {
     function(){
       console.log('\nmodule-count:'+index)
       jsw.end()
+
+      if( argv.l ) {
+        links( depsfile )
+      }
     })
 }
 
+
+function links( depsfile ) {
+  var linksfile = path.dirname(filepath) +'/links.json'
+
+  var read = fs.ReadStream(depsfile);
+  read.setEncoding('ascii'); 
+  var jsr = js.parse([true])
+
+  var index = {}
+
+  var links = {
+    "py/object": "__main__.web",
+    dangling_pages:{},
+    in_links:{},
+    number_out_links:{},
+  }
+
+  jsr.on('data',function(data){
+    data.i = ''+data.i
+    index[data.m]=data
+    links.dangling_pages[data.i]=true
+  })
+
+  jsr.on('root',function(){
+
+    var count = 0
+    for( var n in index ) {
+      count++
+      var m = index[n]
+      links.in_links[m.i] = []
+    }
+
+    for( var n in index ) {
+      var m = index[n]
+      for( var dI = 0; dI < m.d.length; dI++ ) {
+        var depname = m.d[dI]
+        if( !index[depname] ) {
+          continue
+        }
+        
+        var dep = index[depname].i
+        links.in_links[dep].push( m.i )
+
+        if( _.isUndefined(links.number_out_links[m.i]) ) {
+          links.number_out_links[m.i]=1
+          delete links.dangling_pages[m.i]
+        }
+        else {
+          links.number_out_links[m.i]++
+        }
+      }
+    }
+
+    links.size = count
+
+    fs.writeFileSync(linksfile,JSON.stringify(links))
+    console.log('links-size:'+count)
+  })
+
+  read.pipe(jsr)
+
+}
 
 
 if( argv.d ) {
@@ -116,4 +186,8 @@ if( argv.d ) {
 else if( argv.p ) {
   filepath = argv.f
   deps(filepath)
+}
+else if( argv.l ) {
+  filepath = argv.f
+  links(filepath)
 }
