@@ -180,8 +180,8 @@ function links( depsfile ) {
     fs.writeFileSync(linksfile,JSON.stringify(links))
     console.log('links-size:'+count)
 
-    if( argv.i ) {
-      index(linksfile)
+    if( argv.r ) {
+      rank(linksfile)
     }
   })
 
@@ -209,7 +209,7 @@ function rank(depsfile) {
   jsw.on('end',function(){
     console.log( 'rank-size:'+count)
     if( argv.i ) {
-      index(rankfile)
+      insert(rankfile)
     }
   })
 
@@ -224,7 +224,7 @@ function rank(depsfile) {
 }
 
 
-function index(rankfile) {
+function insert(rankfile) {
   var npmfile = path.dirname(rankfile) +'/npm.json'
 
   var prmap = {}
@@ -405,6 +405,6 @@ else if( argv.r ) {
 }
 else if( argv.i ) {
   filepath = argv.f
-  index(filepath)
+  insert(filepath)
 }
 
