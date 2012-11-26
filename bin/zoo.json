@@ -3,10 +3,10 @@
     "doc": {
       "_boost" : {"name" : "_boost", "null_value" : 1.0},
       "properties": {
-        "name": {"type":"string","boost":4},
-        "desc": {"type":"string","boost":20},
+        "name": {"type":"string","boost":6},
+        "desc": {"type":"string","boost":10},
         "latest": {"type":"string","boost":2},
-        "keywords": {"type":"string","boost":4},
+        "keywords": {"type":"string","boost":6},
         "license": {"type":"string","boost":1},
         "maints": {"type":"string","boost":2},
         "readme": {"type":"string","boost":1}

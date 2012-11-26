@@ -26,7 +26,7 @@ app.display_results = function(body) {
       .attr('href',item.site)
 
     var git = result.find('a.git')
-    if( item.git && item.git != item.site ) {
+    if( item.git ) {
       git.attr('href',item.git)
     }
     else {

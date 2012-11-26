@@ -16,3 +16,6 @@ npm-debug.log
 config.mine.js
 
 node_modules
+
+test/load/*.data
+test/elasticsearch-*
