@@ -26,7 +26,7 @@
     "seneca":             "0.4.2",
     "optimist":           "~0.3.5",
     "byline":             "~2.0.3",
-    "JSONStream":         "~0.4.2",
+    "JSONStream":         "~0.4.2"
   },
 
   "files": ["README.md","LICENSE.txt","lib","bin/nodezoo"],
