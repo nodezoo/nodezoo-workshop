@@ -181,7 +181,7 @@ function links( depsfile ) {
     console.log('links-size:'+count)
 
     if( argv.r ) {
-      rank(linksfile)
+      rank(depsfile)
     }
   })
 
