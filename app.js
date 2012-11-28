@@ -4,17 +4,19 @@ var express = require('express')
 var seneca  = require('seneca')
 
 var logentries = require('node-logentries');
-var log = logentries.logger({
-  token:'c2a6f715-2b08-4d73-9916-683cb112d030'
-});
+var log
 
 var si = seneca({})
 
 si.use( 'config', {object:require('./config.mine.js')} )
-si.use( require('./lib/nodezoo'), {log:log} )
+
 
 si.act({role:'config',cmd:'get',base:'nodezoo'}, function(err,config){
   if( err ) throw err;
+
+  log = logentries.logger({token:config.logentries.token})
+  si.use( require('./lib/nodezoo'), {log:log} )
+
   start_express(config)
 })
 

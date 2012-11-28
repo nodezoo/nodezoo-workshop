@@ -5,6 +5,7 @@ node update.js -d all -f ../data/npm.json
 node update.js -p -f ../data/npm.json
 node update.js -l -f ../data/deps.json
 node update.js -r -f ../data/deps.json
+node update.js -m -f ../data/deps.json
 node update.js -i -f ../data/rank.json -h http://127.0.0.1:9200/zoo/doc/
 
 node update.js -p -l -r -i -f ../data/npm.json -h http://127.0.0.1:9200/zoo/doc/
@@ -24,8 +25,9 @@ var js       = require('JSONStream')
 var _        = require('underscore')
 
 var noderank = require('./noderank.js')
-var nodezoo  = require('../lib/nodezoo.js')
+var nodezoo  = require('../lib/nodezoo.js')({},{log:'print'})
 
+var config = require('../config.mine.js')
 
 
 
@@ -208,9 +210,13 @@ function rank(depsfile) {
 
   jsw.on('end',function(){
     console.log( 'rank-size:'+count)
-    if( argv.i ) {
+    if( argv.m ) {
+      mongo(depsfile)
+    } 
+    else if( argv.i ) {
       insert(rankfile)
     }
+
   })
 
   for(var i = 0; i < rank.length; i++) {
@@ -222,6 +228,43 @@ function rank(depsfile) {
   jsw.end()
 
 }
+
+
+function mongo(depsfile) {
+  var si = nodezoo.seneca()
+  si.use('mongo-store',config.nodezoo.mongo)
+
+  si.ready(function(err,si){
+    console.log('ready '+err+si)
+
+    var read = fs.ReadStream(depsfile);
+    read.setEncoding('ascii'); 
+    var jsr = js.parse([true])
+
+    jsr.on('data',function(data){
+      var modent = si.make('mod')
+      modent.load$({n:data.m},function(err,mod){
+        if(err) {
+          console.log(err)
+        }
+        mod = mod || modent.make$()
+        mod.name = data.m
+        mod.lastgit = mod.lastgit || 0
+        mod.lastnpm = mod.lastnpm || 0
+        mod.save$(function(err,mod){
+          console.log(''+err+mod)
+        })
+      })
+    })
+
+    jsr.on('root',function(){
+      // si.close()
+    })
+
+    read.pipe(jsr)
+  })
+}
+
 
 
 function insert(rankfile) {
@@ -402,6 +445,10 @@ else if( argv.l ) {
 else if( argv.r ) {
   filepath = argv.f
   rank(filepath)
+}
+else if( argv.m ) {
+  filepath = argv.f
+  mongo(filepath)
 }
 else if( argv.i ) {
   filepath = argv.f
