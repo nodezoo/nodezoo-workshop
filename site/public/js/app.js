@@ -46,6 +46,23 @@ app.display_results = function(body) {
 
     result.find('a.similar').attr('href','?s='+item.name)
 
+    result.find('span.modified').text( moment(item.modified).fromNow() )
+    result.find('span.created').text( moment(item.created).fromNow() )
+
+    if( item.git_star ) {
+      result.find('span.git_star').text(item.git_star)
+    }
+    else {
+      result.find('span.git_star_line').remove()
+    }
+
+    if( item.git_fork ) {
+      result.find('span.git_fork').text(item.git_fork)
+    }
+    else {
+      result.find('span.git_fork_line').remove()
+    }
+
     divr.append(result)
   }
   app.em.results.empty().append(divr)
@@ -162,7 +179,7 @@ app.init = function() {
 
       if( focusNext.length ) {
         focusNext.addClass("focused");
-        $.scrollTo(focusNext, 200, {offset: -20})
+        $.scrollTo(focusNext, 200, {offset: -400})
       } else if ( shift ) {
         submit.focus();
       } else {

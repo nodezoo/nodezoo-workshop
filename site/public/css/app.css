@@ -148,8 +148,8 @@ div.result a:hover {
 div.topline a.topline {
   margin: 0px;
   font: 12pt arial;
-  height: 30px;
-  line-height: 30px;
+  height: 24px;
+  line-height: 24px;
   display: block;
 }
 div.topline a.site {
@@ -182,6 +182,14 @@ div.maints a {
 }
 
 
+div.time {
+  float:left;
+  width: 529px;
+  padding: 0px 0px 10px 0px;
+  font: 10pt arial;
+}
+
+
 p.desc {
   float:left;
   width: 485px;
@@ -200,7 +208,7 @@ p.meta {
   text-align:right;
   xbackground-color: red;
   height:10px;
-  bottom:10px;
+  bottom:30px;
   right:10px;
   position:absolute;
 }
@@ -259,3 +267,6 @@ div.tm {
 #welcome a {
   color: #690;
 }
+
+
+

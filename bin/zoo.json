@@ -9,7 +9,9 @@
         "keywords": {"type":"string","boost":6},
         "license": {"type":"string","boost":1},
         "maints": {"type":"string","boost":2},
-        "readme": {"type":"string","boost":1}
+        "readme": {"type":"string","boost":1},
+        "created":  {"type":"long",index:"no"},
+        "modified": {"type":"long",index:"no"}
       }
     } 
   }
