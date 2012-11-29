@@ -46,8 +46,11 @@ app.display_results = function(body) {
 
     result.find('a.similar').attr('href','?s='+item.name)
 
-    result.find('span.modified').text( moment(item.modified).fromNow() )
-    result.find('span.created').text( moment(item.created).fromNow() )
+    if( item.modified && item.created ) {
+      result.find('span.modified').text( moment(item.modified).fromNow() )
+      result.find('span.created').text( moment(item.created).fromNow() )
+    }
+    else result.find('div.time').remove();
 
     if( item.git_star ) {
       result.find('span.git_star').text(item.git_star)
