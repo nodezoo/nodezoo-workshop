@@ -122,8 +122,59 @@ app.init = function() {
     return false
   })
 
+  $('#term').focus(function(){
+    $('.result').removeClass('focused');
+  })
+
+  $(document).keydown(function(e){
+    var result = $('.result.focused').first()
+    var term = $('#term')
+    var submit = $('#query_submit')
+
+    if( e.keyCode == 13 && result.length ) { // return
+      var href = result.find('.site').attr('href')
+      if ( href ) {
+        window.location = href
+      }
+      return
+    }
+
+    if ( e.which === 9 ) { // tab
+      var shift = e.shiftKey
+
+      if ( $(document.activeElement).attr('id') === 'term' ||
+           ( $(document.activeElement).is(submit) && shift ) ) {
+        return
+      }
+
+      e.preventDefault()
+
+      if( !result.length && !shift ) {
+        $('.result').first().addClass("focused")
+        term.blur()
+        submit.blur()
+        return
+      }
+
+      result.removeClass('focused')
+
+      var focusNext = shift ? result.prev('.result') : result.next('.result')
+
+      if( focusNext.length ) {
+        focusNext.addClass("focused");
+        $.scrollTo(focusNext, 200, {offset: -20})
+      } else if ( shift ) {
+        submit.focus();
+      } else {
+        term.focus()
+      }
+    }
+  });
+
   app.em.term.keyup(function(ev){
-    if( 13 != ev.keyCode ) {
+    if( 13 != ev.keyCode &&
+        9 != ev.keyCode
+      ) {
       app.state.lastkeytime = $.now()
     }
   })
