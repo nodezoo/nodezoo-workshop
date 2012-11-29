@@ -25,7 +25,7 @@ var js       = require('JSONStream')
 var _        = require('underscore')
 
 var noderank = require('./noderank.js')
-var nodezoo  = require('../lib/nodezoo.js')({},{log:'print'})
+var nodezoo  = require('../lib/nodezoo.js')({},{xlog:'print'})
 
 var config = require('../config.mine.js')
 
@@ -43,6 +43,17 @@ function cutcomma(str) {
   }
   else return str;
 }
+
+
+var npmentry = {
+  latest: function(data) {
+    var value = data.value || {}
+    var version = (value['dist-tags']||{}).latest
+    var latest = (value.versions && version) ? value.versions[version] : null
+    return latest
+  }
+}
+
 
 
 var argv = optimist.argv
@@ -231,37 +242,62 @@ function rank(depsfile) {
 
 
 function mongo(depsfile) {
+  var npmfile = path.dirname(depsfile) +'/npm.json'
+
   var si = nodezoo.seneca()
-  si.use('mongo-store',config.nodezoo.mongo)
+  si.use('mongo-store',config.mongo)
 
   si.ready(function(err,si){
     console.log('ready '+err+si)
 
-    var read = fs.ReadStream(depsfile);
+    var read = fs.ReadStream(npmfile);
     read.setEncoding('ascii'); 
-    var jsr = js.parse([true])
 
-    jsr.on('data',function(data){
-      var modent = si.make('mod')
-      modent.load$({n:data.m},function(err,mod){
-        if(err) {
-          console.log(err)
-        }
-        mod = mod || modent.make$()
-        mod.name = data.m
-        mod.lastgit = mod.lastgit || 0
-        mod.lastnpm = mod.lastnpm || 0
-        mod.save$(function(err,mod){
-          console.log(''+err+mod)
+    var linestream = byline.createStream()
+    var count = 0
+
+    var modent = si.make('mod')
+
+    linestream.on('data', function(line){
+      try {
+	var data = JSON.parse( cutcomma(line) )
+	count++
+
+        modent.load$({name:data.id},function(err,mod){
+          if(err) {
+            return console.error(err)
+          }
+          mod = mod || modent.make$()
+          mod.name = data.id
+
+          var latest = npmentry.latest(data)
+          if( latest && latest.repository && 'git'==latest.repository.type ) {
+            mod.lastgit = mod.lastgit || 0
+            mod.giturl = latest.repository.url
+          }
+          else {
+            mod.lastgit = Number.MAX_VALUE
+          }
+
+          mod.lastnpm = mod.lastnpm || 0
+          mod.save$(function(err,mod){
+            if( 0 == count % 100 ) {
+              process.stdout.write('.')
+            }
+          })
         })
-      })
+      }
+      catch(e){
+        console.error(e)
+      }
     })
 
-    jsr.on('root',function(){
-      // si.close()
+    linestream.on('end',function(){
+      console.log('\nmongo-size:'+count)
+      //si.close()
     })
 
-    read.pipe(jsr)
+    read.pipe(linestream)
   })
 }
 
