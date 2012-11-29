@@ -1,5 +1,9 @@
 "use strict";
 
+// node feeder.js -w 1000
+
+var argv = require('optimist').argv
+
 var logentries = require('node-logentries');
 var log
 
@@ -33,7 +37,8 @@ function feed() {
       function indexrepo(i) {
         if( i < list.length ) {
           var mod = list[i]
-          var m = /\/([^\/]+?)\/([^\/]+?)\.git$/.exec(mod.giturl)
+          console.log(mod.giturl)
+          var m = /[\/:]([^\/]+?)\/([^\/]+?)\.git$/.exec(mod.giturl)
           if( m ) {
             si.act({role:'nodezoo',cmd:'indexrepo',user:m[1],repo:m[2],name:mod.name},function(err){
               if( err ) {
@@ -44,12 +49,12 @@ function feed() {
               console.log(''+mod)
               mod.save$()
 
-              setTimeout(function(){indexrepo(i+1)},5000)
+              setTimeout(function(){indexrepo(i+1)},argv.w)
             })
           }
           else indexrepo(i+1);
         }
-        else setTimeout(feed,5000)
+        else setTimeout(feed,argv.w)
       }
       indexrepo(0)
 
