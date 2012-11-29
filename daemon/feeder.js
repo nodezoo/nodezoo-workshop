@@ -3,6 +3,7 @@
 // node feeder.js -w 1000
 
 var argv = require('optimist').argv
+var wait = parseInt(argv.w)
 
 var logentries = require('node-logentries');
 var log
@@ -28,7 +29,7 @@ function die(err) {
 
 function feed() {
   try {
-    var lastweek = new Date().getTime() - (7*24*60*60*1000)
+    var lastweek = new Date().getTime()// - (7*24*60*60*1000)
     var modent = si.make('mod') 
     modent.list$({limit$:10,native$:true,lastgit:{$lt:lastweek}},function(err,list){
       console.log('list-len:'+list.length)
@@ -38,7 +39,7 @@ function feed() {
         if( i < list.length ) {
           var mod = list[i]
           console.log(mod.giturl)
-          var m = /[\/:]([^\/]+?)\/([^\/]+?)\.git$/.exec(mod.giturl)
+          var m = /[\/:]([^\/]+?)\/([^\/]+?)(\.git)*$/.exec(mod.giturl)
           if( m ) {
             si.act({role:'nodezoo',cmd:'indexrepo',user:m[1],repo:m[2],name:mod.name},function(err){
               if( err ) {
@@ -49,12 +50,12 @@ function feed() {
               console.log(''+mod)
               mod.save$()
 
-              setTimeout(function(){indexrepo(i+1)},argv.w)
+              setTimeout(function(){indexrepo(i+1)},wait)
             })
           }
           else indexrepo(i+1);
         }
-        else setTimeout(feed,argv.w)
+        else setTimeout(feed,wait)
       }
       indexrepo(0)
 
