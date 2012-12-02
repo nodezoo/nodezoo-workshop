@@ -1,9 +1,11 @@
 "use strict";
 
-// node feeder.js -w 1000
+// node feeder.js -w 1000 -s 100 -b 60
 
 var argv = require('optimist').argv
-var wait = parseInt(argv.w)
+var wait = argv.w  // request delay
+var size = argv.s  // limit s
+var back = argv.b  // since b minutes
 
 var logentries = require('node-logentries');
 var log
@@ -26,13 +28,13 @@ function die(err) {
   }
 }
 
-
 function feed() {
   try {
-    var lastweek = new Date().getTime() - 30*60*60*1000 // - (7*24*60*60*1000)
+    var lastweek = new Date().getTime() - back*60*1000
     var modent = si.make('mod') 
-    modent.list$({limit$:100,native$:true,lastgit:{$lt:lastweek}},function(err,list){
-      console.log('list-len:'+list.length)
+      var q = {limit$:size,native$:true,lastgit:{$lt:lastweek}}
+    modent.list$(q,function(err,list){
+	console.log('list-len:'+list.length+' q='+JSON.stringify(q))
       die(err)
 
       function indexrepo(i) {
