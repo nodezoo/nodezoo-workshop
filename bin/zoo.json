@@ -10,8 +10,14 @@
         "license": {"type":"string","boost":1},
         "maints": {"type":"string","boost":2},
         "readme": {"type":"string","boost":1},
+
+        "site": {"type":"string","index":"no"},
         "created":  {"type":"long",index:"no"},
-        "modified": {"type":"long",index:"no"}
+        "modified": {"type":"long",index:"no"},
+        "git": {"type":"string",index:"no"},
+        "git_star": {"type":"integer",index:"no"},
+        "git_fork": {"type":"integer",index:"no"}
+
       }
     } 
   }

@@ -29,9 +29,9 @@ function die(err) {
 
 function feed() {
   try {
-    var lastweek = new Date().getTime()// - (7*24*60*60*1000)
+    var lastweek = new Date().getTime() - 30*60*60*1000 // - (7*24*60*60*1000)
     var modent = si.make('mod') 
-    modent.list$({limit$:10,native$:true,lastgit:{$lt:lastweek}},function(err,list){
+    modent.list$({limit$:100,native$:true,lastgit:{$lt:lastweek}},function(err,list){
       console.log('list-len:'+list.length)
       die(err)
 

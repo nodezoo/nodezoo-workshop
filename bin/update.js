@@ -302,8 +302,10 @@ function mongo(depsfile) {
 }
 
 
-function insertall(rankfile,hosturl) {
-  nodezoo.insertall({filepath:rankfile,hosturl:hosturl},function(err,res){
+function insertall(filepath,hosturl) {
+    var rankfile = path.dirname(filepath)+'/rank.json'
+    var npmfile  = path.dirname(filepath)+'/npm.json'
+  nodezoo.insertall({rankfile:rankfile,npmfile:npmfile,hosturl:hosturl},function(err,res){
     die(err)
     console.dir(res)
   })
