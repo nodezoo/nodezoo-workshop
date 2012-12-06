@@ -76,9 +76,10 @@ function feed() {
       function indexrepo(list,i) {
         if( i < list.length ) {
           var mod = list[i]
+          printlog(i+' '+mod.name+' '+mod.giturl)
+
           var m = /[\/:]([^\/]+?)\/([^\/]+?)(\.git)*$/.exec(mod.giturl)
           if( m ) {
-            printlog(mod.giturl)
             si.act({role:'nodezoo',cmd:'indexrepo',user:m[1],repo:m[2],name:mod.name},function(err){
               if( err ) {
                 printlog('ERROR:'+mod+':'+err)
@@ -91,9 +92,14 @@ function feed() {
               setTimeout(function(){indexrepo(i+1)},wait)
             })
           }
-          else indexrepo(list,i+1);
+          else {
+            si.act({role:'nodezoo',cmd:'repodata',name:mod.name,repo:{}},function(err){
+              if(err) return printlog(err);
+            })
+            indexrepo(list,i+1);
+          }
         }
-        else setTimeout(feed,10*wait)
+        else setTimeout(feed,wait)
       }
     })
   }
