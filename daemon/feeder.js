@@ -27,7 +27,10 @@ si.use('mongo-store')
 if( usequeue ) {
   console.log('using queue')
   si.use( require('seneca-transport-queue'), {
-    pins:[{role:'nodezoo',cmd:'indexrepo'}]
+    pins:[
+      {role:'nodezoo',cmd:'indexrepo'},
+      {role:'nodezoo',cmd:'repodata'}
+    ]
   })
 }
 else {
