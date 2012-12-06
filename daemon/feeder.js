@@ -1,11 +1,18 @@
 "use strict";
 
+var _ = require('underscore')
+
+
 // node feeder.js -w 1000 -s 100 -b 60
 
 var argv = require('optimist').argv
-var wait = argv.w  // request delay
-var size = argv.s  // limit s
-var back = argv.b  // since b minutes
+var wait     = argv.w || 2000  // request delay
+var size     = argv.s || 1000   // limit s
+var back     = argv.b || 30    // since b minutes
+var usequeue = _.isUndefined(argv.q) ? true : argv.q
+
+
+
 
 var logentries = require('node-logentries');
 var log
@@ -16,9 +23,17 @@ si.use( 'config', {object:require('../config.mine.js')} )
 
 si.use('mongo-store')
 
-si.use( require('seneca-transport-queue'), {
-  pins:[{role:'nodezoo',cmd:'indexrepo'}]
-})
+
+if( usequeue ) {
+  console.log('using queue')
+  si.use( require('seneca-transport-queue'), {
+    pins:[{role:'nodezoo',cmd:'indexrepo'}]
+  })
+}
+else {
+  si.use( require('../lib/nodezoo'), {} )
+}
+
 
 
 function die(err) {
@@ -28,45 +43,63 @@ function die(err) {
   }
 }
 
+
+function printlog(msg) {
+  console.log(new Date().toISOString()+': '+msg)
+}
+
 function feed() {
   try {
-    var lastweek = new Date().getTime() - back*60*1000
+    var backperiod = new Date().getTime() - back*60*1000
     var modent = si.make('mod') 
-      var q = {limit$:size,native$:true,lastgit:{$lt:lastweek}}
-    modent.list$(q,function(err,list){
-	console.log('list-len:'+list.length+' q='+JSON.stringify(q))
+    var q_exists = {limit$:size,native$:true,git_star:{$exists:false}}
+    var q_back = {limit$:size,native$:true,lastgit:{$lt:backperiod}}
+
+    modent.list$(q_exists,function(err,list){
+      printlog('exists list-len:'+list.length+' q='+JSON.stringify(q_exists))
       die(err)
 
-      function indexrepo(i) {
+      if( 0 == list.length ) {
+        modent.list$(q_back,function(err,list){
+          printlog('back list-len:'+list.length+' q='+JSON.stringify(q_back))
+          die(err)
+
+          if( 0 < list.length ) {
+            indexrepo(list,0)
+          }
+          else setTimeout(feed,100*wait)
+        })
+      }
+      else indexrepo(list,0);
+
+
+      function indexrepo(list,i) {
         if( i < list.length ) {
           var mod = list[i]
-          console.log(mod.giturl)
           var m = /[\/:]([^\/]+?)\/([^\/]+?)(\.git)*$/.exec(mod.giturl)
           if( m ) {
+            printlog(mod.giturl)
             si.act({role:'nodezoo',cmd:'indexrepo',user:m[1],repo:m[2],name:mod.name},function(err){
               if( err ) {
-                console.log('ERROR:'+mod+':'+err)
+                printlog('ERROR:'+mod+':'+err)
               }
 
               mod.lastgit = new Date().getTime()
-              console.log(''+mod)
+              printlog(''+mod)
               mod.save$()
 
               setTimeout(function(){indexrepo(i+1)},wait)
             })
           }
-          else indexrepo(i+1);
+          else indexrepo(list,i+1);
         }
-        else setTimeout(feed,wait)
+        else setTimeout(feed,10*wait)
       }
-      indexrepo(0)
-
     })
   }
   catch( e ) {
     die(e)
   }
-
 }
 
 
