@@ -24,10 +24,12 @@ var byline   = require('byline')
 var js       = require('JSONStream')
 var _        = require('underscore')
 
-var noderank = require('./noderank.js')
-var nodezoo  = require('../lib/nodezoo.js')({},{xlog:'print'})
+var config = require( argv.c || '../config.mine.js')
 
-var config = require('../config.mine.js')
+var noderank = require('./noderank.js')
+var nodezoo  = require('../lib/nodezoo.js')(config.nodezoo,{xlog:'print'})
+
+
 
 
 
