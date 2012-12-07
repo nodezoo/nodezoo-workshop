@@ -36,8 +36,10 @@ var nodezoo  = require('../lib/nodezoo.js')(config.nodezoo,{xlog:'print'})
 
 
 function die(err) {
-  console.error(err)
-  process.exit(1)
+  if( err ) {
+    console.error(err)
+    process.exit(1)
+  }
 }
 
 
@@ -350,11 +352,13 @@ function gitmeta(depsfile) {
     var q_gitmeta = {native$:true,git_star:{$exists:true}}
 
     modent.list$(q_gitmeta,function(err,list){
-      printlog('meta list-len:'+list.length+' q='+JSON.stringify(q_gitmeta))
+      console.log('meta list-len:'+list.length+' q='+JSON.stringify(q_gitmeta))
       die(err)
 
       function updatemeta(list,i) {
         if( i < list.length ) {
+	    var mod = list[i]
+	    console.log(i+' '+mod)
           nodezoo.repodata({name:mod.name,repo:{watchers:mod.git_star,forks:mod.git_fork}},function(err,res){
             if( err ) { console.log(err) }
             if( 0 == i % 100 ) {

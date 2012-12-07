@@ -3,12 +3,12 @@
     "doc": {
       "_boost" : {"name" : "_boost", "null_value" : 1.0},
       "properties": {
-        "name": {"type":"string","boost":12},
+        "name": {"type":"string","boost":36},
         "desc": {"type":"string","boost":6},
         "latest": {"type":"string","boost":2},
-        "keywords": {"type":"string","boost":6},
+        "keywords": {"type":"string","boost":12},
         "license": {"type":"string","boost":1},
-        "maints": {"type":"string","boost":2},
+        "maints": {"type":"string","boost":3},
         "readme": {"type":"string","boost":1},
 
         "site": {"type":"string","index":"no"},
