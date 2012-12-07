@@ -77,6 +77,7 @@ function feed() {
 
 
       function indexrepo(list,i) {
+	  console.log('indexrepo '+i+' len='+list.length)
         if( i < list.length ) {
           var mod = list[i]
           printlog(i+' '+mod.name+' '+mod.giturl)
@@ -89,10 +90,10 @@ function feed() {
               }
 
               mod.lastgit = new Date().getTime()
-              printlog(''+mod)
+              printlog('indexrepo done: '+mod)
               mod.save$()
 
-              setTimeout(function(){indexrepo(i+1)},wait)
+		setTimeout(function(){indexrepo(list,i+1)},wait)
             })
           }
           else {
