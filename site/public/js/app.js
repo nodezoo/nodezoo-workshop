@@ -71,8 +71,12 @@ app.display_results = function(body) {
   app.em.results.empty().append(divr)
 }
 
-
+app.query_last = ''
 app.query = function(q) {
+  if( _.isUndefined(q) || ''===q || app.query_last == q ) {
+    return
+  }
+
   app.em.welcome.hide()
   app.state.lastkeytime = Number.MAX_VALUE
   var eq = encodeURIComponent(q)
@@ -112,9 +116,10 @@ app.similar = function(name) {
 app.route = function() {
   var up = parseUri(document.location.href)
   var qs = up.query || up.anchor
-  //console.log(qs)
+
   var qp = {}
   _.each(qs.split('&'),function(kvs){var kv=kvs.split('=');qp[kv[0]]=kv[1]})
+
   if( qp.q ) {
     var q = decodeURIComponent(qp.q)
     app.em.term.val(q)
@@ -207,7 +212,6 @@ app.init = function() {
   setInterval(function(){
     if( 222 < $.now() - app.state.lastkeytime ) {
       var q = app.em.term.val()
-      //console.log('auto q='+q)
       app.query(q)
     }
   },222)

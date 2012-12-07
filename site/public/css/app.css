@@ -15,6 +15,7 @@
 	content: attr(data-icon);
 	speak: none;
 	font-weight: normal;
+	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -24,13 +25,20 @@
 	font-style: normal;
 	speak: none;
 	font-weight: normal;
+	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
-.icon-github:before {
+.icon-twitter:before {
 	content: "\e000";
 }
-.icon-twitter:before {
+.icon-github:before {
 	content: "\e001";
+}
+.icon-github-2:before {
+	content: "\e002";
+}
+.icon-star:before {
+	content: "\e003";
 }
 
 
