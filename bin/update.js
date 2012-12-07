@@ -66,6 +66,7 @@ var urls = {
 }
 
 function download( filepath, url, cb ) {
+    console.log('STAGE: download'+filepath+' '+url )
   request( url )
     .on('data',function(data){
       var previous = total
@@ -97,7 +98,8 @@ function makels(filepath,online,onend) {
 
 
 function deps(filepath) {
-  console.log('Dependencies...')
+    console.log('STAGE: deps'+depsfile)
+
 
   var depsfile = path.dirname(filepath) +'/deps.json'
   var fw = fs.WriteStream( depsfile )
@@ -137,6 +139,8 @@ function deps(filepath) {
 
 
 function links( depsfile ) {
+    console.log('STAGE: links'+depsfile)
+
   var linksfile = path.dirname(filepath) +'/links.json'
 
   var read = fs.ReadStream(depsfile);
@@ -204,6 +208,7 @@ function links( depsfile ) {
 
 
 function rank(depsfile) {
+    console.log('STAGE: rank'+depsfile)
   var deps = JSON.parse( fs.readFileSync( depsfile ) )
 
   var linksfile = path.dirname(depsfile) +'/links.json'
@@ -238,6 +243,8 @@ function rank(depsfile) {
 
 
 function mongo(depsfile) {
+    console.log('STAGE: mongo: '+depsfile)
+
   var npmfile = path.dirname(depsfile) +'/npm.json'
 
   var si = nodezoo.seneca()
@@ -313,6 +320,7 @@ function mongo(depsfile) {
 
 
 function insertall(filepath,hosturl) {
+    console.log('STAGE: insertall: '+filepath+' '+hosturl)
     var rankfile = path.dirname(filepath)+'/rank.json'
     var npmfile  = path.dirname(filepath)+'/npm.json'
   nodezoo.insertall({rankfile:rankfile,npmfile:npmfile,hosturl:hosturl},function(err,res){
