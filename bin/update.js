@@ -24,6 +24,8 @@ var byline   = require('byline')
 var js       = require('JSONStream')
 var _        = require('underscore')
 
+var argv = optimist.argv
+
 var config = require( argv.c || '../config.mine.js')
 
 var noderank = require('./noderank.js')
@@ -58,7 +60,7 @@ var npmentry = {
 
 
 
-var argv = optimist.argv
+
 
 var total = 0
 
