@@ -104,13 +104,20 @@ function makels(filepath,online,onend) {
 
 
 function deps(filepath) {
-    console.log('STAGE: deps'+depsfile)
+    console.log('STAGE: deps'+filepath)
 
 
   var depsfile = path.dirname(filepath) +'/deps.json'
   var fw = fs.WriteStream( depsfile )
   var jsw = js.stringify()
   jsw.pipe(fw)
+
+    fw.on('close',function(){
+	console.log('fw close')
+      if( argv.l ) {
+        links( depsfile )
+      }
+    })
 
   var index = 0
 
@@ -126,7 +133,7 @@ function deps(filepath) {
         index++
 
         if( 0 == index % 100 ) {
-          process.stdout.write('.')
+          process.stdout.write('=')
         }
       }
       catch(e) {
@@ -137,21 +144,22 @@ function deps(filepath) {
       console.log('\nmodule-count:'+index)
       jsw.end()
 
-      if( argv.l ) {
-        links( depsfile )
-      }
     })
 }
 
 
-function links( depsfile ) {
-    console.log('STAGE: links'+depsfile)
+function links( pathfile ) {
+    console.log('STAGE: links '+filepath)
 
+  var depsfile = path.dirname(filepath) +'/deps.json'
   var linksfile = path.dirname(filepath) +'/links.json'
 
   var read = fs.ReadStream(depsfile);
   read.setEncoding('ascii'); 
-  var jsr = js.parse([true])
+    //var jsr = js.parse([true])
+
+    var linestream = byline.createStream()
+
 
   var index = {}
 
@@ -162,13 +170,28 @@ function links( depsfile ) {
     number_out_links:{},
   }
 
-  jsr.on('data',function(data){
+  var count = 0
+  linestream.on('data',function(line){
+      if( ',' == line ) return;
+
+      try {
+      var data = JSON.parse(cutcomma(line))
+
     data.i = ''+data.i
     index[data.m]=data
     links.dangling_pages[data.i]=true
+    count++
+      if( 0 == count % 100 )  {
+	  process.stdout.write('+')
+      }
+      }
+      catch( e ) {
+	  console.log(e+' '+line)
+      }
   })
 
-  jsr.on('root',function(){
+  linestream.on('end',function(){
+      console.log('end')
 
     var count = 0
     for( var n in index ) {
@@ -208,7 +231,7 @@ function links( depsfile ) {
     }
   })
 
-  read.pipe(jsr)
+  read.pipe(linestream)
 
 }
 
@@ -222,6 +245,16 @@ function rank(depsfile) {
 
   var write = fs.WriteStream( rankfile )
   var jsw = js.stringify()
+
+    write.on('close',function(){
+	if( argv.m ) {
+	    mongo(depsfile)
+	} 
+        else if( argv.i ) {
+            insertall(depsfile,argv.h)
+        }
+    })
+
   jsw.pipe(write)
 
   var count = 0
@@ -232,9 +265,6 @@ function rank(depsfile) {
 
   jsw.on('end',function(){
     console.log( 'rank-size:'+count)
-    if( argv.m ) {
-      mongo(depsfile)
-    } 
   })
 
   for(var i = 0; i < rank.length; i++) {
@@ -293,7 +323,7 @@ function mongo(depsfile) {
           mod.save$(function(err,mod){
             done++
             if( 0 == count % 100 ) {
-              process.stdout.write('.')
+              process.stdout.write('*')
             }
           })
         })
@@ -306,14 +336,16 @@ function mongo(depsfile) {
     linestream.on('end',function(){
       console.log('\nmongo-size:'+count)
 
+	console.log('count:'+count+' done:'+done)
       function waitfordb() {
         if( done < count ) {
+	    process.stdout.write(' '+done)
           setTimeout(waitfordb,333)
         }
         else {
           si.close()
           if( argv.i ) {
-            insertall(rankfile)
+              insertall(depsfile,argv.h)
           }
         }
       }
@@ -362,7 +394,7 @@ function gitmeta(depsfile) {
           nodezoo.repodata({name:mod.name,repo:{watchers:mod.git_star,forks:mod.git_fork}},function(err,res){
             if( err ) { console.log(err) }
             if( 0 == i % 100 ) {
-              process.stdout.write('.')
+              process.stdout.write('^')
             }
             updatemeta(list,i+1)
           })
