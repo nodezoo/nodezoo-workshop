@@ -10,7 +10,7 @@ node update.js -i -f ../data/rank.json -h http://127.0.0.1:9200/zoo/doc/
 
 node update.js -p -l -r -i -f ../data/npm.json -h http://127.0.0.1:9200/zoo/doc/
 
-node update.js -d all -f ../data/npm.json -p -l -r -i -h http://127.0.0.1:9200/zoo/doc/
+node update.js -d all -f ../data/npm.json -p -l -r -i -m -h http://127.0.0.1:9200/zoo/doc/
 
 */
 
@@ -224,10 +224,6 @@ function rank(depsfile) {
     if( argv.m ) {
       mongo(depsfile)
     } 
-    else if( argv.i ) {
-      insert(rankfile)
-    }
-
   })
 
   for(var i = 0; i < rank.length; i++) {
@@ -255,6 +251,7 @@ function mongo(depsfile) {
 
     var linestream = byline.createStream()
     var count = 0
+    var done  = 0
 
     var modent = si.make('mod')
 
@@ -281,6 +278,7 @@ function mongo(depsfile) {
 
           mod.lastnpm = mod.lastnpm || 0
           mod.save$(function(err,mod){
+            done++
             if( 0 == count % 100 ) {
               process.stdout.write('.')
             }
@@ -294,7 +292,19 @@ function mongo(depsfile) {
 
     linestream.on('end',function(){
       console.log('\nmongo-size:'+count)
-      //si.close()
+
+      function waitfordb() {
+        if( done < count ) {
+          setTimeout(waitfordb,333)
+        }
+        else {
+          si.close()
+          if( argv.i ) {
+            insertall(rankfile)
+          }
+        }
+      }
+      waitfordb()
     })
 
     read.pipe(linestream)
@@ -308,8 +318,48 @@ function insertall(filepath,hosturl) {
   nodezoo.insertall({rankfile:rankfile,npmfile:npmfile,hosturl:hosturl},function(err,res){
     die(err)
     console.dir(res)
+    
+    if( argv.g ) {
+      gitmeta()
+    }
   })
 }
+
+
+
+function gitmeta(depsfile) {
+  var si = nodezoo.seneca()
+  si.use('mongo-store',config.mongo)
+
+  si.ready(function(err,si){
+    console.log('ready '+err+si)
+
+    var modent = si.make('mod') 
+    var q_gitmeta = {native$:true,git_star:{$exists:true}}
+
+    modent.list$(q_gitmeta,function(err,list){
+      printlog('meta list-len:'+list.length+' q='+JSON.stringify(q_gitmeta))
+      die(err)
+
+      function updatemeta(list,i) {
+        if( i < list.length ) {
+          nodezoo.repodata({name:mod.name,repo:{watchers:mod.git_star,forks:mod.git_fork}},function(err,res){
+            if( err ) { console.log(err) }
+            if( 0 == i % 100 ) {
+              process.stdout.write('.')
+            }
+            updatemeta(list,i+1)
+          })
+        }
+      }
+
+      updatemeta(list,0)
+    })
+  })
+}
+
+
+
 
 
 var filepath
@@ -322,6 +372,7 @@ if( argv.d ) {
   var url = urls[argv.d]
   console.log('Downloading '+url+' to '+filepath)
   download(filepath,url,function(){
+    console.log('download done')
     if( argv.p ) {
       deps(filepath)
     }
@@ -347,5 +398,8 @@ else if( argv.i ) {
   filepath = argv.f
   var hosturl = argv.h
   insertall(filepath,hosturl)
+}
+else if( argv.g ) {
+  gitmeta()
 }
 
