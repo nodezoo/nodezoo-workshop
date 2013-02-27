@@ -1,279 +1,433 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.svg#icomoon') format('svg'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:url('fonts/icomoon.eot');
+    src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.svg#icomoon') format('svg'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Use the following CSS code if you want to use data attributes for inserting your icons */
 [data-icon]:before {
-	font-family: 'icomoon';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
+    font-family: 'icomoon';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Use the following CSS code if you want to have a class per icon */
 [class^="icon-"]:before, [class*=" icon-"]:before {
-	font-family: 'icomoon';
-	font-style: normal;
-	speak: none;
-	font-weight: normal;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
+    font-family: 'icomoon';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
 }
 .icon-twitter:before {
-	content: "\e000";
+    content: "\e000";
 }
 .icon-github:before {
-	content: "\e001";
+    content: "\e001";
 }
 .icon-github-2:before {
-	content: "\e002";
+    content: "\e002";
 }
 .icon-star:before {
-	content: "\e003";
+    content: "\e003";
 }
 
 
 html, body {
-  background: url(../img/bg.png);
-  padding: 0px;
-  margin: 0px;
-  height:100%;
+    background-color: #ffffff;
+    padding: 0px;
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    xpadding-top: 2px;
 }
 
 body {
-  overflow-y:scroll;
+    overflow-y:scroll;
+    xoverflow-x:scroll;
 }
 
 div.body {
-  position:relative;
-  min-height:100%;
+    position:relative;
+    min-height:100%;
 }
 
 a.logo {
-  text-decoration: none;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    height: 140px;
+    width: 280px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    border: 0;
 }
 
-h1.logo {
-    font-size: 64pt;
-    font-family: 'Gruppo', cursive;
-    margin: 0px;
-    color: #669900;
-    text-align: center;
+img {
+    border: 0;
 }
 
+h1 {
+    font-size: 15px;
+    color: #777778;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    padding-left: 10%;
+    margin-top: 0px;
+}
+
+h1 a {
+    font-weight: bold;
+    color: #7ab3bf;
+    text-decoration: underline;
+}
 div.main {
-  margin: 0px auto;
-  width: 600px;
-  padding: 20px;
-  xbackground-color:red;
-  padding-bottom: 60px;
-
+    margin: 0px auto;
+    width: 100%;
+    xbackground-color:red;
+    padding-bottom: 60px;
 }
 
 #query_bar {
     xtext-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    background: url(../img/search_bar.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    visibility: visible;
 }
 
 #term {
-    width: 590px;
-    border: 1px solid #7cb4c1;
+    width: 77%;
+    border: 1px solid #333333;
     xborder: 0px;
-    font:bold 14pt arial;
+    font:italic 13px arial;
     outline:none;
-    padding: 4px;
-    color: #7cb4c1;
-    background-color: #46483e;
+    padding-top: 12px;
+    padding-bottom: 10px;  
+    padding-left: 10px;  
+    color: #8b9298;
+    background-color: #ffffff;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 #query_form {
-    text-align: center;
+
+    padding-left: 10%;
+    padding-right: 10%;
+    min-width: 960px;
+    overflow: auto;
 }
 
 #query_submit {
-    margin: 6px;
-    border: 1px solid #bad8e0;
-    background-color: #7cb4c1;
-    font:bold 10pt arial;
-    padding: 4px;
-    color: #46483e;
+    margin: 6px 6px 6px -5px;
+    border: 1px solid #333333;
+    background: url(../img/search.png);
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+    font-weight: 700;
+    padding-top: 9px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #ffffff;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    text-shadow: 1px -1px 1px #333333;
+    font-family: 'Rationale', sans-serif;
+    font-size: 17px;
+    height: 39px;
+}
+
+#query_submit:hover {
+    color: #ffffff;
+    background-color: #268fe8;
+    background: url(../img/search.png);
+    background-repeat: repeat-x;
+    background-position: 0px -103px;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+/*left column*/
+#welcome {
+    xheight: 600px;
+    font-size: 15px;
+    color: #4d4d4f;
+    padding: 7px 20px 20px 10%;
+    width: 61%;
+    float: left;
+    min-width: 650px;
+}
+
+/*left column*/
+#results {
+    xheight: 600px;
+    font-size: 15px;
+    color: #4d4d4f;
+    padding: 7px 20px 20px 10%;
+    width: 61%;
+    float: left;
+    min-width: 650px;
 }
 
 
+/*right column*/
+#right_col {
+    xheight: 600px;
+    width: 16%;
+    float: left;
+    right: 10%;
+    border-left: 1px solid #e6e6e6;
+    padding-left: 18px;
+    min-width: 132px;
+    overflow: no-display;
+    background: url(../img/repeat.png);
+    background-repeat: repeat-y;
+}
+
+
+.results_line {
+    font-weight: 400;
+    font-size: 15px;
+    color: #777778;
+}
+
+#welcome a {
+    font-weight: bold;
+    color: #268ec4;
+    text-decoration: underline;
+}
+
+#welcome a:hover {
+    color: #314278;
+}
+
+/*Prominent text for the following: "The More Wedges, the Better!" and "Please Help the Community and Suggest Improvements."*/
+.keypoint {
+    font-family: 'Rationale', sans-serif;
+    text-shadow: 0px 0px 1px #777778;
+    font-weight: 700;
+    line-height: 31px;
+    color: #777778;
+    font-size: 28px;
+    margin-bottom: 0;
+}
+
+/*Prominent text for the headings in the right column, including "Resources" and "Questions."*/
+.point {
+    font-family: 'Rationale', sans-serif;
+    text-shadow: 0px 0px 1px #777778;
+    font-weight: 700;
+    color: #777778;
+    font-size: 22px;
+    margin-bottom: 0;
+    margin-top: 9px;
+}
+
+/*Paragraph text for the right column.*/
+.subpoint {
+    color: #777778;
+    font-size: 13px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #b2b2b2;
+}
+
+/*Styling for links in the right column*/
+#right_col .subpoint a {
+    font-weight: bold;
+    color: #7ab3bf;
+    text-decoration: underline;
+    font-family: Arial, sans-serif;
+}
+
+/*Styling for hover links in the right column*/
+#right_col .subpoint a:hover {
+    font-weight: bold;
+    color: #498be3;
+    text-decoration: underline;
+    font-family: Arial, sans-serif;
+}
+
 div.result {
-  width: 600px;
-  margin: 0px 0px 20px 0px;
-  overflow: hidden;
-  color: #2290c6;
-  background: url(../img/rbg.png);
-  -webkit-box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.2);
-  box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.2);
+    width: 600px;
+    margin: 0px 0px 20px 0px;
+    overflow: hidden;
+    color: #2290c6;
+    background: url(../img/grad1.png);
+    background-repeat: repeat-x;
+    border: 1px solid #b2b2b2;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.2);
+    box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.2);
 }
 
 div.result.focused {
-  -webkit-box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.9);
-  box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.9);
+    -webkit-box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.9);
+    box-shadow:  0px 0px 4px 4px rgba(255, 255, 255, 0.9);
 }
 
 div.rank {
-  padding: 10px;
-  width: 30px;
-  height: 60px;
-  line-height: 30px;
-  text-align: center;
-  float: left;
-  font:bold 16pt arial;
-  background-repeat: no-repeat;
-  background-position: 15px 15px;
+    padding: 10px;
+    width: 30px;
+    height: 60px;
+    line-height: 30px;
+    text-align: center;
+    float: left;
+    font:bold 16pt arial;
+    background-repeat: no-repeat;
+    background-position: 15px 15px;
 }
 div.details {
     position:relative;
-  width: 529px;
-  font: 12pt arial;
-  padding: 10px;
-  float: right;
-  xborder-left: 1px solid #7cb4c1;
+    width: 529px;
+    font: 12pt arial;
+    padding: 10px;
+    float: right;
+    xborder-left: 1px solid #7cb4c1;
 }
 
 
 div.result a {
-  text-decoration: none;
-  color: #690;
+    text-decoration: none;
+    color: #268ec4;
 }
 div.result a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 div.topline a.topline {
-  margin: 0px;
-  font: 12pt arial;
-  height: 24px;
-  line-height: 24px;
-  display: block;
+    margin: 0px;
+    font: 12pt arial;
+    height: 24px;
+    line-height: 24px;
+    display: block;
 }
+
 div.topline a.site {
-  margin: 0px;
-  font: 16pt arial;
-  float: left;
-  cursor: pointer;
+    margin: 0px;
+    font: 16pt arial;
+    float: left;
+    cursor: pointer;
 }
 div.topline a.npm {
-  text-align: right;
-  margin-left:10px;
-  float: right;
+    text-align: right;
+    margin-left:10px;
+    float: right;
 }
 div.topline a.git {
-  text-align: right;
-  margin-left:10px;
-  float: right;
+    text-align: right;
+    margin-left:10px;
+    font: 12pt arial;
+    float: right;
 }
 
 
 div.maints {
-  float:left;
-  width: 529px;
-  padding: 0px 0px;
+    float:left;
+    width: 529px;
+    padding: 0px 0px;
 }
 
 div.maints a {
-  text-decoration: none;
-  margin-right: 10px;
+    text-decoration: none;
+    margin-right: 10px;
 }
 
+#welcome div.maints a {
+    text-decoration: none;
+    color: #4d4d4f;
+    font-size: 13px;
+    font-weight: bold;
+}
 
 div.time {
-  float:left;
-  width: 529px;
-  padding: 0px 0px 10px 0px;
-  font: 10pt arial;
+    float:left;
+    width: 529px;
+    padding: 0px 0px 10px 0px;
 }
 
 
 p.desc {
-  float:left;
-  width: 485px;
-  padding: 5px 0px;
-  margin: 0px;
-  font: 10pt arial;
+    float:left;
+    width: 485px;
+    padding: 0px 0px;
+    margin: 0px;
+    color: #4d4d4f;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
 }
 
 
 p.meta {
-  float:right;
-  width: 66px;
-  padding: 5px 0px;
-  margin: 0px;
-  font: 8pt arial;
-  text-align:right;
-  xbackground-color: red;
-  height:10px;
-  bottom:30px;
-  right:10px;
-  position:absolute;
+    float:right;
+    width: 66px;
+    padding: 5px 0px;
+    margin: 0px;
+    text-align:right;
+    xbackground-color: red;
+    height:10px;
+    bottom:30px;
+    right:10px;
+    position:absolute;
+    color: #777778;
+    font: 8pt arial;
 }
 p.meta a.similar {
-  display: none;
+    display: none;
 }
 
 div.tm {
     display: none;
 }
 
-
+/*Footer styling*/
 #footer {
-    margin: 0px;
     margin-top: 60px;
     padding: 0px;
-    xborder-top: 1px solid #7cb4c1;
-    position:absolute;
-    bottom:0px;
+    xborder-top: 1px solid #777778;
+    position: fixed;
+    bottom: 0px;
     width:100%;
+    clear: left;
     height:30px;
     text-align: right;
     line-height: 24px;
+    background-color: #000000;
+    color: #777778;
 }
 
+/*Footer links styling*/
 #footer a {
-  text-decoration: none;
-  color: #7cb4c1;
-  margin: 0px;
-  padding: 0px;
-  font:10pt arial;
+    text-decoration: none;
+    color: #cccccc;
+    margin: 0px;
+    padding: 0px;
+    font:10px arial;
 }
 
 #footer a div {
-  display: inline-block;
+    display: inline-block;
 }
 
 #footer a.about:hover {
     text-decoration: underline;
     cursor: pointer;
-}
-
-
-
-#welcome {
-  margin: 0px auto;
-  width: 560px;
-  height: 600px;
-  xbackground-color: red;
-  border: 1px solid #2290c6;
-  color: #690;
-  font:16pt arial;
-  padding: 20px;
-}
-
-#welcome a {
-  color: #690;
 }
 
 

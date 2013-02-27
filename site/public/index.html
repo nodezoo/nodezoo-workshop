@@ -9,15 +9,17 @@
 <script src="js/moment-1.7.2.min.js"></script>
 <script src="js/util.js"></script>
 <script src="js/app.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet' type='text/css'>
-<!--link href='gruppo.css' rel='stylesheet' type='text/css'-->
+<link href='http://fonts.googleapis.com/css?family=Rationale' rel='stylesheet' type='text/css'>
+<!--link href='Rationale.css' rel='stylesheet' type='text/css'-->
 </head>
 <body><div class="body">
 
 
 <div class="main">
 
-<a href="http://nodezoo.com" class="logo"><h1 class="logo">NODEZOO</h1></a>
+<a href="http://nodezoo.com" class="logo"><img src="img/logo80.png"></a>
+
+<h1>This is a search engine for <a href="http://nodejs.org">Node.js</a> modules.</h1>
 <div id="query_bar">
 <form id="query_form">
 <input id="term">
@@ -26,15 +28,16 @@
 </div>
 
 
+
+<div id="wrapper">
+
 <div id="results">
 </div>
 
 
 <div id="welcome">
 
-<p>This is a search engine for <a href="http://nodejs.org">Node.js</a> modules.</p>
-
-<p>
+<p class="results_line">
   The results are listed in order of reliability and community support. 
   Each module has a <i>NodeRank</i>: 
 </p>
@@ -48,8 +51,8 @@
   <img src="img/hex6.png">
 </p>
 
-<p>
-  The more wedges, the better!
+<p class="keypoint">
+  The More Wedges, the Better!
 </p>
 
 <p>
@@ -57,11 +60,11 @@
 </p>
 
 
-<div class="result" style="width:560px">
+<div class="result" style="width:635px">
 
 <div class="rank" style="background-image: url(img/hex6.png);"></div>
 
-<div class="details"  style="width:480px">
+<div class="details"  style="width:554px">
 
 <div class="topline">
 <a class="topline site" target="_blank" >module_name 1.2.3</a>
@@ -85,19 +88,10 @@
 </div>
 
 
-<p>
-  The code for this engine, including the ranking algorithm, is all on the 
-  <a href="https://github.com/rjrodger/nodezoo">nodezoo github repository</a>.
-</p>
-
-<p>
-  Please help the community by suggesting improvements!
-  If you see dodgy results, <a href="https://github.com/rjrodger/nodezoo/issues/new">open a github issue</a>. 
+<p class="keypoint">
+  Please Help the Community and Suggest Improvements! </p>
+  <p>If you see dodgy results, <a href="https://github.com/rjrodger/nodezoo/issues/new">open a github issue</a>. 
   This will help with tuning.
-</p>
-
-<p>
-  Questions? Tweet me <a href="https://twitter.com/rjrodger">@rjrodger</a>.
 </p>
 
 </div>
@@ -136,12 +130,28 @@
 
 </div>
 
+
+
+<div id="right_col">
+<p class="point">Resources</p>
+  <p class="subpoint">The code for this engine, including the ranking algorithm, is all on the 
+  <a href="https://github.com/rjrodger/nodezoo">nodezoo github repository</a>.
+</p>
+<p class="point">
+  Questions?</p>
+<p class="subpoint"> Tweet me <a href="https://twitter.com/rjrodger">@rjrodger</a>.
+</p>
+</div>
+</div>
+
+
 <div id="footer">
-<a class="about">about</a>
+<!--<a class="about">about</a> -->
 <a href="https://twitter.com/rjrodger"><div aria-hidden="true" class="icon-twitter"></div></a>
 <a href="https://github.com/rjrodger/nodezoo"><div aria-hidden="true" class="icon-github"></div></a>
 <a href="http://nearform.com"><img style="position:relative;top:4px;" src="img/nearform-logo.png"></a>
 </div>
+
 
 
 </div><script type="text/javascript">
