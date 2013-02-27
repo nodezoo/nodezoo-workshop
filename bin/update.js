@@ -347,7 +347,7 @@ function mongo(depsfile) {
       console.log('\nmongo-size:'+count)
 
 	console.log('count:'+count+' done:'+done)
-      function waitfordb() {
+      function waitfodb() {
         if( done < count ) {
 	    process.stdout.write(' '+done)
           setTimeout(waitfordb,333)
@@ -393,6 +393,8 @@ function gitmeta(depsfile) {
     var modent = si.make('mod') 
     var q_gitmeta = {native$:true,git_star:{$exists:true}}
 
+    var donemap = {}
+
     modent.list$(q_gitmeta,function(err,list){
       console.log('meta list-len:'+list.length+' q='+JSON.stringify(q_gitmeta))
       die(err)
@@ -400,14 +402,19 @@ function gitmeta(depsfile) {
       function updatemeta(list,i) {
         if( i < list.length ) {
 	  var mod = list[i]
-	  console.log(i+' '+mod)
+	  console.log('GIT: '+i+' '+mod)
           nodezoo.repodata({name:mod.name,repo:{watchers:mod.git_star,forks:mod.git_fork}},function(err,res){
             if( err ) { console.log('GITMETA-ERROR: '+err) }
             if( 0 == i % 100 ) {
               process.stdout.write('^')
             }
+            donemap[res.name]=1
             updatemeta(list,i+1)
           })
+        }
+        else {
+          console.log('GITMETA DONE '+_.keys(donemap).length)
+          si.close()
         }
       }
 
