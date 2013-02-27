@@ -1,21 +1,20 @@
 "use strict";
 
 var express = require('express')
-var seneca  = require('seneca')
+var seneca  = require('seneca')()
 
-var logentries = require('node-logentries');
-var log
-
-var si = seneca({})
-
-si.use( 'config', {object:require('./config.mine.js')} )
+var logentries = require('node-logentries'), log
 
 
-si.act({role:'config',cmd:'get',base:'nodezoo'}, function(err,config){
+
+seneca.use( 'config', {object:require('./config.mine.js')} )
+
+
+seneca.act({role:'config',cmd:'get',base:'nodezoo'}, function(err,config){
   if( err ) throw err;
 
   log = logentries.logger({token:config.logentries.token})
-  si.use( require('./lib/nodezoo'), {log:log} )
+  seneca.use( './lib/nodezoo', {log:log} )
 
   start_express(config)
 })
@@ -33,7 +32,7 @@ function start_express(config) {
   //app.use(express.session({ secret: 'waterford' }))
 
 
-  app.use( si.service() )
+  app.use( seneca.service() )
 
   log.info('start '+config.instance)
   app.listen( config.web.port )

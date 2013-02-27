@@ -48,7 +48,8 @@ function step(g,p,s) {
 
   for( var j = 0; j < n; j++ ) {
     var arrpk = []
-    var linkarr = g.in_links[j]
+    var linkarr = g.in_links[j] || []
+    //console.log(j+'.in_links.len='+(linkarr?linkarr.length:null))
     for( var kI = 0; kI < linkarr.length; kI++ ) {
       var k = linkarr[kI]
       if( 0 ==g.number_out_links[k] ) throw new Error('divbyz '+k)
@@ -71,6 +72,9 @@ function step(g,p,s) {
   v = _.map(v,function(a){
     return a / sumv
   })
+
+
+
   return v
 }
 

@@ -29,7 +29,7 @@ var argv = optimist.argv
 var config = require( argv.c || '../config.mine.js')
 
 var noderank = require('./noderank.js')
-var nodezoo  = require('../lib/nodezoo.js')(config.nodezoo,{xlog:'print'})
+var nodezoo  = require('../lib/nodezoo.js')(config.nodezoo)
 
 
 
@@ -104,7 +104,7 @@ function makels(filepath,online,onend) {
 
 
 function deps(filepath) {
-    console.log('STAGE: deps'+filepath)
+  console.log('STAGE: deps'+filepath)
 
 
   var depsfile = path.dirname(filepath) +'/deps.json'
@@ -126,14 +126,18 @@ function deps(filepath) {
     function(line){
       try {
         var data = JSON.parse( cutcomma(line) ).value
-      
-        var latest = (data['dist-tags']||{}).latest
-        var deps   = (data.versions && latest) ? _.keys( (data.versions[latest]||{}).dependencies || {} ) : []
-        jsw.write({i:index,m:data.name,d:deps})
-        index++
 
-        if( 0 == index % 100 ) {
-          process.stdout.write('=')
+        // avoid falsey names
+        if( data.name ) {
+      
+          var latest = (data['dist-tags']||{}).latest
+          var deps   = (data.versions && latest) ? _.keys( (data.versions[latest]||{}).dependencies || {} ) : []
+          jsw.write({i:index,m:data.name,d:deps})
+          index++
+
+          if( 0 == index % 100 ) {
+            process.stdout.write('=')
+          }
         }
       }
       catch(e) {
@@ -149,16 +153,16 @@ function deps(filepath) {
 
 
 function links( pathfile ) {
-    console.log('STAGE: links '+filepath)
+  console.log('STAGE: links '+filepath)
 
   var depsfile = path.dirname(filepath) +'/deps.json'
   var linksfile = path.dirname(filepath) +'/links.json'
 
   var read = fs.ReadStream(depsfile);
   read.setEncoding('ascii'); 
-    //var jsr = js.parse([true])
+  //var jsr = js.parse([true])
 
-    var linestream = byline.createStream()
+  var linestream = byline.createStream()
 
 
   var index = {}
@@ -172,26 +176,26 @@ function links( pathfile ) {
 
   var count = 0
   linestream.on('data',function(line){
-      if( ',' == line ) return;
+    if( ',' == line || '[' == line || ']' == line ) return;
 
-      try {
+    try {
       var data = JSON.parse(cutcomma(line))
 
-    data.i = ''+data.i
-    index[data.m]=data
-    links.dangling_pages[data.i]=true
-    count++
+      data.i = ''+data.i
+      index[data.m]=data
+      links.dangling_pages[data.i]=true
+      count++
       if( 0 == count % 100 )  {
-	  process.stdout.write('+')
+	process.stdout.write('+')
       }
-      }
-      catch( e ) {
-	  console.log(e+' '+line)
-      }
+    }
+    catch( e ) {
+      console.log(e+' bad line:<'+line+'>')
+    }
   })
 
   linestream.on('end',function(){
-      console.log('end')
+    console.log('end')
 
     var count = 0
     for( var n in index ) {
@@ -202,14 +206,18 @@ function links( pathfile ) {
 
     for( var n in index ) {
       var m = index[n]
+      //console.log(n+' -> '+m.d)
       for( var dI = 0; dI < m.d.length; dI++ ) {
         var depname = m.d[dI]
-        if( !index[depname] ) {
+        if( _.isUndefined(index[depname]) ) {
           continue
         }
-        
+
+
         var dep = index[depname].i
         links.in_links[dep].push( m.i )
+
+
 
         if( _.isUndefined(links.number_out_links[m.i]) ) {
           links.number_out_links[m.i]=1
@@ -237,7 +245,9 @@ function links( pathfile ) {
 
 
 function rank(depsfile) {
-    console.log('STAGE: rank'+depsfile)
+  var depsfile = path.dirname(filepath) +'/deps.json'
+
+  console.log('STAGE: rank'+depsfile)
   var deps = JSON.parse( fs.readFileSync( depsfile ) )
 
   var linksfile = path.dirname(depsfile) +'/links.json'

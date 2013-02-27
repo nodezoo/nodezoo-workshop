@@ -19,3 +19,7 @@ node_modules
 
 test/load/*.data
 test/elasticsearch-*
+
+*~
+.DS_Store
+tmp
