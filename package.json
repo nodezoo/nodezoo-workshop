@@ -24,6 +24,7 @@
     "request":            "~2.12.0",
     "node-logentries":    "~0.0.2",
     "seneca":             "~0.5.2",
+    "seneca-mongo-store": "*",
     "optimist":           "~0.3.5",
     "byline":             "~2.0.3",
     "JSONStream":         "~0.4.2",
