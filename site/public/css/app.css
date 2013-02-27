@@ -109,15 +109,17 @@ div.main {
 }
 
 #term {
-    width: 77%;
+    width: 658px;
     border: 1px solid #333333;
     xborder: 0px;
     font:italic 13px arial;
     outline:none;
-    padding-top: 12px;
-    padding-bottom: 10px;  
+    padding-top: 6px;
+    padding-bottom: 8px;  
     padding-left: 10px;  
-    color: #8b9298;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
     background-color: #ffffff;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -169,7 +171,8 @@ div.main {
     font-size: 15px;
     color: #4d4d4f;
     padding: 7px 20px 20px 10%;
-    width: 61%;
+    xwidth: 61%;
+    width: 650px;
     float: left;
     min-width: 650px;
 }
@@ -180,8 +183,9 @@ div.main {
     font-size: 15px;
     color: #4d4d4f;
     padding: 7px 20px 20px 10%;
-    width: 61%;
+    xwidth: 61%;
     float: left;
+    width: 650px;
     min-width: 650px;
 }
 
