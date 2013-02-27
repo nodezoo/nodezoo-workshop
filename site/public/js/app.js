@@ -69,6 +69,7 @@ app.display_results = function(body) {
     divr.append(result)
   }
   app.em.results.empty().css('display','block').append(divr)
+  app.em.welcome.hide()
 }
 
 app.query_last = ''
@@ -77,7 +78,6 @@ app.query = function(q) {
     return
   }
 
-  app.em.welcome.hide()
   app.state.lastkeytime = Number.MAX_VALUE
   var eq = encodeURIComponent(q)
   var href = document.location.href
@@ -205,8 +205,9 @@ app.init = function() {
   })
 
   app.em.about.click(function(){
-    app.em.results.css('display','none').empty()
     app.em.welcome.show()
+    app.em.results.css('display','none').empty()
+
   })
 
   setInterval(function(){
