@@ -68,7 +68,7 @@ app.display_results = function(body) {
 
     divr.append(result)
   }
-  app.em.results.empty().append(divr)
+  app.em.results.empty().css('display','block').append(divr)
 }
 
 app.query_last = ''
@@ -205,7 +205,7 @@ app.init = function() {
   })
 
   app.em.about.click(function(){
-    app.em.results.empty()
+    app.em.results.css('display','none').empty()
     app.em.welcome.show()
   })
 
