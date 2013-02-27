@@ -399,10 +399,10 @@ function gitmeta(depsfile) {
 
       function updatemeta(list,i) {
         if( i < list.length ) {
-	    var mod = list[i]
-	    console.log(i+' '+mod)
+	  var mod = list[i]
+	  console.log(i+' '+mod)
           nodezoo.repodata({name:mod.name,repo:{watchers:mod.git_star,forks:mod.git_fork}},function(err,res){
-            if( err ) { console.log(err) }
+            if( err ) { console.log('GITMETA-ERROR: '+err) }
             if( 0 == i % 100 ) {
               process.stdout.write('^')
             }
