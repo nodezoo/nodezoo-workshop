@@ -6,18 +6,41 @@ var seneca  = require('seneca')()
 var logentries = require('node-logentries'), log
 
 
+try {
+  seneca.use( 'config', {object:require('./config.mine.js')} )
+}
+catch(e) {
+  console.log(e)
+}
 
-seneca.use( 'config', {object:require('./config.mine.js')} )
 
+seneca.act(
+  {role:'config',cmd:'get',base:'nodezoo',default$:{
+    web: { port: 8101 }
+  }}, 
+  function(err,config){
+    if( err ) throw err;
 
-seneca.act({role:'config',cmd:'get',base:'nodezoo'}, function(err,config){
-  if( err ) throw err;
+    if( config.logentries ) {
+      log = logentries.logger({token:config.logentries.token})
+    }
+    else {
+      log = {
+        debug: console.log,
+        info: console.log,
+        notice: console.log,
+        warning: console.log,
+        err: console.log,
+        crit: console.log,
+        alert: console.log,
+        emerg: console.log,
+        log: console.log,
+      }
+    }
+    seneca.use( './lib/nodezoo', {log:log} )
 
-  log = logentries.logger({token:config.logentries.token})
-  seneca.use( './lib/nodezoo', {log:log} )
-
-  start_express(config)
-})
+    start_express(config)
+  })
 
 
 function start_express(config) {
@@ -37,4 +60,5 @@ function start_express(config) {
   log.info('start '+config.instance)
   app.listen( config.web.port )
 }
+
 
