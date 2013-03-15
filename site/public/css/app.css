@@ -69,7 +69,7 @@ a.logo {
     height: 140px;
     width: 280px;
     padding-bottom: 20px;
-    padding-left: 10%;
+    padding-left: 16%;
     border: 0;
 }
 
@@ -82,7 +82,7 @@ h1 {
     color: #777778;
     font-family: Arial, sans-serif;
     font-weight: 400;
-    padding-left: 10%;
+    padding-left: 16%;
     margin-top: 0px;
 }
 
@@ -100,8 +100,8 @@ div.main {
 
 #query_bar {
     xtext-align: center;
-    padding-bottom: 8px;
-    padding-top: 8px;
+    padding-bottom: 12px;
+    padding-top: 12px;
     background: url(../img/search_bar.png);
     background-repeat: repeat-x;
     width: 100%;
@@ -109,17 +109,16 @@ div.main {
 }
 
 #term {
-    width: 658px;
-    border: 1px solid #333333;
+    width: 710px;
+    border: 1px solid #222222;
     xborder: 0px;
-    font:italic 13px arial;
+    font:italic 14px arial;
     outline:none;
-    padding-top: 6px;
-    padding-bottom: 8px;  
+    height: 40px;  
     padding-left: 10px;  
-    color: #333;
+    color: #8b9298;
     font-weight: bold;
-    font-size: 20px;
+    vertical-align:bottom;
     background-color: #ffffff;
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
@@ -127,30 +126,30 @@ div.main {
 
 #query_form {
 
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 16%;
+    padding-right: 16%;
     min-width: 960px;
     overflow: auto;
+	height: 49px;
 }
 
 #query_submit {
-    margin: 6px 6px 6px -5px;
-    border: 1px solid #333333;
+    margin-left: -6px;
+    border: 1px solid #222222;
     background: url(../img/search.png);
     background-repeat: repeat-x;
     background-position: 0px 0px;
     font-weight: 700;
-    padding-top: 9px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     color: #ffffff;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
     text-shadow: 1px -1px 1px #333333;
     font-family: 'Rationale', sans-serif;
-    font-size: 17px;
-    height: 39px;
+    font-size: 18px;
+    height: 45px;
+	vertical-align: bottom;
 }
 
 #query_submit:hover {
@@ -158,7 +157,7 @@ div.main {
     background-color: #268fe8;
     background: url(../img/search.png);
     background-repeat: repeat-x;
-    background-position: 0px -103px;
+    background-position: 0px -102px;
 }
 
 #wrapper {
@@ -170,11 +169,11 @@ div.main {
     xheight: 600px;
     font-size: 15px;
     color: #4d4d4f;
-    padding: 7px 20px 20px 10%;
+    padding: 7px 20px 20px 16%;
     xwidth: 61%;
-    width: 650px;
+    width: 700px;
     float: left;
-    min-width: 650px;
+    min-width: 700px;
 }
 
 /*left column*/
@@ -182,11 +181,11 @@ div.main {
     xheight: 600px;
     font-size: 15px;
     color: #4d4d4f;
-    padding: 7px 20px 20px 10%;
+    padding: 7px 20px 20px 16%;
     xwidth: 61%;
     float: left;
-    width: 650px;
-    min-width: 650px;
+    width: 700px;
+    min-width: 700px;
 }
 
 
