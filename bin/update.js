@@ -347,7 +347,7 @@ function mongo(depsfile) {
       console.log('\nmongo-size:'+count)
 
 	console.log('count:'+count+' done:'+done)
-      function waitfodb() {
+      function waitfordb() {
         if( done < count ) {
 	    process.stdout.write(' '+done)
           setTimeout(waitfordb,333)
