@@ -273,6 +273,7 @@ div.result {
     color: #2290c6;
     background: url(../img/grad1.png);
     background-repeat: repeat-x;
+    background-position: 100% 100%;
     border: 1px solid #b2b2b2;
     -moz-border-radius: 10px;
     border-radius: 10px;
