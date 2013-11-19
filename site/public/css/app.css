@@ -125,9 +125,7 @@ div.main {
 }
 
 #query_form {
-
-    padding-left: 16%;
-    padding-right: 16%;
+    text-align: center;
     min-width: 960px;
     overflow: auto;
 	height: 49px;
