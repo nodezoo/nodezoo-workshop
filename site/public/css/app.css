@@ -112,11 +112,11 @@ div.main {
     width: 710px;
     border: 1px solid #222222;
     xborder: 0px;
-    font:italic 14px arial;
-    outline:none;
+    font:italic 20px arial;
+    outline: none;
     height: 40px;  
     padding-left: 10px;  
-    color: #8b9298;
+    color: #333333;
     font-weight: bold;
     vertical-align:bottom;
     background-color: #ffffff;
@@ -128,7 +128,7 @@ div.main {
     text-align: center;
     min-width: 960px;
     overflow: auto;
-	height: 49px;
+	height: 45px;
 }
 
 #query_submit {
@@ -146,8 +146,9 @@ div.main {
     text-shadow: 1px -1px 1px #333333;
     font-family: 'Rationale', sans-serif;
     font-size: 18px;
-    height: 45px;
+    height: 44px;
 	vertical-align: bottom;
+	outline: none;
 }
 
 #query_submit:hover {
@@ -155,7 +156,7 @@ div.main {
     background-color: #268fe8;
     background: url(../img/search.png);
     background-repeat: repeat-x;
-    background-position: 0px -102px;
+    background-position: 0px -101px;
 }
 
 #wrapper {
