@@ -31,9 +31,10 @@
           "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         },
-        "buildHead": 2,
+        "buildHead": 3,
         "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
-        "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9"
+        "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
+        "imageTag": "nodezoo/elasticsearch"
       },
       "id": "elasticsearch",
       "name": "elasticsearch"
@@ -151,7 +152,7 @@
         "containerDefinitionId": "85d99b2c-06d0-5485-9501-4d4ed429799c",
         "type": "blank-container",
         "contains": [
-          "elasticsearch-c31f912e",
+          "899fb8fa-a09b-456e-851d-362fbb85240e",
           "f50cd807-09b2-4118-81e5-33dc27a7245e",
           "3acd0322-a50a-42ac-ac78-96326beb4663",
           "65acb2b5-dc54-4a79-8bbb-20cfc0c0ec23",
@@ -161,23 +162,6 @@
         ],
         "specific": {
           "ipaddress": "localhost"
-        }
-      },
-      "elasticsearch-c31f912e": {
-        "id": "elasticsearch-c31f912e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "elasticsearch",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "dockerfile/elasticsearch",
-          "execute": {
-            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
-            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
-          },
-          "buildHead": 2,
-          "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
-          "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9"
         }
       },
       "nzweb-2a7c341b": {
@@ -268,6 +252,18 @@
           "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
           "imageTag": "nodezoo/redis"
+        }
+      },
+      "899fb8fa-a09b-456e-851d-362fbb85240e": {
+        "id": "899fb8fa-a09b-456e-851d-362fbb85240e",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "elasticsearch",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
+          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
+          "imageTag": "nodezoo/elasticsearch"
         }
       }
     }
