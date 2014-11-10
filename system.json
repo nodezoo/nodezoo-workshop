@@ -15,7 +15,7 @@
         "execute": {
           "args": "-d -p 6379:6379"
         },
-        "buildHead": 2,
+        "buildHead": 3,
         "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
         "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
         "imageTag": "nodezoo/redis"
@@ -152,7 +152,7 @@
         "type": "blank-container",
         "contains": [
           "elasticsearch-c31f912e",
-          "a29c678c-725b-4580-8e9f-49bb3b3397c4",
+          "f50cd807-09b2-4118-81e5-33dc27a7245e",
           "3acd0322-a50a-42ac-ac78-96326beb4663",
           "65acb2b5-dc54-4a79-8bbb-20cfc0c0ec23",
           "68dd6887-9f6f-4a19-8bcf-6069dc7474e1",
@@ -200,18 +200,6 @@
           "version": "0.1.0",
           "buildHead": 2,
           "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzweb-1"
-        }
-      },
-      "a29c678c-725b-4580-8e9f-49bb3b3397c4": {
-        "id": "a29c678c-725b-4580-8e9f-49bb3b3397c4",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
-          "imageTag": "nodezoo/redis"
         }
       },
       "65acb2b5-dc54-4a79-8bbb-20cfc0c0ec23": {
@@ -268,6 +256,18 @@
           "dockerLocalTag": "nodezoo/nznpm-4",
           "buildNumber": 4,
           "version": "0.1.0"
+        }
+      },
+      "f50cd807-09b2-4118-81e5-33dc27a7245e": {
+        "id": "f50cd807-09b2-4118-81e5-33dc27a7245e",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
+          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
+          "imageTag": "nodezoo/redis"
         }
       }
     }
