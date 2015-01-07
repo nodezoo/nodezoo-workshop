@@ -31,8 +31,8 @@
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         },
         "buildHead": 3,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
-        "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
+        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
+        "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
         "imageTag": "nodezoo/elasticsearch"
       },
       "id": "elasticsearch",
@@ -169,8 +169,8 @@
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
+          "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
+          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
           "imageTag": "nodezoo/elasticsearch"
         }
       },
