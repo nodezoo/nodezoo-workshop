@@ -87,13 +87,12 @@
           "args": "-p 9003:9003 -d",
           "exec": "/usr/bin/node /srvs/index-prod.js"
         },
-        "dockerImageId": "0dc661f196b1f364af3f57cb537b8fd61553b999079e9d030c34aaeb165607a8",
+        "dockerImageId": "4d75c04a818f8fc04ed99c634055e4e3568cc00642844f78677228ca31ceacff",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzindex-1",
         "dockerLocalTag": "nodezoo/nzindex-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 4,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzindex-3"
+        "buildHead": 5
       },
       "id": "nzindex",
       "name": "nzindex",
@@ -152,7 +151,7 @@
           "2b56b70f-2571-4cac-8745-cfbce4e9858b",
           "2c174bc6-6a28-4185-8c46-caa1ece90fab",
           "13cb5f8e-8739-47af-af80-525cb9d9a49e",
-          "15e5d686-cf02-4e72-b219-f1a6d1548853",
+          "ecddb4f3-625e-49c2-883d-d9886bc2fbbe",
           "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
           "a75f92a6-ef33-463f-9a35-c94abce75683",
           "f68a5601-9f7e-46a4-9b1c-fbea473e761e"
@@ -171,20 +170,6 @@
           "dockerImageId": "4df0ccc565231bf67952e885e8048a1216dcbf37bd6fde0134e4add90d317c5d",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzgithub-3",
           "dockerLocalTag": "nodezoo/nzgithub-3",
-          "buildNumber": 3,
-          "version": "0.1.0"
-        }
-      },
-      "15e5d686-cf02-4e72-b219-f1a6d1548853": {
-        "id": "15e5d686-cf02-4e72-b219-f1a6d1548853",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzindex",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "0dc661f196b1f364af3f57cb537b8fd61553b999079e9d030c34aaeb165607a8",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzindex-3",
-          "dockerLocalTag": "nodezoo/nzindex-3",
           "buildNumber": 3,
           "version": "0.1.0"
         }
@@ -250,6 +235,19 @@
           "dockerImageId": "15a775778cef2e8d15a8e2f54d7b0c103b50d32b7db54c02247662e4e6e566c6",
           "dockerLocalTag": "localhost:8011/nodezoo/nznpm-7",
           "buildNumber": 7,
+          "version": "0.1.0"
+        }
+      },
+      "ecddb4f3-625e-49c2-883d-d9886bc2fbbe": {
+        "id": "ecddb4f3-625e-49c2-883d-d9886bc2fbbe",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzindex",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "4d75c04a818f8fc04ed99c634055e4e3568cc00642844f78677228ca31ceacff",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzindex-4",
+          "buildNumber": 4,
           "version": "0.1.0"
         }
       }
