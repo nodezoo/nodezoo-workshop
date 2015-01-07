@@ -15,9 +15,8 @@
         "execute": {
           "args": "-d -p 6379:6379"
         },
-        "buildHead": 3,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
-        "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
+        "buildHead": 4,
+        "dockerImageId": "45b2e5f1a3f6bcff93204f01023293fd11247b122e19f7f4409e921101b34da1",
         "imageTag": "nodezoo/redis"
       },
       "id": "redis",
@@ -154,7 +153,7 @@
         "type": "blank-container",
         "contains": [
           "899fb8fa-a09b-456e-851d-362fbb85240e",
-          "f50cd807-09b2-4118-81e5-33dc27a7245e",
+          "2c174bc6-6a28-4185-8c46-caa1ece90fab",
           "065bbe4b-a452-42f8-a589-9849a2ac1f94",
           "15e5d686-cf02-4e72-b219-f1a6d1548853",
           "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
@@ -177,18 +176,6 @@
           "dockerLocalTag": "nodezoo/nznpm-4",
           "buildNumber": 4,
           "version": "0.1.0"
-        }
-      },
-      "f50cd807-09b2-4118-81e5-33dc27a7245e": {
-        "id": "f50cd807-09b2-4118-81e5-33dc27a7245e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/ef16032a03b4595b29f2449bc2e00ab14fc9ffc6a7db795768a70d70253bc336",
-          "imageTag": "nodezoo/redis"
         }
       },
       "899fb8fa-a09b-456e-851d-362fbb85240e": {
@@ -257,6 +244,18 @@
           "dockerLocalTag": "nodezoo/nzweb-2",
           "buildNumber": 2,
           "version": "0.1.0"
+        }
+      },
+      "2c174bc6-6a28-4185-8c46-caa1ece90fab": {
+        "id": "2c174bc6-6a28-4185-8c46-caa1ece90fab",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "45b2e5f1a3f6bcff93204f01023293fd11247b122e19f7f4409e921101b34da1",
+          "dockerLocalTag": "localhost:8011/nodezoo/redis",
+          "imageTag": "nodezoo/redis"
         }
       }
     }
