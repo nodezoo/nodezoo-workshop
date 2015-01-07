@@ -67,13 +67,12 @@
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
         },
-        "dockerImageId": "4df0ccc565231bf67952e885e8048a1216dcbf37bd6fde0134e4add90d317c5d",
+        "dockerImageId": "4534f0815e82906cc932c297f36e506a3b58267ec646436fb4bfdd34d317e310",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzgithub-1",
         "dockerLocalTag": "nodezoo/nzgithub-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 4,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzgithub-3"
+        "buildHead": 5
       },
       "id": "nzgithub",
       "name": "nzgithub",
@@ -155,7 +154,7 @@
           "2c174bc6-6a28-4185-8c46-caa1ece90fab",
           "065bbe4b-a452-42f8-a589-9849a2ac1f94",
           "15e5d686-cf02-4e72-b219-f1a6d1548853",
-          "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
+          "f1935880-3adc-4d42-b174-c9f53bd71c68",
           "41f57885-cdd0-42ce-9e5f-ee82237db66d",
           "f68a5601-9f7e-46a4-9b1c-fbea473e761e"
         ],
@@ -173,20 +172,6 @@
           "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
           "imageTag": "nodezoo/elasticsearch"
-        }
-      },
-      "f63c7d71-99e2-4464-aac0-cad2a84dcf8a": {
-        "id": "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzgithub",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "4df0ccc565231bf67952e885e8048a1216dcbf37bd6fde0134e4add90d317c5d",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzgithub-3",
-          "dockerLocalTag": "nodezoo/nzgithub-3",
-          "buildNumber": 3,
-          "version": "0.1.0"
         }
       },
       "15e5d686-cf02-4e72-b219-f1a6d1548853": {
@@ -253,6 +238,19 @@
           "dockerImageId": "69962193f8d1eb1f08a59ac33a80af74ef0f9f1b6767dfda83f1f1c30e0a81db",
           "dockerLocalTag": "localhost:8011/nodezoo/nznpm-6",
           "buildNumber": 6,
+          "version": "0.1.0"
+        }
+      },
+      "f1935880-3adc-4d42-b174-c9f53bd71c68": {
+        "id": "f1935880-3adc-4d42-b174-c9f53bd71c68",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzgithub",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "4534f0815e82906cc932c297f36e506a3b58267ec646436fb4bfdd34d317e310",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-4",
+          "buildNumber": 4,
           "version": "0.1.0"
         }
       }
