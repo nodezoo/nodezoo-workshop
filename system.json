@@ -47,13 +47,12 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
-        "dockerImageId": "d172fba1dc63cbe51f4c9f78ad5778529b95f5d53b7dff6fb5f63d879bc12e6e",
+        "dockerImageId": "a8fbfc42b6a8c68db14b379dc5117d53b677984973813ba6841bade955406bfd",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nznpm-1",
         "dockerLocalTag": "nodezoo/nznpm-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 5,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nznpm-4"
+        "buildHead": 6
       },
       "id": "nznpm",
       "name": "nznpm",
@@ -157,25 +156,11 @@
           "065bbe4b-a452-42f8-a589-9849a2ac1f94",
           "15e5d686-cf02-4e72-b219-f1a6d1548853",
           "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
-          "cb8e3c46-9570-4944-8a0c-2254b1cd1387",
+          "89470817-6397-4f20-a5ac-4b3c2b9dbb83",
           "f68a5601-9f7e-46a4-9b1c-fbea473e761e"
         ],
         "specific": {
           "ipaddress": "localhost"
-        }
-      },
-      "cb8e3c46-9570-4944-8a0c-2254b1cd1387": {
-        "id": "cb8e3c46-9570-4944-8a0c-2254b1cd1387",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nznpm",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "d172fba1dc63cbe51f4c9f78ad5778529b95f5d53b7dff6fb5f63d879bc12e6e",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nznpm-4",
-          "dockerLocalTag": "nodezoo/nznpm-4",
-          "buildNumber": 4,
-          "version": "0.1.0"
         }
       },
       "899fb8fa-a09b-456e-851d-362fbb85240e": {
@@ -256,6 +241,19 @@
           "dockerImageId": "45b2e5f1a3f6bcff93204f01023293fd11247b122e19f7f4409e921101b34da1",
           "dockerLocalTag": "localhost:8011/nodezoo/redis",
           "imageTag": "nodezoo/redis"
+        }
+      },
+      "89470817-6397-4f20-a5ac-4b3c2b9dbb83": {
+        "id": "89470817-6397-4f20-a5ac-4b3c2b9dbb83",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nznpm",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "a8fbfc42b6a8c68db14b379dc5117d53b677984973813ba6841bade955406bfd",
+          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-5",
+          "buildNumber": 5,
+          "version": "0.1.0"
         }
       }
     }
