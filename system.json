@@ -47,12 +47,12 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
-        "dockerImageId": "97afe5d4992cdd78550027a613ea99c2481f6409cf12d9c52d2b3917d06b9614",
+        "dockerImageId": "ab0398ae853549da7fbb66aa5a03a57d7f4f71a1f5df55f84e075ab03b6ce92c",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nznpm-1",
         "dockerLocalTag": "nodezoo/nznpm-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 6
+        "buildHead": 7
       },
       "id": "nznpm",
       "name": "nznpm",
@@ -156,7 +156,7 @@
           "065bbe4b-a452-42f8-a589-9849a2ac1f94",
           "15e5d686-cf02-4e72-b219-f1a6d1548853",
           "f63c7d71-99e2-4464-aac0-cad2a84dcf8a",
-          "90f7801b-5919-495f-bbc2-852aeb31dc2a",
+          "bd4a7995-7b18-4deb-b5c5-39f29155cea4",
           "f68a5601-9f7e-46a4-9b1c-fbea473e761e"
         ],
         "specific": {
@@ -243,16 +243,16 @@
           "imageTag": "nodezoo/redis"
         }
       },
-      "90f7801b-5919-495f-bbc2-852aeb31dc2a": {
-        "id": "90f7801b-5919-495f-bbc2-852aeb31dc2a",
+      "bd4a7995-7b18-4deb-b5c5-39f29155cea4": {
+        "id": "bd4a7995-7b18-4deb-b5c5-39f29155cea4",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "nznpm",
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "97afe5d4992cdd78550027a613ea99c2481f6409cf12d9c52d2b3917d06b9614",
-          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-5",
-          "buildNumber": 5,
+          "dockerImageId": "ab0398ae853549da7fbb66aa5a03a57d7f4f71a1f5df55f84e075ab03b6ce92c",
+          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-6",
+          "buildNumber": 6,
           "version": "0.1.0"
         }
       }
