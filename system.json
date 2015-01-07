@@ -107,13 +107,12 @@
           "args": "-p 9100:9100 -d",
           "exec": "/usr/bin/node /srvs/info-prod.js"
         },
-        "dockerImageId": "1d5a5744f4a0c6e829ff93f3bc5e7f9e854fae3cf9e73cde5953eb01d2e57fec",
+        "dockerImageId": "bb648a1e153db7ed20ad2fc46f67ac5c95336bdfa0422ec6c5c88ec15e1c3136",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzinfo-1",
         "dockerLocalTag": "nodezoo/nzinfo-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 4,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzinfo-3"
+        "buildHead": 5
       },
       "id": "nzinfo",
       "name": "nzinfo",
@@ -151,7 +150,7 @@
         "contains": [
           "899fb8fa-a09b-456e-851d-362fbb85240e",
           "2c174bc6-6a28-4185-8c46-caa1ece90fab",
-          "065bbe4b-a452-42f8-a589-9849a2ac1f94",
+          "791ee0b1-2e71-4b5a-9fdf-aa0da7604f65",
           "9aa17b02-188a-4ce3-8bc0-b8c436c3d7a7",
           "f1935880-3adc-4d42-b174-c9f53bd71c68",
           "41f57885-cdd0-42ce-9e5f-ee82237db66d",
@@ -171,20 +170,6 @@
           "dockerImageId": "1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/1981fffa8cf58f994104e55fd405733f636d803810dbf26113c246df016f7ce9",
           "imageTag": "nodezoo/elasticsearch"
-        }
-      },
-      "065bbe4b-a452-42f8-a589-9849a2ac1f94": {
-        "id": "065bbe4b-a452-42f8-a589-9849a2ac1f94",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzinfo",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "1d5a5744f4a0c6e829ff93f3bc5e7f9e854fae3cf9e73cde5953eb01d2e57fec",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzinfo-3",
-          "dockerLocalTag": "nodezoo/nzinfo-3",
-          "buildNumber": 3,
-          "version": "0.1.0"
         }
       },
       "f68a5601-9f7e-46a4-9b1c-fbea473e761e": {
@@ -248,6 +233,19 @@
         "specific": {
           "dockerImageId": "9c5ee925e93948f5d40d4fbfae010b3ace30496dfc5588cd12c16d2de46c18d1",
           "dockerLocalTag": "localhost:8011/nodezoo/nzindex-4",
+          "buildNumber": 4,
+          "version": "0.1.0"
+        }
+      },
+      "791ee0b1-2e71-4b5a-9fdf-aa0da7604f65": {
+        "id": "791ee0b1-2e71-4b5a-9fdf-aa0da7604f65",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzinfo",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "bb648a1e153db7ed20ad2fc46f67ac5c95336bdfa0422ec6c5c88ec15e1c3136",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-4",
           "buildNumber": 4,
           "version": "0.1.0"
         }
