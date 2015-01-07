@@ -126,13 +126,12 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash run.sh"
         },
-        "dockerImageId": "858f4adfd9083c9c150045485ea3baa54fbc4530a70963bb7138b4ee222cde32",
+        "dockerImageId": "10d1734f2c01c9d80a6627214049af69ab1553b273bf668674012f39356f185f",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzweb-1",
         "dockerLocalTag": "nodezoo/nzweb-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 3,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzweb-2"
+        "buildHead": 4
       },
       "id": "nzweb",
       "name": "nzweb",
@@ -153,24 +152,10 @@
           "ecddb4f3-625e-49c2-883d-d9886bc2fbbe",
           "add415fd-0649-48c7-8762-c1484054db1b",
           "a75f92a6-ef33-463f-9a35-c94abce75683",
-          "f68a5601-9f7e-46a4-9b1c-fbea473e761e"
+          "e49ccf01-f29f-4c11-939b-7b1654ecf8f1"
         ],
         "specific": {
           "ipaddress": "localhost"
-        }
-      },
-      "f68a5601-9f7e-46a4-9b1c-fbea473e761e": {
-        "id": "f68a5601-9f7e-46a4-9b1c-fbea473e761e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzweb",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "858f4adfd9083c9c150045485ea3baa54fbc4530a70963bb7138b4ee222cde32",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzweb-2",
-          "dockerLocalTag": "nodezoo/nzweb-2",
-          "buildNumber": 2,
-          "version": "0.1.0"
         }
       },
       "2c174bc6-6a28-4185-8c46-caa1ece90fab": {
@@ -246,6 +231,19 @@
           "dockerImageId": "903ef34e051d04f689c9a1c3c9d187ef779b9ab70bf04ae305f0d66231242953",
           "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-4",
           "buildNumber": 4,
+          "version": "0.1.0"
+        }
+      },
+      "e49ccf01-f29f-4c11-939b-7b1654ecf8f1": {
+        "id": "e49ccf01-f29f-4c11-939b-7b1654ecf8f1",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzweb",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "10d1734f2c01c9d80a6627214049af69ab1553b273bf668674012f39356f185f",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzweb-3",
+          "buildNumber": 3,
           "version": "0.1.0"
         }
       }
