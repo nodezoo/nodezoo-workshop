@@ -107,12 +107,12 @@
           "args": "-p 9100:9100 -d",
           "exec": "/usr/bin/node /srvs/info-prod.js"
         },
-        "dockerImageId": "3e0edb4c6762644ebfc2516e7562d21e51fa11952eec89da1181818891e5fac4",
+        "dockerImageId": "3064692157ca0ed82afeeafdc049dcaf4302ed085fec484976f3b7ce90957462",
         "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/nodezoo/builds/nzinfo-1",
         "dockerLocalTag": "nodezoo/nzinfo-1",
         "buildNumber": 1,
         "version": "0.1.0",
-        "buildHead": 12
+        "buildHead": 13
       },
       "id": "nzinfo",
       "name": "nzinfo",
@@ -149,7 +149,7 @@
         "contains": [
           "899fb8fa-a09b-456e-851d-362fbb85240e",
           "2c174bc6-6a28-4185-8c46-caa1ece90fab",
-          "e02ead93-7159-4c82-88fc-a2d4cb9d121e",
+          "e3657b5a-3da1-4e01-b0de-02318beb7da8",
           "d33a9389-29e7-4252-939d-d25e8da5a05e",
           "ec7eb342-075c-4ffc-a81a-f09a7ce91a86",
           "c95f3954-a0cc-4b1a-a538-bbdda20718c1",
@@ -235,16 +235,16 @@
           "version": "0.1.0"
         }
       },
-      "e02ead93-7159-4c82-88fc-a2d4cb9d121e": {
-        "id": "e02ead93-7159-4c82-88fc-a2d4cb9d121e",
+      "e3657b5a-3da1-4e01-b0de-02318beb7da8": {
+        "id": "e3657b5a-3da1-4e01-b0de-02318beb7da8",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "nzinfo",
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "3e0edb4c6762644ebfc2516e7562d21e51fa11952eec89da1181818891e5fac4",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-11",
-          "buildNumber": 11,
+          "dockerImageId": "3064692157ca0ed82afeeafdc049dcaf4302ed085fec484976f3b7ce90957462",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-12",
+          "buildNumber": 12,
           "version": "0.1.0"
         }
       }
