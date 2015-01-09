@@ -1,0 +1,222 @@
+{
+  "name": "nodezoo",
+  "namespace": "nodezoo",
+  "id": "3c1703f1-35bf-446c-875f-9bb50fc9302c",
+  "containerDefinitions": [
+    {
+      "type": "container",
+      "id": "root",
+      "name": "root"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "name": "redis:2.8",
+        "execute": {
+          "args": "-d -p 6379:6379"
+        }
+      },
+      "id": "redis",
+      "name": "redis"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "name": "dockerfile/elasticsearch",
+        "execute": {
+          "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+          "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
+        }
+      },
+      "id": "elasticsearch",
+      "name": "elasticsearch"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-p 9001:9001 -d",
+          "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
+        }
+      },
+      "id": "nznpm",
+      "name": "nznpm"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-p 9002:9002 -d",
+          "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
+        }
+      },
+      "id": "nzgithub",
+      "name": "nzgithub"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-index.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-p 9003:9003 -d",
+          "exec": "/usr/bin/node /srvs/index-prod.js"
+        }
+      },
+      "id": "nzindex",
+      "name": "nzindex"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-info.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-p 9100:9100 -d",
+          "exec": "/usr/bin/node /srvs/info-prod.js"
+        }
+      },
+      "id": "nzinfo",
+      "name": "nzinfo"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-p 8000:8000 -d",
+          "exec": "/bin/bash run.sh"
+        }
+      },
+      "id": "nzweb",
+      "name": "nzweb"
+    }
+  ],
+  "topology": {
+    "containers": {
+      "root-16f4f95b": {
+        "id": "root-16f4f95b",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "root",
+        "type": "container",
+        "contains": [
+          "elasticsearch-c31f912e",
+          "redis-b418a1b8",
+          "nzinfo-2d11f002",
+          "nzindex-5a16c094",
+          "nzgithub-c4725537",
+          "nznpm-b37565a1",
+          "nzweb-2a7c341b"
+        ],
+        "specific": {}
+      },
+      "elasticsearch-c31f912e": {
+        "id": "elasticsearch-c31f912e",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "elasticsearch",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "name": "dockerfile/elasticsearch",
+          "execute": {
+            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
+          }
+        }
+      },
+      "redis-b418a1b8": {
+        "id": "redis-b418a1b8",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "redis",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "name": "redis:2.8",
+          "execute": {
+            "args": "-d -p 6379:6379"
+          }
+        }
+      },
+      "nzinfo-2d11f002": {
+        "id": "nzinfo-2d11f002",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzinfo",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-info.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9100:9100 -d",
+            "exec": "/usr/bin/node /srvs/info-prod.js"
+          }
+        }
+      },
+      "nzindex-5a16c094": {
+        "id": "nzindex-5a16c094",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzindex",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-index.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9003:9003 -d",
+            "exec": "/usr/bin/node /srvs/index-prod.js"
+          }
+        }
+      },
+      "nzgithub-c4725537": {
+        "id": "nzgithub-c4725537",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzgithub",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9002:9002 -d",
+            "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
+          }
+        }
+      },
+      "nznpm-b37565a1": {
+        "id": "nznpm-b37565a1",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nznpm",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9001:9001 -d",
+            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
+          }
+        }
+      },
+      "nzweb-2a7c341b": {
+        "id": "nzweb-2a7c341b",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzweb",
+        "type": "process",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 8000:8000 -d",
+            "exec": "/bin/bash run.sh"
+          }
+        }
+      }
+    }
+  }
+}
