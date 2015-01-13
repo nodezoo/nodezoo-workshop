@@ -29,6 +29,7 @@ exports.beanstalk = {
     name: 'kdihalas/beanstalkd',
     execute: {
       args: '-d -p 1130:1130',
+      exec: 'beanstalkd -p 1130'
     }
   }
 };

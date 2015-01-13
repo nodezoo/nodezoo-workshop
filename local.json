@@ -40,7 +40,8 @@
       "specific": {
         "name": "kdihalas/beanstalkd",
         "execute": {
-          "args": "-d -p 1130:1130"
+          "args": "-d -p 1130:1130",
+          "exec": "beanstalkd -p 1130"
         },
         "buildHead": 3,
         "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac"
@@ -185,7 +186,8 @@
         "specific": {
           "name": "kdihalas/beanstalkd",
           "execute": {
-            "args": "-d -p 1130:1130"
+            "args": "-d -p 1130:1130",
+            "exec": "beanstalkd -p 1130"
           },
           "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
