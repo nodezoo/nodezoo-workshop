@@ -165,7 +165,7 @@
           "nzinfo-11a3daca",
           "nzindex-66a4ea5c",
           "dc183979-6d25-4ec8-857f-b3485625990d",
-          "3db73200-102c-4b34-a39c-1535e9ab8847"
+          "c8afb7b6-642d-4e51-9d67-785741855c60"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -258,8 +258,8 @@
         "contains": [],
         "specific": {}
       },
-      "3db73200-102c-4b34-a39c-1535e9ab8847": {
-        "id": "3db73200-102c-4b34-a39c-1535e9ab8847",
+      "c8afb7b6-642d-4e51-9d67-785741855c60": {
+        "id": "c8afb7b6-642d-4e51-9d67-785741855c60",
         "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nzgithub",
         "type": "process",
