@@ -165,7 +165,7 @@
           "nzinfo-11a3daca",
           "nzindex-66a4ea5c",
           "nzgithub-ffadbbe6",
-          "a58fea39-254d-485f-a9a2-7d46f0bb7672"
+          "dc183979-6d25-4ec8-857f-b3485625990d"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -265,8 +265,8 @@
           "imageTag": "nodezoo/beanstalk"
         }
       },
-      "a58fea39-254d-485f-a9a2-7d46f0bb7672": {
-        "id": "a58fea39-254d-485f-a9a2-7d46f0bb7672",
+      "dc183979-6d25-4ec8-857f-b3485625990d": {
+        "id": "dc183979-6d25-4ec8-857f-b3485625990d",
         "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nznpm",
         "type": "process",
