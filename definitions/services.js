@@ -1,5 +1,5 @@
 exports.nznpm = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'git@github.com:rjrodger/nodezoo-npm.git',
     buildScript: 'build.sh',
@@ -11,7 +11,7 @@ exports.nznpm = {
 };
 
 exports.nzgithub = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'git@github.com:rjrodger/nodezoo-github.git',
     buildScript: 'build.sh',
@@ -23,7 +23,7 @@ exports.nzgithub = {
 };
 
 exports.nzindex = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'git@github.com:rjrodger/nodezoo-index.git',
     buildScript: 'build.sh',
@@ -35,7 +35,7 @@ exports.nzindex = {
 };
 
 exports.nzinfo = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'git@github.com:rjrodger/nodezoo-info.git',
     buildScript: 'build.sh',
@@ -47,7 +47,7 @@ exports.nzinfo = {
 };
 
 exports.nzweb = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'git@github.com:rjrodger/nodezoo-web.git',
     buildScript: 'build.sh',
