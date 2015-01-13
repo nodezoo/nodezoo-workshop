@@ -119,60 +119,55 @@
         "containerDefinitionId": "root",
         "type": "container",
         "contains": [
-          "elasticsearch-c31f912e",
-          "redis-b418a1b8",
-          "beanstalk-2d11f002",
-          "nzinfo-5a16c094",
-          "nzindex-c4725537",
-          "nzgithub-b37565a1",
-          "nznpm-2a7c341b",
-          "nzweb-5d7b048d"
+          "awsMachine$fe-d4f62ce0",
+          "awsMachine$svcs-d304fb60",
+          "awsMachine$inf-3ea5a142"
         ],
         "specific": {}
       },
-      "elasticsearch-c31f912e": {
-        "id": "elasticsearch-c31f912e",
+      "awsMachine$fe-d4f62ce0": {
+        "id": "awsMachine$fe-d4f62ce0",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "elasticsearch",
-        "type": "docker",
+        "containerDefinitionId": "awsMachine$fe",
+        "contains": [
+          "nzweb-32970204"
+        ],
+        "specific": {
+          "ImageId": "ami-cf0741ff"
+        }
+      },
+      "nzweb-32970204": {
+        "id": "nzweb-32970204",
+        "containedBy": "awsMachine$fe-d4f62ce0",
+        "containerDefinitionId": "nzweb",
+        "type": "process",
         "contains": [],
         "specific": {
-          "name": "dockerfile/elasticsearch",
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
+          "buildScript": "build.sh",
           "execute": {
-            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
-            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
+            "args": "-p 8000:8000 -e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+            "exec": "/bin/bash run.sh"
           }
         }
       },
-      "redis-b418a1b8": {
-        "id": "redis-b418a1b8",
+      "awsMachine$svcs-d304fb60": {
+        "id": "awsMachine$svcs-d304fb60",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
+        "containerDefinitionId": "awsMachine$svcs",
+        "contains": [
+          "nzinfo-11a3daca",
+          "nzindex-66a4ea5c",
+          "nzgithub-ffadbbe6",
+          "nznpm-88aa8b70"
+        ],
         "specific": {
-          "name": "redis:2.8",
-          "execute": {
-            "args": "-d -p 6379:6379"
-          }
+          "ImageId": "ami-cf0741ff"
         }
       },
-      "beanstalk-2d11f002": {
-        "id": "beanstalk-2d11f002",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "beanstalk",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "kdihalas/beanstalkd",
-          "execute": {
-            "args": "-d -p 1130:1130"
-          }
-        }
-      },
-      "nzinfo-5a16c094": {
-        "id": "nzinfo-5a16c094",
-        "containedBy": "root-16f4f95b",
+      "nzinfo-11a3daca": {
+        "id": "nzinfo-11a3daca",
+        "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nzinfo",
         "type": "process",
         "contains": [],
@@ -185,9 +180,9 @@
           }
         }
       },
-      "nzindex-c4725537": {
-        "id": "nzindex-c4725537",
-        "containedBy": "root-16f4f95b",
+      "nzindex-66a4ea5c": {
+        "id": "nzindex-66a4ea5c",
+        "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nzindex",
         "type": "process",
         "contains": [],
@@ -200,9 +195,9 @@
           }
         }
       },
-      "nzgithub-b37565a1": {
-        "id": "nzgithub-b37565a1",
-        "containedBy": "root-16f4f95b",
+      "nzgithub-ffadbbe6": {
+        "id": "nzgithub-ffadbbe6",
+        "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nzgithub",
         "type": "process",
         "contains": [],
@@ -215,9 +210,9 @@
           }
         }
       },
-      "nznpm-2a7c341b": {
-        "id": "nznpm-2a7c341b",
-        "containedBy": "root-16f4f95b",
+      "nznpm-88aa8b70": {
+        "id": "nznpm-88aa8b70",
+        "containedBy": "awsMachine$svcs-d304fb60",
         "containerDefinitionId": "nznpm",
         "type": "process",
         "contains": [],
@@ -230,18 +225,56 @@
           }
         }
       },
-      "nzweb-5d7b048d": {
-        "id": "nzweb-5d7b048d",
+      "awsMachine$inf-3ea5a142": {
+        "id": "awsMachine$inf-3ea5a142",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzweb",
-        "type": "process",
+        "containerDefinitionId": "awsMachine$inf",
+        "contains": [
+          "elasticsearch-3dafc9a1",
+          "redis-4aa8f937",
+          "beanstalk-d3a1a88d"
+        ],
+        "specific": {
+          "ImageId": "ami-cf0741ff"
+        }
+      },
+      "elasticsearch-3dafc9a1": {
+        "id": "elasticsearch-3dafc9a1",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "elasticsearch",
+        "type": "docker",
         "contains": [],
         "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
-          "buildScript": "build.sh",
+          "name": "dockerfile/elasticsearch",
           "execute": {
-            "args": "-p 8000:8000 -e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/bin/bash run.sh"
+            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
+          }
+        }
+      },
+      "redis-4aa8f937": {
+        "id": "redis-4aa8f937",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "name": "redis:2.8",
+          "execute": {
+            "args": "-d -p 6379:6379"
+          }
+        }
+      },
+      "beanstalk-d3a1a88d": {
+        "id": "beanstalk-d3a1a88d",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "beanstalk",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "name": "kdihalas/beanstalkd",
+          "execute": {
+            "args": "-d -p 1130:1130"
           }
         }
       }
