@@ -11,18 +11,6 @@
     {
       "type": "docker",
       "specific": {
-        "name": "redis:2.8",
-        "execute": {
-          "args": "-d -p 6379:6379"
-        },
-        "buildHead": 1
-      },
-      "id": "redis",
-      "name": "redis"
-    },
-    {
-      "type": "docker",
-      "specific": {
         "name": "dockerfile/elasticsearch",
         "execute": {
           "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
@@ -109,6 +97,20 @@
       },
       "id": "nzweb",
       "name": "nzweb"
+    },
+    {
+      "type": "docker",
+      "specific": {
+        "name": "redis:2.8",
+        "execute": {
+          "args": "-d -p 6379:6379"
+        },
+        "buildHead": 2,
+        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+        "imageTag": "nodezoo/redis"
+      },
+      "id": "redis",
+      "name": "redis"
     }
   ],
   "topology": {
@@ -231,8 +233,8 @@
         "containerDefinitionId": "awsMachine$inf",
         "contains": [
           "elasticsearch-3dafc9a1",
-          "redis-4aa8f937",
-          "beanstalk-d3a1a88d"
+          "beanstalk-d3a1a88d",
+          "3693f540-5047-4df3-b4c6-453569d43fd5"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -252,19 +254,6 @@
           }
         }
       },
-      "redis-4aa8f937": {
-        "id": "redis-4aa8f937",
-        "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "redis:2.8",
-          "execute": {
-            "args": "-d -p 6379:6379"
-          }
-        }
-      },
       "beanstalk-d3a1a88d": {
         "id": "beanstalk-d3a1a88d",
         "containedBy": "awsMachine$inf-3ea5a142",
@@ -276,6 +265,18 @@
           "execute": {
             "args": "-d -p 1130:1130"
           }
+        }
+      },
+      "3693f540-5047-4df3-b4c6-453569d43fd5": {
+        "id": "3693f540-5047-4df3-b4c6-453569d43fd5",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+          "dockerLocalTag": "localhost:8011/nodezoo/redis",
+          "imageTag": "nodezoo/redis"
         }
       }
     }
