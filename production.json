@@ -11,19 +11,6 @@
     {
       "type": "docker",
       "specific": {
-        "name": "redis:2.8",
-        "execute": {
-          "args": "-d -p 6379:6379"
-        },
-        "buildHead": 2,
-        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb"
-      },
-      "id": "redis",
-      "name": "redis"
-    },
-    {
-      "type": "docker",
-      "specific": {
         "name": "dockerfile/elasticsearch",
         "execute": {
           "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
@@ -117,6 +104,20 @@
       },
       "id": "nzweb",
       "name": "nzweb"
+    },
+    {
+      "type": "docker",
+      "specific": {
+        "name": "redis:2.8",
+        "execute": {
+          "args": "-d -p 6379:6379"
+        },
+        "buildHead": 3,
+        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+        "imageTag": "nodezoo/redis"
+      },
+      "id": "redis",
+      "name": "redis"
     }
   ],
   "topology": {
@@ -239,8 +240,8 @@
         "containerDefinitionId": "awsMachine$inf",
         "contains": [
           "elasticsearch-3dafc9a1",
-          "redis-4aa8f937",
-          "beanstalk-d3a1a88d"
+          "beanstalk-d3a1a88d",
+          "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -263,22 +264,6 @@
           "imageTag": "nodezoo/elasticsearch"
         }
       },
-      "redis-4aa8f937": {
-        "id": "redis-4aa8f937",
-        "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "redis:2.8",
-          "execute": {
-            "args": "-d -p 6379:6379"
-          },
-          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
-          "dockerLocalTag": "localhost:8011/nodezoo/redis",
-          "imageTag": "nodezoo/redis"
-        }
-      },
       "beanstalk-d3a1a88d": {
         "id": "beanstalk-d3a1a88d",
         "containedBy": "awsMachine$inf-3ea5a142",
@@ -293,6 +278,18 @@
           "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
+        }
+      },
+      "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6": {
+        "id": "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+          "dockerLocalTag": "localhost:8011/nodezoo/redis",
+          "imageTag": "nodezoo/redis"
         }
       }
     }

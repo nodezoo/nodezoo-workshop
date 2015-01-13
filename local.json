@@ -15,8 +15,9 @@
         "execute": {
           "args": "-d -p 6379:6379"
         },
-        "buildHead": 2,
-        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb"
+        "buildHead": 3,
+        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+        "imageTag": "nodezoo/redis"
       },
       "id": "redis",
       "name": "redis"
@@ -128,7 +129,7 @@
         "type": "container",
         "contains": [
           "elasticsearch-c31f912e",
-          "redis-b418a1b8",
+          "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
           "beanstalk-2d11f002",
           "nzinfo-5a16c094",
           "nzindex-c4725537",
@@ -153,22 +154,6 @@
           "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
           "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
           "imageTag": "nodezoo/elasticsearch"
-        }
-      },
-      "redis-b418a1b8": {
-        "id": "redis-b418a1b8",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "redis:2.8",
-          "execute": {
-            "args": "-d -p 6379:6379"
-          },
-          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
-          "dockerLocalTag": "localhost:8011/nodezoo/redis",
-          "imageTag": "nodezoo/redis"
         }
       },
       "beanstalk-2d11f002": {
@@ -261,7 +246,20 @@
             "exec": "/bin/bash run.sh"
           }
         }
+      },
+      "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6": {
+        "id": "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+          "dockerLocalTag": "localhost:8011/nodezoo/redis",
+          "imageTag": "nodezoo/redis"
+        }
       }
     }
-  }
+  },
+  "repoPath": "/Users/pelger/work/nearform/code/product/examples/nodezoo"
 }
