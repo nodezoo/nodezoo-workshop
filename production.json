@@ -11,20 +11,6 @@
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-        "buildScript": "build.sh",
-        "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-          "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
-        },
-        "buildHead": 1
-      },
-      "id": "nznpm",
-      "name": "nznpm"
-    },
-    {
-      "type": "docker",
-      "specific": {
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
         "buildScript": "build.sh",
         "execute": {
@@ -120,6 +106,22 @@
       },
       "id": "beanstalk",
       "name": "beanstalk"
+    },
+    {
+      "type": "docker",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
+        },
+        "buildHead": 2,
+        "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835"
+      },
+      "id": "nznpm",
+      "name": "nznpm",
+      "version": "0.1.0"
     }
   ],
   "topology": {
@@ -170,7 +172,7 @@
           "nzinfo-11a3daca",
           "nzindex-66a4ea5c",
           "nzgithub-ffadbbe6",
-          "nznpm-88aa8b70"
+          "823d298f-6864-4514-b2dd-d5d0247cd8fa"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -221,21 +223,6 @@
           }
         }
       },
-      "nznpm-88aa8b70": {
-        "id": "nznpm-88aa8b70",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nznpm",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
-          }
-        }
-      },
       "awsMachine$inf-3ea5a142": {
         "id": "awsMachine$inf-3ea5a142",
         "containedBy": "root-16f4f95b",
@@ -283,6 +270,19 @@
           "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
+        }
+      },
+      "823d298f-6864-4514-b2dd-d5d0247cd8fa": {
+        "id": "823d298f-6864-4514-b2dd-d5d0247cd8fa",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nznpm",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
+          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
         }
       }
     }

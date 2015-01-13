@@ -60,10 +60,12 @@
           "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835"
       },
       "id": "nznpm",
-      "name": "nznpm"
+      "name": "nznpm",
+      "version": "0.1.0"
     },
     {
       "type": "docker",
@@ -136,7 +138,7 @@
           "nzinfo-5a16c094",
           "nzindex-c4725537",
           "nzgithub-b37565a1",
-          "nznpm-2a7c341b",
+          "823d298f-6864-4514-b2dd-d5d0247cd8fa",
           "nzweb-5d7b048d"
         ],
         "specific": {}
@@ -183,21 +185,6 @@
           "execute": {
             "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
             "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
-          }
-        }
-      },
-      "nznpm-2a7c341b": {
-        "id": "nznpm-2a7c341b",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nznpm",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
           }
         }
       },
@@ -250,6 +237,19 @@
           "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
+        }
+      },
+      "823d298f-6864-4514-b2dd-d5d0247cd8fa": {
+        "id": "823d298f-6864-4514-b2dd-d5d0247cd8fa",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nznpm",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
+          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
         }
       }
     }
