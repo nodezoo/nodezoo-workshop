@@ -92,10 +92,12 @@
           "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
           "exec": "/usr/bin/node /srvs/index-prod.js"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402"
       },
       "id": "nzindex",
-      "name": "nzindex"
+      "name": "nzindex",
+      "version": "0.1.0"
     },
     {
       "type": "docker",
@@ -138,7 +140,7 @@
           "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
           "2fba95a2-b301-429b-89c2-e65b59272bf4",
           "nzinfo-5a16c094",
-          "nzindex-c4725537",
+          "d8a8bb83-8345-4fca-b4b3-cf6007df5e99",
           "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
           "823d298f-6864-4514-b2dd-d5d0247cd8fa",
           "nzweb-5d7b048d"
@@ -157,21 +159,6 @@
           "execute": {
             "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
             "exec": "/usr/bin/node /srvs/info-prod.js"
-          }
-        }
-      },
-      "nzindex-c4725537": {
-        "id": "nzindex-c4725537",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzindex",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-index.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node /srvs/index-prod.js"
           }
         }
       },
@@ -248,6 +235,19 @@
         "specific": {
           "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda",
           "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "d8a8bb83-8345-4fca-b4b3-cf6007df5e99": {
+        "id": "d8a8bb83-8345-4fca-b4b3-cf6007df5e99",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzindex",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzindex-1",
           "buildNumber": 1,
           "version": "0.1.0"
         }
