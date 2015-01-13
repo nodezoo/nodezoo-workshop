@@ -16,8 +16,7 @@
           "args": "-d -p 6379:6379"
         },
         "buildHead": 3,
-        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
-        "imageTag": "nodezoo/redis"
+        "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb"
       },
       "id": "redis",
       "name": "redis"
@@ -31,8 +30,7 @@
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         },
         "buildHead": 3,
-        "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
-        "imageTag": "nodezoo/elasticsearch"
+        "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac"
       },
       "id": "elasticsearch",
       "name": "elasticsearch"
@@ -45,8 +43,7 @@
           "args": "-d -p 1130:1130"
         },
         "buildHead": 3,
-        "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
-        "imageTag": "nodezoo/beanstalk"
+        "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac"
       },
       "id": "beanstalk",
       "name": "beanstalk"
@@ -57,15 +54,14 @@
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
         "buildScript": "build.sh",
         "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
         "buildHead": 2,
         "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835"
       },
       "id": "nznpm",
-      "name": "nznpm",
-      "version": "0.1.0"
+      "name": "nznpm"
     },
     {
       "type": "docker",
@@ -73,15 +69,14 @@
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
         "buildScript": "build.sh",
         "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
         },
         "buildHead": 2,
         "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda"
       },
       "id": "nzgithub",
-      "name": "nzgithub",
-      "version": "0.1.0"
+      "name": "nzgithub"
     },
     {
       "type": "docker",
@@ -89,15 +84,14 @@
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-index.git",
         "buildScript": "build.sh",
         "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/index-prod.js"
         },
         "buildHead": 2,
         "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402"
       },
       "id": "nzindex",
-      "name": "nzindex",
-      "version": "0.1.0"
+      "name": "nzindex"
     },
     {
       "type": "docker",
@@ -105,15 +99,14 @@
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-info.git",
         "buildScript": "build.sh",
         "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/info-prod.js"
         },
         "buildHead": 2,
         "dockerImageId": "3bc56a3212d803ed04414d9fe075e718146173bdb73bf94d9fcae1bce45b17ab"
       },
       "id": "nzinfo",
-      "name": "nzinfo",
-      "version": "0.1.0"
+      "name": "nzinfo"
     },
     {
       "type": "docker",
@@ -121,15 +114,14 @@
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
         "buildScript": "build.sh",
         "execute": {
-          "args": "-p 8000:8000 -e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/bin/bash run.sh"
         },
         "buildHead": 2,
         "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a"
       },
       "id": "nzweb",
-      "name": "nzweb",
-      "version": "0.1.0"
+      "name": "nzweb"
     }
   ],
   "topology": {
@@ -151,10 +143,29 @@
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "awsMachine$fe",
         "contains": [
-          "7f3af63d-b117-4019-8aed-54dd05f3c187"
+          "nzweb-32970204"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
+        }
+      },
+      "nzweb-32970204": {
+        "id": "nzweb-32970204",
+        "containedBy": "awsMachine$fe-d4f62ce0",
+        "containerDefinitionId": "nzweb",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
+            "exec": "/bin/bash run.sh"
+          },
+          "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzweb-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
         }
       },
       "awsMachine$svcs-d304fb60": {
@@ -162,13 +173,89 @@
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "awsMachine$svcs",
         "contains": [
-          "823d298f-6864-4514-b2dd-d5d0247cd8fa",
-          "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
-          "d8a8bb83-8345-4fca-b4b3-cf6007df5e99",
-          "e417d8ae-1da4-4762-8004-1f103f73352e"
+          "nzinfo-11a3daca",
+          "nzindex-66a4ea5c",
+          "nzgithub-ffadbbe6",
+          "nznpm-88aa8b70"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
+        }
+      },
+      "nzinfo-11a3daca": {
+        "id": "nzinfo-11a3daca",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nzinfo",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-info.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
+            "exec": "/usr/bin/node /srvs/info-prod.js"
+          },
+          "dockerImageId": "3bc56a3212d803ed04414d9fe075e718146173bdb73bf94d9fcae1bce45b17ab",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "nzindex-66a4ea5c": {
+        "id": "nzindex-66a4ea5c",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nzindex",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-index.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
+            "exec": "/usr/bin/node /srvs/index-prod.js"
+          },
+          "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzindex-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "nzgithub-ffadbbe6": {
+        "id": "nzgithub-ffadbbe6",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nzgithub",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
+            "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
+          },
+          "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "nznpm-88aa8b70": {
+        "id": "nznpm-88aa8b70",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nznpm",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
+            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
+          },
+          "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
+          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
         }
       },
       "awsMachine$inf-3ea5a142": {
@@ -176,113 +263,61 @@
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "awsMachine$inf",
         "contains": [
-          "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
-          "68a67e23-3927-4e59-85ce-ee3c0d61771e",
-          "2fba95a2-b301-429b-89c2-e65b59272bf4"
+          "elasticsearch-3dafc9a1",
+          "redis-4aa8f937",
+          "beanstalk-d3a1a88d"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
         }
       },
-      "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6": {
-        "id": "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
-        "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "redis",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
-          "dockerLocalTag": "localhost:8011/nodezoo/redis",
-          "imageTag": "nodezoo/redis"
-        }
-      },
-      "68a67e23-3927-4e59-85ce-ee3c0d61771e": {
-        "id": "68a67e23-3927-4e59-85ce-ee3c0d61771e",
+      "elasticsearch-3dafc9a1": {
+        "id": "elasticsearch-3dafc9a1",
         "containedBy": "awsMachine$inf-3ea5a142",
         "containerDefinitionId": "elasticsearch",
         "type": "docker",
         "contains": [],
         "specific": {
+          "name": "dockerfile/elasticsearch",
+          "execute": {
+            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
+            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
+          },
           "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
           "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
           "imageTag": "nodezoo/elasticsearch"
         }
       },
-      "2fba95a2-b301-429b-89c2-e65b59272bf4": {
-        "id": "2fba95a2-b301-429b-89c2-e65b59272bf4",
+      "redis-4aa8f937": {
+        "id": "redis-4aa8f937",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "redis",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "name": "redis:2.8",
+          "execute": {
+            "args": "-d -p 6379:6379"
+          },
+          "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
+          "dockerLocalTag": "localhost:8011/nodezoo/redis",
+          "imageTag": "nodezoo/redis"
+        }
+      },
+      "beanstalk-d3a1a88d": {
+        "id": "beanstalk-d3a1a88d",
         "containedBy": "awsMachine$inf-3ea5a142",
         "containerDefinitionId": "beanstalk",
         "type": "docker",
         "contains": [],
         "specific": {
+          "name": "kdihalas/beanstalkd",
+          "execute": {
+            "args": "-d -p 1130:1130"
+          },
           "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
-        }
-      },
-      "823d298f-6864-4514-b2dd-d5d0247cd8fa": {
-        "id": "823d298f-6864-4514-b2dd-d5d0247cd8fa",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nznpm",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
-          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
-        }
-      },
-      "d3206db2-8fbd-43ac-a7d8-0304dfdc001f": {
-        "id": "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nzgithub",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
-        }
-      },
-      "d8a8bb83-8345-4fca-b4b3-cf6007df5e99": {
-        "id": "d8a8bb83-8345-4fca-b4b3-cf6007df5e99",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nzindex",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzindex-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
-        }
-      },
-      "e417d8ae-1da4-4762-8004-1f103f73352e": {
-        "id": "e417d8ae-1da4-4762-8004-1f103f73352e",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nzinfo",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "3bc56a3212d803ed04414d9fe075e718146173bdb73bf94d9fcae1bce45b17ab",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
-        }
-      },
-      "7f3af63d-b117-4019-8aed-54dd05f3c187": {
-        "id": "7f3af63d-b117-4019-8aed-54dd05f3c187",
-        "containedBy": "awsMachine$fe-d4f62ce0",
-        "containerDefinitionId": "nzweb",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzweb-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
         }
       }
     }
