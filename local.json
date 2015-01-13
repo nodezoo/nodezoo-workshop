@@ -76,10 +76,12 @@
           "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
           "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda"
       },
       "id": "nzgithub",
-      "name": "nzgithub"
+      "name": "nzgithub",
+      "version": "0.1.0"
     },
     {
       "type": "docker",
@@ -137,7 +139,7 @@
           "2fba95a2-b301-429b-89c2-e65b59272bf4",
           "nzinfo-5a16c094",
           "nzindex-c4725537",
-          "nzgithub-b37565a1",
+          "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
           "823d298f-6864-4514-b2dd-d5d0247cd8fa",
           "nzweb-5d7b048d"
         ],
@@ -170,21 +172,6 @@
           "execute": {
             "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
             "exec": "/usr/bin/node /srvs/index-prod.js"
-          }
-        }
-      },
-      "nzgithub-b37565a1": {
-        "id": "nzgithub-b37565a1",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzgithub",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
           }
         }
       },
@@ -248,6 +235,19 @@
         "specific": {
           "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
           "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "d3206db2-8fbd-43ac-a7d8-0304dfdc001f": {
+        "id": "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzgithub",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "c781d17a2b23a27a9f12e868e5423fa9f2b0243f38135e45eff59bbd9bf43bda",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzgithub-1",
           "buildNumber": 1,
           "version": "0.1.0"
         }
