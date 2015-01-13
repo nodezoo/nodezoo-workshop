@@ -124,10 +124,12 @@
           "args": "-p 8000:8000 -e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
           "exec": "/bin/bash run.sh"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a"
       },
       "id": "nzweb",
-      "name": "nzweb"
+      "name": "nzweb",
+      "version": "0.1.0"
     }
   ],
   "topology": {
@@ -145,24 +147,9 @@
           "d8a8bb83-8345-4fca-b4b3-cf6007df5e99",
           "d3206db2-8fbd-43ac-a7d8-0304dfdc001f",
           "823d298f-6864-4514-b2dd-d5d0247cd8fa",
-          "nzweb-5d7b048d"
+          "7f3af63d-b117-4019-8aed-54dd05f3c187"
         ],
         "specific": {}
-      },
-      "nzweb-5d7b048d": {
-        "id": "nzweb-5d7b048d",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzweb",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-web.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-p 8000:8000 -e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/bin/bash run.sh"
-          }
-        }
       },
       "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6": {
         "id": "1f5fcb6c-21b3-4caa-9c99-6661ac3532f6",
@@ -248,6 +235,19 @@
         "specific": {
           "dockerImageId": "3bc56a3212d803ed04414d9fe075e718146173bdb73bf94d9fcae1bce45b17ab",
           "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-1",
+          "buildNumber": 1,
+          "version": "0.1.0"
+        }
+      },
+      "7f3af63d-b117-4019-8aed-54dd05f3c187": {
+        "id": "7f3af63d-b117-4019-8aed-54dd05f3c187",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nzweb",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a",
+          "dockerLocalTag": "localhost:8011/nodezoo/nzweb-1",
           "buildNumber": 1,
           "version": "0.1.0"
         }
