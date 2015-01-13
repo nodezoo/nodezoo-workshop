@@ -30,7 +30,9 @@
           "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
+        "imageTag": "nodezoo/elasticsearch"
       },
       "id": "elasticsearch",
       "name": "elasticsearch"
@@ -121,7 +123,7 @@
         "containerDefinitionId": "root",
         "type": "container",
         "contains": [
-          "elasticsearch-c31f912e",
+          "8d3a9e27-2a77-4740-b860-3e9ec63cc095",
           "3693f540-5047-4df3-b4c6-453569d43fd5",
           "beanstalk-2d11f002",
           "nzinfo-5a16c094",
@@ -131,20 +133,6 @@
           "nzweb-5d7b048d"
         ],
         "specific": {}
-      },
-      "elasticsearch-c31f912e": {
-        "id": "elasticsearch-c31f912e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "elasticsearch",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "dockerfile/elasticsearch",
-          "execute": {
-            "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
-            "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
-          }
-        }
       },
       "beanstalk-2d11f002": {
         "id": "beanstalk-2d11f002",
@@ -244,6 +232,18 @@
           "dockerImageId": "3b7234aa3098129352dcc032383aaf789de2d64595938ba16302db9d1aedf8eb",
           "dockerLocalTag": "localhost:8011/nodezoo/redis",
           "imageTag": "nodezoo/redis"
+        }
+      },
+      "8d3a9e27-2a77-4740-b860-3e9ec63cc095": {
+        "id": "8d3a9e27-2a77-4740-b860-3e9ec63cc095",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "elasticsearch",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
+          "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
+          "imageTag": "nodezoo/elasticsearch"
         }
       }
     }
