@@ -131,7 +131,7 @@
           "nzinfo-5a16c094",
           "nzindex-c4725537",
           "nzgithub-b37565a1",
-          "nznpm-2a7c341b",
+          "a58fea39-254d-485f-a9a2-7d46f0bb7672",
           "nzweb-5d7b048d"
         ],
         "specific": {}
@@ -178,21 +178,6 @@
           "execute": {
             "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
             "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
-          }
-        }
-      },
-      "nznpm-2a7c341b": {
-        "id": "nznpm-2a7c341b",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nznpm",
-        "type": "process",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
           }
         }
       },
@@ -246,6 +231,14 @@
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
         }
+      },
+      "a58fea39-254d-485f-a9a2-7d46f0bb7672": {
+        "id": "a58fea39-254d-485f-a9a2-7d46f0bb7672",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "nznpm",
+        "type": "process",
+        "contains": [],
+        "specific": {}
       }
     }
   },

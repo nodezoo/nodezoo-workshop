@@ -11,19 +11,6 @@
     {
       "type": "process",
       "specific": {
-        "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-        "buildScript": "build.sh",
-        "execute": {
-          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-          "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
-        }
-      },
-      "id": "nznpm",
-      "name": "nznpm"
-    },
-    {
-      "type": "process",
-      "specific": {
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-github.git",
         "buildScript": "build.sh",
         "execute": {
@@ -115,6 +102,19 @@
       },
       "id": "beanstalk",
       "name": "beanstalk"
+    },
+    {
+      "type": "process",
+      "specific": {
+        "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
+        "buildScript": "build.sh",
+        "execute": {
+          "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
+          "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
+        }
+      },
+      "id": "nznpm",
+      "name": "nznpm"
     }
   ],
   "topology": {
@@ -165,7 +165,7 @@
           "nzinfo-11a3daca",
           "nzindex-66a4ea5c",
           "nzgithub-ffadbbe6",
-          "nznpm-88aa8b70"
+          "a58fea39-254d-485f-a9a2-7d46f0bb7672"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -213,21 +213,6 @@
           "execute": {
             "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
             "exec": "/usr/bin/node srvs/github-prod.js --seneca.options.github.token=a7626b8dbcd5627671639484460b11900818a64e --seneca.log.all"
-          }
-        }
-      },
-      "nznpm-88aa8b70": {
-        "id": "nznpm-88aa8b70",
-        "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nznpm",
-        "type": "process",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-e BEANSTALK_IP=127.0.0.1 -e REDIS_IP=127.0.0.1 -e ES_IP=127.0.0.1 -d",
-            "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
           }
         }
       },
@@ -279,6 +264,14 @@
           "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
           "imageTag": "nodezoo/beanstalk"
         }
+      },
+      "a58fea39-254d-485f-a9a2-7d46f0bb7672": {
+        "id": "a58fea39-254d-485f-a9a2-7d46f0bb7672",
+        "containedBy": "awsMachine$svcs-d304fb60",
+        "containerDefinitionId": "nznpm",
+        "type": "process",
+        "contains": [],
+        "specific": {}
       }
     }
   }
