@@ -1,5 +1,5 @@
 exports.root = {
-  type: 'container'
+  type: 'blank-container'
 };
 
 exports.redis = {

@@ -4,7 +4,7 @@
   "id": "3c1703f1-35bf-446c-875f-9bb50fc9302c",
   "containerDefinitions": [
     {
-      "type": "container",
+      "type": "blank-container",
       "id": "root",
       "name": "root"
     },
@@ -130,7 +130,7 @@
         "id": "root-16f4f95b",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "root",
-        "type": "container",
+        "type": "blank-container",
         "contains": [
           "awsMachine$fe-d4f62ce0",
           "awsMachine$svcs-d304fb60",
