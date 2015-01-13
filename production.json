@@ -9,18 +9,6 @@
       "name": "root"
     },
     {
-      "type": "docker",
-      "specific": {
-        "name": "kdihalas/beanstalkd",
-        "execute": {
-          "args": "-d -p 1130:1130"
-        },
-        "buildHead": 1
-      },
-      "id": "beanstalk",
-      "name": "beanstalk"
-    },
-    {
       "type": "process",
       "specific": {
         "repositoryUrl": "git@github.com:rjrodger/nodezoo-npm.git",
@@ -113,6 +101,20 @@
       },
       "id": "elasticsearch",
       "name": "elasticsearch"
+    },
+    {
+      "type": "docker",
+      "specific": {
+        "name": "kdihalas/beanstalkd",
+        "execute": {
+          "args": "-d -p 1130:1130"
+        },
+        "buildHead": 2,
+        "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
+        "imageTag": "nodezoo/beanstalk"
+      },
+      "id": "beanstalk",
+      "name": "beanstalk"
     }
   ],
   "topology": {
@@ -234,25 +236,12 @@
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "awsMachine$inf",
         "contains": [
-          "beanstalk-d3a1a88d",
           "3693f540-5047-4df3-b4c6-453569d43fd5",
-          "8d3a9e27-2a77-4740-b860-3e9ec63cc095"
+          "8d3a9e27-2a77-4740-b860-3e9ec63cc095",
+          "02ff5682-eaac-4764-a42f-888ce95c03d5"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
-        }
-      },
-      "beanstalk-d3a1a88d": {
-        "id": "beanstalk-d3a1a88d",
-        "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "beanstalk",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "kdihalas/beanstalkd",
-          "execute": {
-            "args": "-d -p 1130:1130"
-          }
         }
       },
       "3693f540-5047-4df3-b4c6-453569d43fd5": {
@@ -277,6 +266,18 @@
           "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
           "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
           "imageTag": "nodezoo/elasticsearch"
+        }
+      },
+      "02ff5682-eaac-4764-a42f-888ce95c03d5": {
+        "id": "02ff5682-eaac-4764-a42f-888ce95c03d5",
+        "containedBy": "awsMachine$inf-3ea5a142",
+        "containerDefinitionId": "beanstalk",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
+          "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
+          "imageTag": "nodezoo/beanstalk"
         }
       }
     }

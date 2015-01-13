@@ -44,7 +44,9 @@
         "execute": {
           "args": "-d -p 1130:1130"
         },
-        "buildHead": 1
+        "buildHead": 2,
+        "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
+        "imageTag": "nodezoo/beanstalk"
       },
       "id": "beanstalk",
       "name": "beanstalk"
@@ -125,7 +127,7 @@
         "contains": [
           "8d3a9e27-2a77-4740-b860-3e9ec63cc095",
           "3693f540-5047-4df3-b4c6-453569d43fd5",
-          "beanstalk-2d11f002",
+          "02ff5682-eaac-4764-a42f-888ce95c03d5",
           "nzinfo-5a16c094",
           "nzindex-c4725537",
           "nzgithub-b37565a1",
@@ -133,19 +135,6 @@
           "nzweb-5d7b048d"
         ],
         "specific": {}
-      },
-      "beanstalk-2d11f002": {
-        "id": "beanstalk-2d11f002",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "beanstalk",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "name": "kdihalas/beanstalkd",
-          "execute": {
-            "args": "-d -p 1130:1130"
-          }
-        }
       },
       "nzinfo-5a16c094": {
         "id": "nzinfo-5a16c094",
@@ -244,6 +233,18 @@
           "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
           "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
           "imageTag": "nodezoo/elasticsearch"
+        }
+      },
+      "02ff5682-eaac-4764-a42f-888ce95c03d5": {
+        "id": "02ff5682-eaac-4764-a42f-888ce95c03d5",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "beanstalk",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
+          "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
+          "imageTag": "nodezoo/beanstalk"
         }
       }
     }
