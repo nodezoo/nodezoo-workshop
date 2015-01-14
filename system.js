@@ -6,7 +6,14 @@ exports.topology = {
   local: {
     root: ['elasticsearch', 'redis', 'beanstalk', 'nzinfo', 'nzindex', 'nzgithub', 'nznpm', 'nzweb']
   },
-  production: {
+  blue: {
+    root: {
+      awsMachine$fe: ['nzweb'],
+      awsMachine$svcs: ['nzinfo', 'nzindex', 'nzgithub', 'nznpm'],
+      awsMachine$inf: ['elasticsearch', 'redis', 'beanstalk']
+    }
+  },
+  green: {
     root: {
       awsMachine$fe: ['nzweb'],
       awsMachine$svcs: ['nzinfo', 'nzindex', 'nzgithub', 'nznpm'],
