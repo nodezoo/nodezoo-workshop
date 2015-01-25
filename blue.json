@@ -60,9 +60,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
-        "commit": "f845b56b0a3dcac3e09069241197692fab87e969"
+        "commit": "9e343281af2bec21d5642d64b59a7cefaba48136"
       },
-      "id": "nznpm$f845b56b0a3dcac3e09069241197692fab87e969",
+      "id": "nznpm$9e343281af2bec21d5642d64b59a7cefaba48136",
       "name": "nznpm"
     },
     {
@@ -88,9 +88,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/index-prod.js"
         },
-        "commit": "064b4e94ae5dd21955ef6409f31c420239798382"
+        "commit": "82054756e8220231b816dd80e7d31e115aef294d"
       },
-      "id": "nzindex$064b4e94ae5dd21955ef6409f31c420239798382",
+      "id": "nzindex$82054756e8220231b816dd80e7d31e115aef294d",
       "name": "nzindex"
     },
     {
@@ -102,9 +102,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/info-prod.js"
         },
-        "commit": "4c79a7e6faca95de6ce0ef60141f07646fcbec39"
+        "commit": "a45c8f979aab0668fb5c6b63a111e832778ad722"
       },
-      "id": "nzinfo$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+      "id": "nzinfo$a45c8f979aab0668fb5c6b63a111e832778ad722",
       "name": "nzinfo"
     },
     {
@@ -116,9 +116,9 @@
           "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/bin/bash run.sh"
         },
-        "commit": "2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6"
+        "commit": "ebf2021909a47877750c1774d85367aaca671b80"
       },
-      "id": "nzweb$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+      "id": "nzweb$ebf2021909a47877750c1774d85367aaca671b80",
       "name": "nzweb"
     }
   ],
@@ -142,7 +142,7 @@
         "containerDefinitionId": "awsMachine",
         "type": "aws-ami",
         "contains": [
-          "nzweb-32970204$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6"
+          "nzweb-32970204$ebf2021909a47877750c1774d85367aaca671b80"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -154,10 +154,10 @@
         "containerDefinitionId": "awsMachine",
         "type": "aws-ami",
         "contains": [
-          "nznpm-88aa8b70$f845b56b0a3dcac3e09069241197692fab87e969",
+          "nznpm-88aa8b70$9e343281af2bec21d5642d64b59a7cefaba48136",
           "nzgithub-ffadbbe6$a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac",
-          "nzindex-66a4ea5c$064b4e94ae5dd21955ef6409f31c420239798382",
-          "nzinfo-11a3daca$4c79a7e6faca95de6ce0ef60141f07646fcbec39"
+          "nzindex-66a4ea5c$82054756e8220231b816dd80e7d31e115aef294d",
+          "nzinfo-11a3daca$a45c8f979aab0668fb5c6b63a111e832778ad722"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -218,10 +218,10 @@
           }
         }
       },
-      "nznpm-88aa8b70$f845b56b0a3dcac3e09069241197692fab87e969": {
-        "id": "nznpm-88aa8b70$f845b56b0a3dcac3e09069241197692fab87e969",
+      "nznpm-88aa8b70$9e343281af2bec21d5642d64b59a7cefaba48136": {
+        "id": "nznpm-88aa8b70$9e343281af2bec21d5642d64b59a7cefaba48136",
         "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nznpm$f845b56b0a3dcac3e09069241197692fab87e969",
+        "containerDefinitionId": "nznpm$9e343281af2bec21d5642d64b59a7cefaba48136",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -231,7 +231,7 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
           },
-          "commit": "f845b56b0a3dcac3e09069241197692fab87e969"
+          "commit": "9e343281af2bec21d5642d64b59a7cefaba48136"
         }
       },
       "nzgithub-ffadbbe6$a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac": {
@@ -250,10 +250,10 @@
           "commit": "a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac"
         }
       },
-      "nzindex-66a4ea5c$064b4e94ae5dd21955ef6409f31c420239798382": {
-        "id": "nzindex-66a4ea5c$064b4e94ae5dd21955ef6409f31c420239798382",
+      "nzindex-66a4ea5c$82054756e8220231b816dd80e7d31e115aef294d": {
+        "id": "nzindex-66a4ea5c$82054756e8220231b816dd80e7d31e115aef294d",
         "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nzindex$064b4e94ae5dd21955ef6409f31c420239798382",
+        "containerDefinitionId": "nzindex$82054756e8220231b816dd80e7d31e115aef294d",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -263,13 +263,13 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node /srvs/index-prod.js"
           },
-          "commit": "064b4e94ae5dd21955ef6409f31c420239798382"
+          "commit": "82054756e8220231b816dd80e7d31e115aef294d"
         }
       },
-      "nzinfo-11a3daca$4c79a7e6faca95de6ce0ef60141f07646fcbec39": {
-        "id": "nzinfo-11a3daca$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+      "nzinfo-11a3daca$a45c8f979aab0668fb5c6b63a111e832778ad722": {
+        "id": "nzinfo-11a3daca$a45c8f979aab0668fb5c6b63a111e832778ad722",
         "containedBy": "awsMachine$svcs-d304fb60",
-        "containerDefinitionId": "nzinfo$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+        "containerDefinitionId": "nzinfo$a45c8f979aab0668fb5c6b63a111e832778ad722",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -279,13 +279,13 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node /srvs/info-prod.js"
           },
-          "commit": "4c79a7e6faca95de6ce0ef60141f07646fcbec39"
+          "commit": "a45c8f979aab0668fb5c6b63a111e832778ad722"
         }
       },
-      "nzweb-32970204$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6": {
-        "id": "nzweb-32970204$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+      "nzweb-32970204$ebf2021909a47877750c1774d85367aaca671b80": {
+        "id": "nzweb-32970204$ebf2021909a47877750c1774d85367aaca671b80",
         "containedBy": "awsMachine$fe-d4f62ce0",
-        "containerDefinitionId": "nzweb$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+        "containerDefinitionId": "nzweb$ebf2021909a47877750c1774d85367aaca671b80",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -295,7 +295,7 @@
             "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/bin/bash run.sh"
           },
-          "commit": "2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6"
+          "commit": "ebf2021909a47877750c1774d85367aaca671b80"
         }
       }
     },

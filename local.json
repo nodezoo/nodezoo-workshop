@@ -52,9 +52,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
         },
-        "commit": "f845b56b0a3dcac3e09069241197692fab87e969"
+        "commit": "9e343281af2bec21d5642d64b59a7cefaba48136"
       },
-      "id": "nznpm$f845b56b0a3dcac3e09069241197692fab87e969",
+      "id": "nznpm$9e343281af2bec21d5642d64b59a7cefaba48136",
       "name": "nznpm"
     },
     {
@@ -80,9 +80,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/index-prod.js"
         },
-        "commit": "064b4e94ae5dd21955ef6409f31c420239798382"
+        "commit": "82054756e8220231b816dd80e7d31e115aef294d"
       },
-      "id": "nzindex$064b4e94ae5dd21955ef6409f31c420239798382",
+      "id": "nzindex$82054756e8220231b816dd80e7d31e115aef294d",
       "name": "nzindex"
     },
     {
@@ -94,9 +94,9 @@
           "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/usr/bin/node /srvs/info-prod.js"
         },
-        "commit": "4c79a7e6faca95de6ce0ef60141f07646fcbec39"
+        "commit": "a45c8f979aab0668fb5c6b63a111e832778ad722"
       },
-      "id": "nzinfo$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+      "id": "nzinfo$a45c8f979aab0668fb5c6b63a111e832778ad722",
       "name": "nzinfo"
     },
     {
@@ -108,9 +108,9 @@
           "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
           "exec": "/bin/bash run.sh"
         },
-        "commit": "2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6"
+        "commit": "ebf2021909a47877750c1774d85367aaca671b80"
       },
-      "id": "nzweb$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+      "id": "nzweb$ebf2021909a47877750c1774d85367aaca671b80",
       "name": "nzweb"
     }
   ],
@@ -125,11 +125,11 @@
           "redis-b418a1b8$redis_2.8",
           "elasticsearch-c31f912e$dockerfile/elasticsearch_latest",
           "beanstalk-2d11f002$kdihalas/beanstalkd_latest",
-          "nznpm-2a7c341b$f845b56b0a3dcac3e09069241197692fab87e969",
+          "nznpm-2a7c341b$9e343281af2bec21d5642d64b59a7cefaba48136",
           "nzgithub-b37565a1$a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac",
-          "nzindex-c4725537$064b4e94ae5dd21955ef6409f31c420239798382",
-          "nzinfo-5a16c094$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
-          "nzweb-5d7b048d$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6"
+          "nzindex-c4725537$82054756e8220231b816dd80e7d31e115aef294d",
+          "nzinfo-5a16c094$a45c8f979aab0668fb5c6b63a111e832778ad722",
+          "nzweb-5d7b048d$ebf2021909a47877750c1774d85367aaca671b80"
         ],
         "specific": {}
       },
@@ -180,10 +180,10 @@
           "imageTag": "nodezoo/beanstalk"
         }
       },
-      "nznpm-2a7c341b$f845b56b0a3dcac3e09069241197692fab87e969": {
-        "id": "nznpm-2a7c341b$f845b56b0a3dcac3e09069241197692fab87e969",
+      "nznpm-2a7c341b$9e343281af2bec21d5642d64b59a7cefaba48136": {
+        "id": "nznpm-2a7c341b$9e343281af2bec21d5642d64b59a7cefaba48136",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nznpm$f845b56b0a3dcac3e09069241197692fab87e969",
+        "containerDefinitionId": "nznpm$9e343281af2bec21d5642d64b59a7cefaba48136",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -193,11 +193,7 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node srvs/npm-prod.js --seneca.log=plugin:npm"
           },
-          "commit": "f845b56b0a3dcac3e09069241197692fab87e969",
-          "dockerImageId": "cf30176885f1f7a8f02594a8d0a0f3c2f0333682330d04bc57b662a03fdb5835",
-          "dockerLocalTag": "localhost:8011/nodezoo/nznpm-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
+          "commit": "9e343281af2bec21d5642d64b59a7cefaba48136"
         }
       },
       "nzgithub-b37565a1$a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac": {
@@ -220,10 +216,10 @@
           "version": "0.1.0"
         }
       },
-      "nzindex-c4725537$064b4e94ae5dd21955ef6409f31c420239798382": {
-        "id": "nzindex-c4725537$064b4e94ae5dd21955ef6409f31c420239798382",
+      "nzindex-c4725537$82054756e8220231b816dd80e7d31e115aef294d": {
+        "id": "nzindex-c4725537$82054756e8220231b816dd80e7d31e115aef294d",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzindex$064b4e94ae5dd21955ef6409f31c420239798382",
+        "containerDefinitionId": "nzindex$82054756e8220231b816dd80e7d31e115aef294d",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -233,17 +229,13 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node /srvs/index-prod.js"
           },
-          "commit": "064b4e94ae5dd21955ef6409f31c420239798382",
-          "dockerImageId": "128564ec85c1312fded2c5c7e30d1441d3e9e81142f12208c4330c06c1e08402",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzindex-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
+          "commit": "82054756e8220231b816dd80e7d31e115aef294d"
         }
       },
-      "nzinfo-5a16c094$4c79a7e6faca95de6ce0ef60141f07646fcbec39": {
-        "id": "nzinfo-5a16c094$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+      "nzinfo-5a16c094$a45c8f979aab0668fb5c6b63a111e832778ad722": {
+        "id": "nzinfo-5a16c094$a45c8f979aab0668fb5c6b63a111e832778ad722",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzinfo$4c79a7e6faca95de6ce0ef60141f07646fcbec39",
+        "containerDefinitionId": "nzinfo$a45c8f979aab0668fb5c6b63a111e832778ad722",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -253,17 +245,13 @@
             "args": "-e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/usr/bin/node /srvs/info-prod.js"
           },
-          "commit": "4c79a7e6faca95de6ce0ef60141f07646fcbec39",
-          "dockerImageId": "3bc56a3212d803ed04414d9fe075e718146173bdb73bf94d9fcae1bce45b17ab",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzinfo-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
+          "commit": "a45c8f979aab0668fb5c6b63a111e832778ad722"
         }
       },
-      "nzweb-5d7b048d$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6": {
-        "id": "nzweb-5d7b048d$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+      "nzweb-5d7b048d$ebf2021909a47877750c1774d85367aaca671b80": {
+        "id": "nzweb-5d7b048d$ebf2021909a47877750c1774d85367aaca671b80",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "nzweb$2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
+        "containerDefinitionId": "nzweb$ebf2021909a47877750c1774d85367aaca671b80",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -273,11 +261,7 @@
             "args": "-p 8000:8000 -e BEANSTALK_IP=192.168.59.103 -e REDIS_IP=192.168.59.103 -e ES_IP=192.168.59.103 -d",
             "exec": "/bin/bash run.sh"
           },
-          "commit": "2788ededaed5b09db5ef8dcf0e2bdb3d02e0acf6",
-          "dockerImageId": "5b86a2d4e8667e3a8b26e78a275e2f5454bb4a84b8b767b595a088b6cd6b4a3a",
-          "dockerLocalTag": "localhost:8011/nodezoo/nzweb-1",
-          "buildNumber": 1,
-          "version": "0.1.0"
+          "commit": "ebf2021909a47877750c1774d85367aaca671b80"
         }
       }
     },
