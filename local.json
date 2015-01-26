@@ -28,7 +28,7 @@
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         }
       },
-      "id": "elasticsearch$dockerfile/elasticsearch_latest",
+      "id": "elasticsearch$dockerfile.elasticsearch_latest",
       "name": "elasticsearch"
     },
     {
@@ -40,7 +40,7 @@
           "exec": "beanstalkd -p 1130"
         }
       },
-      "id": "beanstalk$kdihalas/beanstalkd_latest",
+      "id": "beanstalk$kdihalas.beanstalkd_latest",
       "name": "beanstalk"
     },
     {
@@ -123,8 +123,8 @@
         "type": "blank-container",
         "contains": [
           "redis-b418a1b8$redis_2.8",
-          "elasticsearch-c31f912e$dockerfile/elasticsearch_latest",
-          "beanstalk-2d11f002$kdihalas/beanstalkd_latest",
+          "elasticsearch-c31f912e$dockerfile.elasticsearch_latest",
+          "beanstalk-2d11f002$kdihalas.beanstalkd_latest",
           "nznpm-2a7c341b$9e343281af2bec21d5642d64b59a7cefaba48136",
           "nzgithub-b37565a1$a0923f8505d8eb1e86d5987d51a0c9dc6528a2ac",
           "nzindex-c4725537$82054756e8220231b816dd80e7d31e115aef294d",
@@ -146,10 +146,10 @@
           }
         }
       },
-      "elasticsearch-c31f912e$dockerfile/elasticsearch_latest": {
-        "id": "elasticsearch-c31f912e$dockerfile/elasticsearch_latest",
+      "elasticsearch-c31f912e$dockerfile.elasticsearch_latest": {
+        "id": "elasticsearch-c31f912e$dockerfile.elasticsearch_latest",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "elasticsearch$dockerfile/elasticsearch_latest",
+        "containerDefinitionId": "elasticsearch$dockerfile.elasticsearch_latest",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -157,16 +157,13 @@
           "execute": {
             "args": "-d -p 9200:9200 -p 9300:9300 -v /mnt/elasticsearch:/data",
             "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
-          },
-          "dockerImageId": "f024714f6b3e6d38d9675fb7952f944b53440941441fb4386d46d9238879e8ac",
-          "dockerLocalTag": "localhost:8011/nodezoo/elasticsearch",
-          "imageTag": "nodezoo/elasticsearch"
+          }
         }
       },
-      "beanstalk-2d11f002$kdihalas/beanstalkd_latest": {
-        "id": "beanstalk-2d11f002$kdihalas/beanstalkd_latest",
+      "beanstalk-2d11f002$kdihalas.beanstalkd_latest": {
+        "id": "beanstalk-2d11f002$kdihalas.beanstalkd_latest",
         "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "beanstalk$kdihalas/beanstalkd_latest",
+        "containerDefinitionId": "beanstalk$kdihalas.beanstalkd_latest",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -174,10 +171,7 @@
           "execute": {
             "args": "-d -p 1130:1130",
             "exec": "beanstalkd -p 1130"
-          },
-          "dockerImageId": "e42f91bb017ab501c66d73ed916a4aa927213818fda5298c599b55b5500936ac",
-          "dockerLocalTag": "localhost:8011/nodezoo/beanstalk",
-          "imageTag": "nodezoo/beanstalk"
+          }
         }
       },
       "nznpm-2a7c341b$9e343281af2bec21d5642d64b59a7cefaba48136": {

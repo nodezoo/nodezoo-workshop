@@ -36,7 +36,7 @@
           "exec": "/elasticsearch/bin/elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=__TARGETIP__"
         }
       },
-      "id": "elasticsearch$dockerfile/elasticsearch_latest",
+      "id": "elasticsearch$dockerfile.elasticsearch_latest",
       "name": "elasticsearch"
     },
     {
@@ -48,7 +48,7 @@
           "exec": "beanstalkd -p 1130"
         }
       },
-      "id": "beanstalk$kdihalas/beanstalkd_latest",
+      "id": "beanstalk$kdihalas.beanstalkd_latest",
       "name": "beanstalk"
     },
     {
@@ -170,8 +170,8 @@
         "type": "aws-ami",
         "contains": [
           "redis-4aa8f937$redis_2.8",
-          "elasticsearch-3dafc9a1$dockerfile/elasticsearch_latest",
-          "beanstalk-d3a1a88d$kdihalas/beanstalkd_latest"
+          "elasticsearch-3dafc9a1$dockerfile.elasticsearch_latest",
+          "beanstalk-d3a1a88d$kdihalas.beanstalkd_latest"
         ],
         "specific": {
           "ImageId": "ami-cf0741ff"
@@ -190,10 +190,10 @@
           }
         }
       },
-      "elasticsearch-3dafc9a1$dockerfile/elasticsearch_latest": {
-        "id": "elasticsearch-3dafc9a1$dockerfile/elasticsearch_latest",
+      "elasticsearch-3dafc9a1$dockerfile.elasticsearch_latest": {
+        "id": "elasticsearch-3dafc9a1$dockerfile.elasticsearch_latest",
         "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "elasticsearch$dockerfile/elasticsearch_latest",
+        "containerDefinitionId": "elasticsearch$dockerfile.elasticsearch_latest",
         "type": "docker",
         "contains": [],
         "specific": {
@@ -204,10 +204,10 @@
           }
         }
       },
-      "beanstalk-d3a1a88d$kdihalas/beanstalkd_latest": {
-        "id": "beanstalk-d3a1a88d$kdihalas/beanstalkd_latest",
+      "beanstalk-d3a1a88d$kdihalas.beanstalkd_latest": {
+        "id": "beanstalk-d3a1a88d$kdihalas.beanstalkd_latest",
         "containedBy": "awsMachine$inf-3ea5a142",
-        "containerDefinitionId": "beanstalk$kdihalas/beanstalkd_latest",
+        "containerDefinitionId": "beanstalk$kdihalas.beanstalkd_latest",
         "type": "docker",
         "contains": [],
         "specific": {
