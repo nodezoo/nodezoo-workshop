@@ -28,3 +28,11 @@ workspace
 
 builds
 build
+
+
+LOG
+LOCK
+CURRENT
+*.old
+*.ldb
+MANIFEST-*
