@@ -30,3 +30,28 @@ The micro-services that make up the system are:
    * [nodezoo-npm-update](http://github.com/rjrodger/nodezoo-npm-update): get live module updates
    * [nodezoo-npm-all](http://github.com/rjrodger/nodezoo-npm-all): download the full registry module list
    * [nodezoo-npm-latest](http://github.com/rjrodger/nodezoo-npm-latest): batch process the full module list download
+
+
+
+## Iteration 00
+
+   * _web_ (stub)
+
+## Iteration 01
+
+   * _web_
+   * _info_  (stub)
+   * _search_  (stub)
+
+## Iteration 02
+
+   * _web_
+   * _info_
+   * _search_
+   * _npm_
+
+## Iteration 03
+
+
+## Iteration 04
+
