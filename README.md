@@ -50,7 +50,19 @@ The micro-services that make up the system are:
    * _search_
    * _npm_
 
+   * _redis_
+   * _elasticsearch_
+
 ## Iteration 03
+
+   * _web_
+   * _info_
+   * _search_
+   * _npm_
+   * _github_
+
+   * _redis_
+   * _elasticsearch_
 
 
 ## Iteration 04
