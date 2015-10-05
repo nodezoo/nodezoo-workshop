@@ -266,12 +266,12 @@ Branch name: `i03`
     
    * Install [influxdb](https://influxdb.com/) and run in default configuration
      * Set up your database by running the console `$ influx`
-     * ```sql
-       > CREATE DATABASE seneca_msgstats;
-       > CREATE USER msgstats WITH PASSWORD 'msgstats';
-       > GRANT ALL ON seneca_msgstats TO msgstats;
-      ```
 
+```sql
+> CREATE DATABASE seneca_msgstats;
+> CREATE USER msgstats WITH PASSWORD 'msgstats';
+> GRANT ALL ON seneca_msgstats TO msgstats;
+```
 
    * Install [grafana](http://grafana.org/) and run in default configuration
      * You'll need to add your influxdb as data source and setup a dashboard.
