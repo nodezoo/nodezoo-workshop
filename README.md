@@ -48,8 +48,8 @@ are no right answers!
 
 The basic tools are:
 
-   * (Node.js 4)[http://nodejs.org]
-   * (Docker 1.8)[http://docker.com]
+   * [Node.js 4](http://nodejs.org)
+   * [Docker 1.8](http://docker.com)
 
 Install these before getting started. Later iterations introduce additional tools, and these will be indicated.
 
@@ -154,9 +154,9 @@ Branch name: `i00`
 
 ### experiments
 
-   * Learn some (hapi)[http://hapijs.com]: add some more API end points
+   * Learn some [hapi](http://hapijs.com): add some more API end points
      * how about /api/ping, and respond with the time?
-   * Learn some (seneca)[http://senecajs.org]: add some more actions, and expose them as API end points
+   * Learn some [seneca](http://senecajs.org): add some more actions, and expose them as API end points
      * how about /api/ping triggers role:web,cmd:ping, and that responds with the time
    * The front end is old-school jQuery - how about some [react](http://reactjs.com)?
    * Setup nginx as a load-balancer with multiple instances of _web_ running
