@@ -279,6 +279,7 @@ Branch name: `i03`
      * Action flow rates can be obtained using queries of the form:
        * `SELECT SUM(c) FROM "cmd:search,role:search" WHERE time > now() - 100s GROUP BY time(1s)`
    * In your clone of the main _nodezoo_ repository, run the msgstats service:
+     * located in the `system` folder
      * `npm install` first as usual
      * run with `HOST=localhost|host-ip node msgstats.js`
      * use host-ip for docker scenario
