@@ -272,6 +272,7 @@ Branch name: `i03`
        > GRANT ALL ON seneca_msgstats TO msgstats;
       ```
 
+
    * Install [grafana](http://grafana.org/) and run in default configuration
      * You'll need to add your influxdb as data source and setup a dashboard.
      * Action flow rates can be obtained using queries of the form:
