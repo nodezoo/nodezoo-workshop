@@ -223,6 +223,8 @@ Branch name: `i02`
    * _search_
    * _npm_
 
+### supporting services
+
    * _redis_
    * _elasticsearch_
 
@@ -288,6 +290,8 @@ Branch name: `i03`
    * _npm_
    * _github_
 
+### supporting services
+
    * _redis_
    * _elasticsearch_
    * _influxdb_
@@ -338,6 +342,8 @@ Branch name: `i04`
    * _npm_ (stats)
    * _github_
    * _update_ (stats)
+
+### supporting services
 
    * _redis_
    * _elasticsearch_
