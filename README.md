@@ -55,15 +55,29 @@ The micro-services that make up the system are:
 
 ## Iteration 03
 
-   * _web_
-   * _info_
+   * _web_ (stats)
+   * _info_ (stats)
    * _search_
    * _npm_
    * _github_
 
    * _redis_
    * _elasticsearch_
-
+   * _influxdb_
+   * _grafana_
+   * _msgstats_
 
 ## Iteration 04
 
+   * _web_ (stats)
+   * _info_ (stats)
+   * _search_
+   * _npm_
+   * _github_
+   * _update_
+
+   * _redis_
+   * _elasticsearch_
+   * _influxdb_
+   * _grafana_
+   * _msgstats_
