@@ -265,6 +265,7 @@ Branch name: `i03`
 ### Prerequisites
     
    * Install [influxdb](https://influxdb.com/) and run in default configuration
+     * Start influxdb with `$ influxd run`
      * Set up your database by running the console `$ influx`
 
 ```sql
