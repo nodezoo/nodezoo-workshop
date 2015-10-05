@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "seneca": "^0.7.0"
+    "seneca": "^0.7.1",
+    "seneca-msgstats": "^0.2.0"
   }
 }
