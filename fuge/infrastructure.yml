@@ -1,0 +1,21 @@
+redis:
+  image: redis
+  ports:
+    - 6379:6379
+elasticsearch:
+  image: elasticsearch
+  command:
+    elasticsearch --network.bind_host=0.0.0.0 --network.publish_host=localhost
+  ports: 
+    - 9200:9200
+    - 9300:9300
+influx:
+  image: tutum/influxdb
+  ports: 
+    - 8086:8086
+    - 8083:8083
+beanstalkd:
+  image: schickling/beanstalkd
+  ports:
+    - 11300:11300 
+
