@@ -9,7 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "seneca": "^0.7.1",
-    "seneca-msgstats": "^0.2.0"
+    "seneca": "https://github.com/senecajs/seneca",
+    "seneca-msgstats": "https://github.com/rjrodger/seneca-msgstats",
+    "seneca-mesh": "https://github.com/rjrodger/seneca-mesh",
+    "seneca-balance-client": "https://github.com/rjrodger/seneca-balance-client"
   }
 }
