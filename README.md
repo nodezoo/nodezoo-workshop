@@ -116,6 +116,16 @@ $ git checkout -b i00
 This sequence of commands downloads the branch into your local clone of your fork.
 You can then push your changes back to your own fork.
 
+One you have downloaded all the branches, you can switch between them,
+across all microservice repositories using the `iteration.sh` script:
+
+
+``sh
+$ ./interation.sh i00 # moves all to iteration 00
+$ ./interation.sh i01 # moves all to iteration 01
+... etc.
+``
+
 In each branch, you always need to 
 
 ```sh
@@ -128,7 +138,10 @@ to get the dependent Node.js modules.
 
 ## Iteration 00: Getting Started
 
-Branch name: `i00`
+### Branch name: `i00`
+
+This branch starts with a simple web server. Use this branch to validate your configuration.
+
 
 ### microservices
    * _web_ (stub)
@@ -165,7 +178,13 @@ Branch name: `i00`
 
 ## Iteration 01: 3 Microservices
 
-Branch name: `i01`
+### Branch name: `i01`
+
+This branch introduces two microservices that support the web
+service. Both are stubs that perform no actual work, instead returning
+hard-cided responses. The focus here is on understanding how simple
+microservice communication is configured using static addressing with
+fixed IP addresses and ports.
 
 ### microservices
 
@@ -206,7 +225,12 @@ Branch name: `i01`
 
 ## Iteration 02: Real Functionality
 
-Branch name: `i02`
+### Branch name: `i02`
+
+This branch introduces infrastructure services that are used by the
+microservices to perform work. Elasticsearch is used as a search
+engine, and Redis is used for publish/subscribe messaging. The search
+can now index and search for Node.js modules, with some manual help.
 
 ### Prerequisites
     
@@ -238,8 +262,9 @@ Branch name: `i02`
      * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log.all`
    * Verify functionality:
      * Observe the seneca logs to follow the execution of action patterns
-     * Open http://localhost:8000 - searches now work!
-     * Open http://localhost:8000/info/express - also works!
+     * Open http://localhost:8000/info/request - adds _request_ to the search engine
+       * Manually change the module name in the URL to index other modules.
+     * Open http://localhost:8000 - searches now work! Try "request".
      * Use the HTTP API:
        * `$ curl "http://localhost:44000/act?role=search&cmd=search&query=express"`
      * Use the repl of each microservice, and test its action patterns
@@ -260,7 +285,10 @@ Branch name: `i02`
 
 ## Iteration 03: Measurement
 
-Branch name: `i03`
+### Branch name: `i03`
+
+This branch uses influxdb and grafana to chart message flow rates
+through the system.
 
 ### Prerequisites
     
@@ -332,7 +360,13 @@ Branch name: `i03`
 
 ## Iteration 04: Enhancement
 
-Branch name: `i04`
+### Branch name: `i04`
+
+This branch shows the use of a message bus to avoid the high coupling
+and configuration costs of direct service-to-service
+communication. This is one way to avoid the need for service discovery
+solutions.
+
 
 ### Prerequisites
     
@@ -382,5 +416,67 @@ Branch name: `i04`
    * A long time ago, in a galaxy far away, the original nodezoo could calculate "node rank", which is just like "page rank" only for node modules.
      * https://github.com/rjrodger/nodezoo/tree/bdd18c030ef32f19e0b28e1f7ed30f80a9854b59/bin
      * Perhaps this can be turned into a batch processing microservice?
+
+
+## Iteration 05: Mesh Networking
+
+### Branch name: `i05`
+
+This branch shows the use of mesh networking to completely remove the
+need for service discovery. The
+[seneca-mesh](https://github.com/rjrodger/seneca-mesh) plugin uses the
+[SWIM gossip
+algorithm](http://www.cs.cornell.edu/~asdas/research/dsn02-SWIM.pdf)
+to enable microservices to automatically discover the appropriate
+destinations for messages dynamically.
+
+### Prerequisites
+    
+   * In your clone of the main _nodezoo_ repository, run the base-node service:
+     * located in the `system` folder
+     * `npm install` first as usual
+     * run with `node base-node.js`
+
+### microservices
+
+   * _web_
+   * _info_
+   * _search_
+   * _npm_
+   * _github_
+   * _update_
+
+### supporting services
+
+   * _influxdb_
+   * _grafana_
+   * _msgstats_
+   * _base-node_
+
+### tasks
+   * Clone the microservices.
+   * Review code for each one - in particular the updated service scripts in the `srv` folders.
+   * Make sure to run the _base-node_ service *before* starting the microservices.
+   * Run in separate terminals with
+     * `node srv/app-dev.js --seneca.options.tag=web --seneca.log=type:act --seneca.options.debug.short_logs=true`
+     * `node srv/info-dev.js --seneca.options.tag=info --seneca.log=type:act --seneca.options.debug.short_logs=true`
+     * `node srv/search-dev.js --seneca.options.tag=search --seneca.log=type:act --seneca.options.debug.short_logs=true`
+     * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log=type:act --seneca.options.debug.short_logs=true`
+     * `node srv/npm-github.js --seneca.options.tag=npm --seneca.log=type:act --seneca.options.debug.short_logs=true --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
+     * `node srv/update-dev.js --seneca.options.tag=update --seneca.log=type:act --seneca.options.debug.short_logs=true --seneca.options.plugin.npm_update.task=registry_subscribe`
+     * These logging options add a filter to show only actions, and also shorten the logs so they are easier to see for debuggin.
+   * Verify functionality:
+     * Observe the seneca logs to follow the execution of action patterns
+     * Use the website and API as before.
+   * Verify that live npm publishes are registered  
+   * Verify that message flow rate charts are generated in grafana
+   * Build and run the Docker containers, and verify the same functionality
+
+### experiments
+
+   * Try stopping and starting services at random.
+     * Observe how the mesh network dynamically reconfigures the microservice message flows.
+   * Try running multiple instances of the _search_ service.
+     * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
 
 
