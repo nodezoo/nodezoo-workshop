@@ -480,3 +480,7 @@ destinations for messages dynamically.
      * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rjrodger/nodezoo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
