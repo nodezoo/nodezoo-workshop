@@ -346,7 +346,7 @@ through the system.
      * `node srv/info-dev.js --seneca.options.tag=info --seneca.log.all`
      * `node srv/search-dev.js --seneca.options.tag=search --seneca.log.all`
      * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log.all`
-     * `node srv/npm-github.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
+     * `node srv/github-dev.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
    * Verify functionality:
      * Observe the seneca logs to follow the execution of action patterns
      * Use the website, API and repl as before
@@ -405,7 +405,7 @@ solutions.
      * `node srv/info-dev.js --seneca.options.tag=info --seneca.log.all`
      * `node srv/search-dev.js --seneca.options.tag=search --seneca.log.all`
      * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log.all`
-     * `node srv/npm-github.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
+     * `node srv/github-dev.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
      * `node srv/update-dev.js --seneca.options.tag=update --seneca.log.all --seneca.options.plugin.npm_update.task=registry_subscribe`
    * Verify functionality:
      * Observe the seneca logs to follow the execution of action patterns
