@@ -105,7 +105,7 @@ However you will not be able to save your changes to your own repositories.
 To save your own work, it is better to first fork the repository on github.com, and then
 
 ```sh
-$ git clone git@github.com:<YOUR_USER>/nodezoo-web.git
+$ git clone https://github.com/[YOUR_USER]/nodezoo-web.git
 $ cd nodezoo-web
 $ git remote add upstream https://github.com/rjrodger/nodezoo-web.git
 $ git fetch upstream
@@ -126,7 +126,7 @@ $ ./interation.sh i01 # moves all to iteration 01
 ... etc.
 ``
 
-In each branch, you always need to 
+In each branch, you always need to
 
 ```sh
 $ npm install
@@ -233,7 +233,7 @@ engine, and Redis is used for publish/subscribe messaging. The search
 can now index and search for Node.js modules, with some manual help.
 
 ### Prerequisites
-    
+
    * Install [redis](http://redis.io/) and run in default configuration
    * Install [elasticsearch](https://www.elastic.co/) and run in default configuration
    * Clone the [nodezoo](https://github.com/rjrodger/nodezoo) repository, and build the _nodezoo-level_ container
@@ -291,7 +291,7 @@ This branch uses influxdb and grafana to chart message flow rates
 through the system.
 
 ### Prerequisites
-    
+
    * Install [influxdb](https://influxdb.com/) and run in default configuration
      * Start influxdb with `$ influxd run`
      * Set up your database by running the console `$ influx`
@@ -369,7 +369,7 @@ solutions.
 
 
 ### Prerequisites
-    
+
    * Install [beanstalkd](http://kr.github.io/beanstalkd/) and run in default configuration
 
 ### microservices
@@ -431,7 +431,7 @@ to enable microservices to automatically discover the appropriate
 destinations for messages dynamically.
 
 ### Prerequisites
-    
+
    * In your clone of the main _nodezoo_ repository, run the base-node service:
      * located in the `system` folder
      * `npm install` first as usual
@@ -478,5 +478,3 @@ destinations for messages dynamically.
      * Observe how the mesh network dynamically reconfigures the microservice message flows.
    * Try running multiple instances of the _search_ service.
      * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
-
-
