@@ -167,7 +167,7 @@ This branch starts with a simple web server. Use this branch to validate your co
        * `> seneca.list('role:search')`
        * `> role:search,cmd:search,query:express`      
    * Docker image and container: build and run
-     * Use commands in Dockerfile
+     * Open the Dockerfile in a text editor and the commands to use that Dockerfile are in its comments
      * Verify functionality as above, against docker host IP
 
 ### experiments
