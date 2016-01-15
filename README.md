@@ -22,6 +22,8 @@ The micro-services that make up the system are:
    * [nodezoo-github](http://github.com/rjrodger/nodezoo-github): interface with github.com
    * [nodezoo-npm-update](http://github.com/rjrodger/nodezoo-npm-update): get live module updates
 
+Each service should be downloaded and placed in the same folder including this repository.
+
 
 ## Iterations
 
