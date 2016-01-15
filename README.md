@@ -168,6 +168,7 @@ This branch starts with a simple web server. Use this branch to validate your co
        * `> role:search,cmd:search,query:express`      
    * Docker image and container: build and run
      * Open the Dockerfile in a text editor and the commands to use that Dockerfile are in its comments
+     * The command `$ docker build -t TAG-NAME .` tells docker to build with the tag TAG-NAME using the Dockerfile in the current directory
      * Verify functionality as above, against docker host IP
 
 ### experiments
