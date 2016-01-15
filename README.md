@@ -22,6 +22,8 @@ The micro-services that make up the system are:
    * [nodezoo-github](http://github.com/rjrodger/nodezoo-github): interface with github.com
    * [nodezoo-npm-update](http://github.com/rjrodger/nodezoo-npm-update): get live module updates
 
+Each service should be downloaded and placed in the same folder including this repository.
+
 
 ## Iterations
 
@@ -105,7 +107,7 @@ However you will not be able to save your changes to your own repositories.
 To save your own work, it is better to first fork the repository on github.com, and then
 
 ```sh
-$ git clone git@github.com:<YOUR_USER>/nodezoo-web.git
+$ git clone https://github.com/[YOUR_USER]/nodezoo-web.git
 $ cd nodezoo-web
 $ git remote add upstream https://github.com/rjrodger/nodezoo-web.git
 $ git fetch upstream
@@ -126,13 +128,16 @@ $ ./interation.sh i01 # moves all to iteration 01
 ... etc.
 ``
 
-In each branch, you always need to 
+This script only works once the branch has been fully set-up for a first time.
+
+In each branch, you always need to
 
 ```sh
 $ npm install
 ```
 
 to get the dependent Node.js modules.
+This must be done each time a branch is changed for each micro-service.
 
 
 
@@ -162,8 +167,11 @@ This branch starts with a simple web server. Use this branch to validate your co
        * `> seneca.list('role:search')`
        * `> role:search,cmd:search,query:express`      
    * Docker image and container: build and run
-     * Use commands in Dockerfile
+     * Open the Dockerfile in a text editor and the commands to use that Dockerfile are in its comments
+     * The command `$ docker build -t TAG-NAME .` tells docker to build with the tag TAG-NAME using the Dockerfile in the current directory
      * Verify functionality as above, against docker host IP
+       * If Docker cannot connect to the Docker daemon during building use the following command before building:
+       `$ eval "$(docker-machine env default)"`
 
 ### experiments
 
@@ -233,7 +241,7 @@ engine, and Redis is used for publish/subscribe messaging. The search
 can now index and search for Node.js modules, with some manual help.
 
 ### Prerequisites
-    
+
    * Install [redis](http://redis.io/) and run in default configuration
    * Install [elasticsearch](https://www.elastic.co/) and run in default configuration
    * Clone the [nodezoo](https://github.com/rjrodger/nodezoo) repository, and build the _nodezoo-level_ container
@@ -291,7 +299,7 @@ This branch uses influxdb and grafana to chart message flow rates
 through the system.
 
 ### Prerequisites
-    
+
    * Install [influxdb](https://influxdb.com/) and run in default configuration
      * Start influxdb with `$ influxd run`
      * Set up your database by running the console `$ influx`
@@ -338,7 +346,7 @@ through the system.
      * `node srv/info-dev.js --seneca.options.tag=info --seneca.log.all`
      * `node srv/search-dev.js --seneca.options.tag=search --seneca.log.all`
      * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log.all`
-     * `node srv/npm-github.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
+     * `node srv/github-dev.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
    * Verify functionality:
      * Observe the seneca logs to follow the execution of action patterns
      * Use the website, API and repl as before
@@ -369,7 +377,7 @@ solutions.
 
 
 ### Prerequisites
-    
+
    * Install [beanstalkd](http://kr.github.io/beanstalkd/) and run in default configuration
 
 ### microservices
@@ -397,7 +405,7 @@ solutions.
      * `node srv/info-dev.js --seneca.options.tag=info --seneca.log.all`
      * `node srv/search-dev.js --seneca.options.tag=search --seneca.log.all`
      * `node srv/npm-dev.js --seneca.options.tag=npm --seneca.log.all`
-     * `node srv/npm-github.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
+     * `node srv/github-dev.js --seneca.options.tag=npm --seneca.log.all --seneca.options.plugin.github.token=YOUR_GITHUB_TOKEN`
      * `node srv/update-dev.js --seneca.options.tag=update --seneca.log.all --seneca.options.plugin.npm_update.task=registry_subscribe`
    * Verify functionality:
      * Observe the seneca logs to follow the execution of action patterns
@@ -431,7 +439,7 @@ to enable microservices to automatically discover the appropriate
 destinations for messages dynamically.
 
 ### Prerequisites
-    
+
    * In your clone of the main _nodezoo_ repository, run the base-node service:
      * located in the `system` folder
      * `npm install` first as usual
@@ -478,5 +486,3 @@ destinations for messages dynamically.
      * Observe how the mesh network dynamically reconfigures the microservice message flows.
    * Try running multiple instances of the _search_ service.
      * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
-
-
