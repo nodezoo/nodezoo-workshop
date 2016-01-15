@@ -170,6 +170,8 @@ This branch starts with a simple web server. Use this branch to validate your co
      * Open the Dockerfile in a text editor and the commands to use that Dockerfile are in its comments
      * The command `$ docker build -t TAG-NAME .` tells docker to build with the tag TAG-NAME using the Dockerfile in the current directory
      * Verify functionality as above, against docker host IP
+       * If Docker cannot connect to the Docker daemon during building use the following command before building:
+       `$ eval "$(docker-machine env default)"`
 
 ### experiments
 
