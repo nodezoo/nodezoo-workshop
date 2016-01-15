@@ -126,6 +126,8 @@ $ ./interation.sh i01 # moves all to iteration 01
 ... etc.
 ``
 
+This script only works once the branch has been fully set-up for a first time.
+
 In each branch, you always need to
 
 ```sh
@@ -133,6 +135,7 @@ $ npm install
 ```
 
 to get the dependent Node.js modules.
+This must be done each time a branch is changed for each micro-service.
 
 
 
