@@ -11,6 +11,7 @@ a starting point for your own projects.
 Hosting and development is sponsored by [nearForm](http://nearform.com).
 
 
+
 ## Microservices
 
 The micro-services that make up the system are:
@@ -116,7 +117,7 @@ $ git checkout -b i00
 This sequence of commands downloads the branch into your local clone of your fork.
 You can then push your changes back to your own fork.
 
-In each branch, you always need to 
+In each branch, you always need to
 
 ```sh
 $ npm install
@@ -209,7 +210,7 @@ Branch name: `i01`
 Branch name: `i02`
 
 ### Prerequisites
-    
+
    * Install [redis](http://redis.io/) and run in default configuration
    * Install [elasticsearch](https://www.elastic.co/) and run in default configuration
    * Clone the [nodezoo](https://github.com/rjrodger/nodezoo) repository, and build the _nodezoo-level_ container
@@ -263,7 +264,7 @@ Branch name: `i02`
 Branch name: `i03`
 
 ### Prerequisites
-    
+
    * Install [influxdb](https://influxdb.com/) and run in default configuration
      * Start influxdb with `$ influxd run`
      * Set up your database by running the console `$ influx`
@@ -335,7 +336,7 @@ Branch name: `i03`
 Branch name: `i04`
 
 ### Prerequisites
-    
+
    * Install [beanstalkd](http://kr.github.io/beanstalkd/) and run in default configuration
 
 ### microservices
@@ -382,5 +383,3 @@ Branch name: `i04`
    * A long time ago, in a galaxy far away, the original nodezoo could calculate "node rank", which is just like "page rank" only for node modules.
      * https://github.com/rjrodger/nodezoo/tree/bdd18c030ef32f19e0b28e1f7ed30f80a9854b59/bin
      * Perhaps this can be turned into a batch processing microservice?
-
-
