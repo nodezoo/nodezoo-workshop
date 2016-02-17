@@ -383,3 +383,6 @@ Branch name: `i04`
    * A long time ago, in a galaxy far away, the original nodezoo could calculate "node rank", which is just like "page rank" only for node modules.
      * https://github.com/rjrodger/nodezoo/tree/bdd18c030ef32f19e0b28e1f7ed30f80a9854b59/bin
      * Perhaps this can be turned into a batch processing microservice?
+
+## License
+Copyright Richard Rodger and other contributors 2012-2016, Licensed under [MIT](./LICENSE.txt).
