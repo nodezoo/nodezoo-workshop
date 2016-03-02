@@ -34,6 +34,10 @@ module.exports = {
     web: { 
       run: 'node srv/app-dev.js --seneca.options.tag=web --seneca.log=type:act --seneca.options.debug.short_logs=true', 
       build: 'npm install && bower install' 
+    },
+    travis: { 
+      run: 'node srv/travis-dev.js --seneca.options.tag=travis --seneca.options.debug.short_logs=true --seneca.log=type:act',
+      build: 'npm install' 
     }
   }
 };
