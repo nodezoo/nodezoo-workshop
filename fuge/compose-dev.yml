@@ -19,3 +19,6 @@ search:
 web:
   build: ../../nodezoo-web/
   container_name: web
+travis:
+  build: ../../nodezoo-travis/
+  container_name: travis
