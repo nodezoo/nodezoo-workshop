@@ -1,14 +1,23 @@
-nodezoo - a Search Engine for Node.js Modules
-===============================================================
+![Nodezoo][Banner]
 
-This is the [nodezoo.com](http://nodezoo.com) project, a search engine
-for [Node.js](http://nodejs.org) modules. The NodeZoo search engine is
-an example of a real-world service built using Node.js
-microservices. Each microservice is published in its own github
-repository. The codebase is intended to be used as an example, and as
-a starting point for your own projects.
+# nodezoo-workshop
 
-Hosting and development is sponsored by [nearForm](http://nearform.com).
+- __Lead:__ [Richard Rodger][Lead]
+- __Sponsor:__ [nearForm][Sponsor]
+
+A workshop for the [nodezoo](http://nodezoo.com) project. Nodezoo is a search engine for
+[Node.js](http://nodejs.org) modules. The nodezoo search engine is an example of a real-world
+service built using Node.js microservices. Each microservice is published in its own github
+repository along with all of the necessary config to run the system locally or live . The codebase
+is intended to be used as an example, and as a starting point for your own projects.
+
+Below we provide a complete workshop to work through. Our current live system has it's roots in
+this workshop. By working through the iterations below you can get a feel for how a microservice
+system is bootstrapped together and how the system evolves as needs change.
+
+__Note:__ This repo contains the nodezoo workshop, to explore and run the live version of nodezoo,
+please see [nodezoo-system][] project.
+
 
 
 ## Microservices
@@ -23,7 +32,6 @@ The micro-services that make up the system are:
    * [nodezoo-npm-update](http://github.com/rjrodger/nodezoo-npm-update): get live module updates
 
 Each service should be downloaded and placed in the same folder including this repository.
-
 
 ## Iterations
 
@@ -142,11 +150,9 @@ This must be done each time a branch is changed for each micro-service.
 
 
 ## Iteration 00: Getting Started
-
 ### Branch name: `i00`
 
 This branch starts with a simple web server. Use this branch to validate your configuration.
-
 
 ### microservices
    * _web_ (stub)
@@ -185,7 +191,6 @@ This branch starts with a simple web server. Use this branch to validate your co
 
 
 ## Iteration 01: 3 Microservices
-
 ### Branch name: `i01`
 
 This branch introduces two microservices that support the web
@@ -195,10 +200,9 @@ microservice communication is configured using static addressing with
 fixed IP addresses and ports.
 
 ### microservices
-
-   * _web_
-   * _info_  (stub)
-   * _search_  (stub)
+  * _web_
+  * _info_  (stub)
+  * _search_  (stub)
 
 ### tasks
    * Clone the microservices.
@@ -217,7 +221,6 @@ fixed IP addresses and ports.
    * Build and run the Docker containers, and verify the same functionality
 
 ### experiments
-
    * Add another microservice
      * ... perhaps ping can live in its own service?
    * How would you unit test this code?
@@ -232,7 +235,6 @@ fixed IP addresses and ports.
      * just seneca.use each microservice inside _web_
 
 ## Iteration 02: Real Functionality
-
 ### Branch name: `i02`
 
 This branch introduces infrastructure services that are used by the
@@ -367,14 +369,11 @@ through the system.
 
 
 ## Iteration 04: Enhancement
-
 ### Branch name: `i04`
 
-This branch shows the use of a message bus to avoid the high coupling
-and configuration costs of direct service-to-service
-communication. This is one way to avoid the need for service discovery
+This branch shows the use of a message bus to avoid the high coupling and configuration costs of
+direct service-to-service communication. This is one way to avoid the need for service discovery
 solutions.
-
 
 ### Prerequisites
 
@@ -426,17 +425,12 @@ solutions.
      * Perhaps this can be turned into a batch processing microservice?
 
 
-## Iteration 05: Mesh Networking
-
+### Iteration 05: Mesh Networking
 ### Branch name: `i05`
 
-This branch shows the use of mesh networking to completely remove the
-need for service discovery. The
-[seneca-mesh](https://github.com/rjrodger/seneca-mesh) plugin uses the
-[SWIM gossip
-algorithm](http://www.cs.cornell.edu/~asdas/research/dsn02-SWIM.pdf)
-to enable microservices to automatically discover the appropriate
-destinations for messages dynamically.
+This branch shows the use of mesh networking to completely remove the need for service discovery.
+The [seneca-mesh](https://github.com/rjrodger/seneca-mesh) plugin uses the [SWIM gossip algorithm](http://www.cs.cornell.edu/~asdas/research/dsn02-SWIM.pdf)
+to enable microservices to automatically discover the appropriate destinations for messages dynamically.
 
 ### Prerequisites
 
@@ -486,3 +480,25 @@ destinations for messages dynamically.
      * Observe how the mesh network dynamically reconfigures the microservice message flows.
    * Try running multiple instances of the _search_ service.
      * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
+
+
+## Contributing
+The [NodeZoo org][Org] encourages __open__ and __safe__ participation.
+
+- __[Code of Conduct][Coc]__
+
+If you feel you can help in any way, be it with documentation, examples, extra testing, or new
+features please get in touch.
+
+## License
+Copyright (c) 2014-2016, Richard Rodger and other contributors.
+Licensed under [MIT][Lic].
+
+[Banner]: https://raw.githubusercontent.com/nodezoo/nodezoo-org/master/assets/logo-nodezoo.png
+[Sponsor]: http://www.nearform.com/
+[Lead]: https://github.com/rjrodger
+[Lic]: ./LICENSE
+[Coc]: https://github.com/nodezoo/nodezoo-org/blob/master/CoC.md
+[Org]: http://www.nodezoo.com/
+
+[nodezoo-system]: https://github.com/nodezoo/nodezoo-system
