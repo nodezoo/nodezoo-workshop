@@ -126,26 +126,42 @@ $ git checkout -b i00
 This sequence of commands downloads the branch into your local clone of your fork.
 You can then push your changes back to your own fork.
 
+
 One you have downloaded all the branches, you can switch between them,
 across all microservice repositories using the `iteration.sh` script:
 
 
-``sh
+```
 $ ./interation.sh i00 # moves all to iteration 00
 $ ./interation.sh i01 # moves all to iteration 01
 ... etc.
-``
-
-This script only works once the branch has been fully set-up for a first time.
-
-In each branch, you always need to
-
-```sh
-$ npm install
 ```
 
+These commands must be used before using the above script, for each branch for the first time :
+```
+$ git checkout upstream/[BRANCH NAME]
+$ git checkout -b [BRANCH NAME]
+```
+
+## Install your dependencies
+This script only works once the branch has been fully set-up for a first time.
+
+In each branch, you always need to run the following command:
+```
+npm install
+```
+Then go into the folder nodezoo-workshop/system and run:
+```
+npm install
+```
 to get the dependent Node.js modules.
 This must be done each time a branch is changed for each micro-service.
+## Run build
+
+In the folder nodezoo-web use the following command :
+```
+npm run build
+```
 
 
 
