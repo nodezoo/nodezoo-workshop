@@ -1,17 +1,21 @@
-nodezoo - a Search Engine for Node.js Modules
-===============================================================
+![Nodezoo][Banner]
 
-This is the [nodezoo.com](http://nodezoo.com) project, a search engine
-for [Node.js](http://nodejs.org) modules. The NodeZoo search engine is
-an example of a real-world service built using Node.js
-microservices. Each microservice is published in its own github
-repository. The codebase is intended to be used as an example, and as
-a starting point for your own projects.
+# nodezoo
 
-Hosting and development is sponsored by [nearForm](http://nearform.com).
+- __Lead:__ [Richard Rodger][Lead]
+- __Sponsor:__ [nearForm][Sponsor]
 
+This is the [nodezoo.com](http://nodezoo.com) project, a search engine for [Node.js](http://nodejs.org) modules. The 
+nodezoo search engine is an example of a real-world service built using Node.js microservices. Each microservice is
+published in its own github repository along with all of the nessecery config to run the system locally or live . The codebase is intended to be used as an example, and as a starting point for your own projects.
 
-## Microservices
+## Lve System
+To explore and run the live system, please see [nodezoo-system][] project.
+
+## Workshop
+Below we provide a complete workshop to work through. Our current live system has it's roots in this workshop. By working through the iterations below you can get a feel for how a microservice system is bootstrapped together and how the system evolves as needs change. 
+
+### Microservices
 
 The micro-services that make up the system are:
 
@@ -24,8 +28,7 @@ The micro-services that make up the system are:
 
 Each service should be downloaded and placed in the same folder including this repository.
 
-
-## Iterations
+### Iterations
 
 The system is built in a set of iterations so that you can follow its
 development. This mirrors the way that real microservice projects are
@@ -46,7 +49,7 @@ attempt. Use these to develop your understanding of the system - there
 are no right answers!
 
 
-## Requirements
+### Requirements
 
 The basic tools are:
 
@@ -55,7 +58,7 @@ The basic tools are:
 
 Install these before getting started. Later iterations introduce additional tools, and these will be indicated.
 
-### A Note on Docker
+#### A Note on Docker
 
 This example only places microservices into containers. All other
 services (e.g. redis) are run as normal from the host machine. This does not
@@ -141,17 +144,17 @@ This must be done each time a branch is changed for each micro-service.
 
 
 
-## Iteration 00: Getting Started
+### Iteration 00: Getting Started
 
-### Branch name: `i00`
+#### Branch name: `i00`
 
 This branch starts with a simple web server. Use this branch to validate your configuration.
 
 
-### microservices
+#### microservices
    * _web_ (stub)
 
-### tasks
+#### tasks
    * Clone the microservice.
    * Review code.
    * Run in terminal with
@@ -173,7 +176,7 @@ This branch starts with a simple web server. Use this branch to validate your co
        * If Docker cannot connect to the Docker daemon during building use the following command before building:
        `$ eval "$(docker-machine env default)"`
 
-### experiments
+#### experiments
 
    * Learn some [hapi](http://hapijs.com): add some more API end points
      * how about /api/ping, and respond with the time?
@@ -184,9 +187,9 @@ This branch starts with a simple web server. Use this branch to validate your co
      * update the configuration to handle port conflicts
 
 
-## Iteration 01: 3 Microservices
+### Iteration 01: 3 Microservices
 
-### Branch name: `i01`
+#### Branch name: `i01`
 
 This branch introduces two microservices that support the web
 service. Both are stubs that perform no actual work, instead returning
@@ -194,13 +197,13 @@ hard-cided responses. The focus here is on understanding how simple
 microservice communication is configured using static addressing with
 fixed IP addresses and ports.
 
-### microservices
+#### microservices
 
    * _web_
    * _info_  (stub)
    * _search_  (stub)
 
-### tasks
+#### tasks
    * Clone the microservices.
    * Review code for each one - in particular the message transport configuration.
    * Run in separate terminals with
@@ -216,7 +219,7 @@ fixed IP addresses and ports.
      * Use the repl of each microservice, and test its action patterns
    * Build and run the Docker containers, and verify the same functionality
 
-### experiments
+#### experiments
 
    * Add another microservice
      * ... perhaps ping can live in its own service?
@@ -231,16 +234,16 @@ fixed IP addresses and ports.
    * Seneca lets you merge microservices into one process
      * just seneca.use each microservice inside _web_
 
-## Iteration 02: Real Functionality
+### Iteration 02: Real Functionality
 
-### Branch name: `i02`
+#### Branch name: `i02`
 
 This branch introduces infrastructure services that are used by the
 microservices to perform work. Elasticsearch is used as a search
 engine, and Redis is used for publish/subscribe messaging. The search
 can now index and search for Node.js modules, with some manual help.
 
-### Prerequisites
+#### Prerequisites
 
    * Install [redis](http://redis.io/) and run in default configuration
    * Install [elasticsearch](https://www.elastic.co/) and run in default configuration
@@ -248,19 +251,19 @@ can now index and search for Node.js modules, with some manual help.
      * See folder `docker/level`; run `npm install first`
      * This is necessary, as the _seneca-level-store_ module must compile binaries
 
-### microservices
+#### microservices
 
    * _web_
    * _info_
    * _search_
    * _npm_
 
-### supporting services
+#### supporting services
 
    * _redis_
    * _elasticsearch_
 
-### tasks
+#### tasks
    * Clone the microservices.
    * Review code for each one - in particular the external intergrations.
    * Run in separate terminals with
@@ -278,7 +281,7 @@ can now index and search for Node.js modules, with some manual help.
      * Use the repl of each microservice, and test its action patterns
    * Build and run the Docker containers, and verify the same functionality
 
-### experiments
+#### experiments
 
    * Add another info microservice
      * copy npm, and then modify
@@ -291,14 +294,14 @@ can now index and search for Node.js modules, with some manual help.
      * what about a separate caching microservice that sits in front of _search_?
 
 
-## Iteration 03: Measurement
+### Iteration 03: Measurement
 
-### Branch name: `i03`
+#### Branch name: `i03`
 
 This branch uses influxdb and grafana to chart message flow rates
 through the system.
 
-### Prerequisites
+##### Prerequisites
 
    * Install [influxdb](https://influxdb.com/) and run in default configuration
      * Start influxdb with `$ influxd run`
@@ -322,7 +325,7 @@ through the system.
    * You'll need a personal access token for the github.com API
      * See the menu item under account settings on github.com
 
-### microservices
+#### microservices
 
    * _web_ (stats)
    * _info_ (stats)
@@ -330,7 +333,7 @@ through the system.
    * _npm_
    * _github_
 
-### supporting services
+#### supporting services
 
    * _redis_
    * _elasticsearch_
@@ -338,7 +341,7 @@ through the system.
    * _grafana_
    * _msgstats_
 
-### tasks
+#### tasks
    * Clone the microservices.
    * Review code for each one - in particular the message statistics collection.
    * Run in separate terminals with
@@ -353,7 +356,7 @@ through the system.
    * Verify that message flow rate charts are generated in grafana
    * Build and run the Docker containers, and verify the same functionality
 
-### experiments
+#### experiments
 
    * Write a test script to generate queries via HTTP and then observe the charts
      * the message flow rates should remain relatively proportional to each other
@@ -366,9 +369,9 @@ through the system.
      * It's ok to drop excess load on the floor (aka "load-shedding")
 
 
-## Iteration 04: Enhancement
+### Iteration 04: Enhancement
 
-### Branch name: `i04`
+#### Branch name: `i04`
 
 This branch shows the use of a message bus to avoid the high coupling
 and configuration costs of direct service-to-service
@@ -376,11 +379,11 @@ communication. This is one way to avoid the need for service discovery
 solutions.
 
 
-### Prerequisites
+#### Prerequisites
 
    * Install [beanstalkd](http://kr.github.io/beanstalkd/) and run in default configuration
 
-### microservices
+#### microservices
 
    * _web_ (stats)
    * _info_ (stats)
@@ -389,7 +392,7 @@ solutions.
    * _github_
    * _update_ (stats)
 
-### supporting services
+#### supporting services
 
    * _redis_
    * _elasticsearch_
@@ -397,7 +400,7 @@ solutions.
    * _grafana_
    * _msgstats_
 
-### tasks
+#### tasks
    * Clone the microservices.
    * Review code for each one - in particular the npm update event emitter.
    * Run in separate terminals with
@@ -414,7 +417,7 @@ solutions.
    * Verify that message flow rate charts are generated in grafana
    * Build and run the Docker containers, and verify the same functionality
 
-### experiments
+#### experiments
 
    * The npm-update microservice also provides download and batch functionality
      * experiment with these (look at the source to see the action patterns)
@@ -426,9 +429,9 @@ solutions.
      * Perhaps this can be turned into a batch processing microservice?
 
 
-## Iteration 05: Mesh Networking
+### Iteration 05: Mesh Networking
 
-### Branch name: `i05`
+#### Branch name: `i05`
 
 This branch shows the use of mesh networking to completely remove the
 need for service discovery. The
@@ -438,14 +441,14 @@ algorithm](http://www.cs.cornell.edu/~asdas/research/dsn02-SWIM.pdf)
 to enable microservices to automatically discover the appropriate
 destinations for messages dynamically.
 
-### Prerequisites
+#### Prerequisites
 
    * In your clone of the main _nodezoo_ repository, run the base-node service:
      * located in the `system` folder
      * `npm install` first as usual
      * run with `node base-node.js`
 
-### microservices
+#### microservices
 
    * _web_
    * _info_
@@ -454,14 +457,14 @@ destinations for messages dynamically.
    * _github_
    * _update_
 
-### supporting services
+#### supporting services
 
    * _influxdb_
    * _grafana_
    * _msgstats_
    * _base-node_
 
-### tasks
+#### tasks
    * Clone the microservices.
    * Review code for each one - in particular the updated service scripts in the `srv` folders.
    * Make sure to run the _base-node_ service *before* starting the microservices.
@@ -480,9 +483,29 @@ destinations for messages dynamically.
    * Verify that message flow rate charts are generated in grafana
    * Build and run the Docker containers, and verify the same functionality
 
-### experiments
+#### experiments
 
    * Try stopping and starting services at random.
      * Observe how the mesh network dynamically reconfigures the microservice message flows.
    * Try running multiple instances of the _search_ service.
      * Observe that the _web_ service automatically load balances between the current _search_ services dynamically.
+
+
+## Contributing
+The [NodeZoo org][Org] encourages __open__ and __safe__ participation.
+
+- __[Code of Conduct][Coc]__
+
+If you feel you can help in any way, be it with documentation, examples, extra testing, or new
+features please get in touch.
+
+## License
+Copyright (c) 2014-2016, Richard Rodger and other contributors.
+Licensed under [MIT][Lic].
+
+[Banner]: https://github.com/nodezoo/nodezoo-org/blob/master/assets/logo-nodezoo.png
+[Sponsor]: http://www.nearform.com/
+[Lead]: https://github.com/rjrodger
+[Lic]: ./LICENSE
+[Coc]: https://github.com/nodezoo/nodezoo-org/blob/master/CoC.md
+[Org]: http://www.nodezoo.com/
