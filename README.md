@@ -314,7 +314,7 @@ can now index and search for Node.js modules, with some manual help.
 ### Branch name: `i03`
 
 This branch uses influxdb and grafana to chart message flow rates
-through the system.
+through the system. Influxdb is used due to it's ease of installation and because it is based on plotting time-series data. Grafana is used because it officially supports influx, and is relatively easy to use.
 
 ### Prerequisites
 
@@ -329,7 +329,7 @@ through the system.
 ```
 
    * Install [grafana](http://grafana.org/) and run in default configuration
-     * You'll need to add your influxdb as data source and setup a dashboard.
+     * You'll need to add your [influxdb](http://docs.grafana.org/datasources/influxdb/) as data source and setup a [dashboard](http://docs.grafana.org/guides/gettingstarted/).
      * Action flow rates can be obtained using queries of the form:
        * `SELECT SUM(c) FROM "cmd:search,role:search" WHERE time > now() - 100s GROUP BY time(1s)`
    * In your clone of the main _nodezoo_ repository, run the msgstats service:
