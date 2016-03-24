@@ -132,8 +132,8 @@ across all microservice repositories using the `iteration.sh` script:
 
 
 ```
-$ ./interation.sh i00 # moves all to iteration 00
-$ ./interation.sh i01 # moves all to iteration 01
+$ ./iteration.sh i00 # moves all to iteration 00
+$ ./iteration.sh i01 # moves all to iteration 01
 ... etc.
 ```
 
