@@ -85,7 +85,7 @@ The easiest way to get this IP address is to run the command:
 $ docker-machine ip default
 ```
 
-Finally, from inside docker containers, your microservices will need to tall to the outside world.
+Finally, from inside docker containers, your microservices will need to talk to the outside world.
 To do this, they use a special IP address representing your host machine (Host IP). You can obtain this address in multiple ways:
 
    * run `ifcongig -a` and look for the docker or virtualbox entries.
