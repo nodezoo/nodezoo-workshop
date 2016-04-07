@@ -211,7 +211,7 @@ This branch starts with a simple web server. Use this branch to validate your co
 
 This branch introduces two microservices that support the web
 service. Both are stubs that perform no actual work, instead returning
-hard-cided responses. The focus here is on understanding how simple
+hard-coded responses. The focus here is on understanding how simple
 microservice communication is configured using static addressing with
 fixed IP addresses and ports.
 
