@@ -24,12 +24,12 @@ please see [nodezoo-system][] project.
 
 The micro-services that make up the system are:
 
-   * [nodezoo-web](http://github.com/rjrodger/nodezoo-web): the web server
-   * [nodezoo-info](http://github.com/rjrodger/nodezoo-info): collect data on modules from multiple sources
-   * [nodezoo-search](http://github.com/rjrodger/nodezoo-search): interface with an elasticsearch server
-   * [nodezoo-npm](http://github.com/rjrodger/nodezoo-npm): interface with the NPM registry
-   * [nodezoo-github](http://github.com/rjrodger/nodezoo-github): interface with github.com
-   * [nodezoo-npm-update](http://github.com/rjrodger/nodezoo-npm-update): get live module updates
+   * [nodezoo-web](http://github.com/nodezoo/nodezoo-web): the web server
+   * [nodezoo-info](http://github.com/nodezoo/nodezoo-info): collect data on modules from multiple sources
+   * [nodezoo-search](http://github.com/nodezoo/nodezoo-search): interface with an elasticsearch server
+   * [nodezoo-npm](http://github.com/nodezoo/nodezoo-npm): interface with the NPM registry
+   * [nodezoo-github](http://github.com/nodezoo/nodezoo-github): interface with github.com
+   * [nodezoo-npm-update](http://github.com/nodezoo/nodezoo-npm-update): get live module updates
 
 Each service should be downloaded and placed in the same folder including this repository.
 
@@ -107,7 +107,7 @@ Each microservice repository has a branch for each iteration: i00, i01, etc.
 You can clone these branches directly - for example:
 
 ```sh
-$ git clone -b i00 https://github.com/rjrodger/nodezoo-web.git nodezoo-web-i00
+$ git clone -b i00 https://github.com/nodezoo/nodezoo-web.git nodezoo-web-i00
 ```
 
 However you will not be able to save your changes to your own repositories.
@@ -117,7 +117,7 @@ To save your own work, it is better to first fork the repository on github.com, 
 ```sh
 $ git clone https://github.com/[YOUR_USER]/nodezoo-web.git
 $ cd nodezoo-web
-$ git remote add upstream https://github.com/rjrodger/nodezoo-web.git
+$ git remote add upstream https://github.com/nodezoo/nodezoo-web.git
 $ git fetch upstream
 $ git checkout upstream/i00
 $ git checkout -b i00
@@ -262,7 +262,7 @@ can now index and search for Node.js modules, with some manual help.
 
    * Install [redis](http://redis.io/) and run in default configuration
    * Install [elasticsearch](https://www.elastic.co/) and run in default configuration
-   * Clone the [nodezoo](https://github.com/rjrodger/nodezoo) repository, and build the _nodezoo-level_ container
+   * Clone the [nodezoo](https://github.com/nodezoo/nodezoo-workshop) repository, and build the _nodezoo-level_ container
      * See folder `docker/level`; run `npm install first`
      * This is necessary, as the _seneca-level-store_ module must compile binaries
 
@@ -437,7 +437,7 @@ solutions.
    * In production, how can you ensure that you have all the npm registry data?
      * which configuration of npm-update instances do you run?
    * A long time ago, in a galaxy far away, the original nodezoo could calculate "node rank", which is just like "page rank" only for node modules.
-     * https://github.com/rjrodger/nodezoo/tree/bdd18c030ef32f19e0b28e1f7ed30f80a9854b59/bin
+     * https://github.com/nodezoo/nodezoo-workshop/tree/bdd18c030ef32f19e0b28e1f7ed30f80a9854b59/bin
      * Perhaps this can be turned into a batch processing microservice?
 
 
