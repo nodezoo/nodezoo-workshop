@@ -162,7 +162,7 @@ In the folder nodezoo-web use the following command :
 ```
 npm run build
 ```
-
+IMPORTANT NOTE: the build command is not required on branch i00 - i05
 
 
 ## Iteration 00: Getting Started
