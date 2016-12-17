@@ -175,6 +175,8 @@ This branch starts with a simple web server. Use this branch to validate your co
 
 ### tasks
    * Clone the microservice.
+   * Install dependencies
+       * `npm install && bower install`
    * Review code.
    * Run in terminal with
      * `node srv/app-dev.js --seneca.options.tag=web --seneca.log.all`
