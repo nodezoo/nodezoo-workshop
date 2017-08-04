@@ -88,7 +88,7 @@ $ docker-machine ip default
 Finally, from inside docker containers, your microservices will need to talk to the outside world.
 To do this, they use a special IP address representing your host machine (Host IP). You can obtain this address in multiple ways:
 
-   * run `ifcongig -a` and look for the docker or virtualbox entries.
+   * run `ifconfig -a` and look for the docker or virtualbox entries.
    * run `docker-machine inspect default | grep HostOnly`
 
 Docker networking can be tricky, and is fragile with respect to network changes, with DNS, for example, failing.
