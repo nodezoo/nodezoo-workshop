@@ -21,8 +21,8 @@ echo "nodezoo-github " $ITER
 cd ../nodezoo-github
 git checkout $ITER
 
-echo "nodezoo-npm-update " $ITER
-cd ../nodezoo-npm-update
+echo "nodezoo-updater " $ITER
+cd ../nodezoo-updater
 git checkout $ITER
 
 cd ../nodezoo
